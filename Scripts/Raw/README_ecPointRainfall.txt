@@ -1,0 +1,1 @@
+The ecPoint-Rainfall forecasts have been downloaded from the ECFS directory ec/:ecpoint
