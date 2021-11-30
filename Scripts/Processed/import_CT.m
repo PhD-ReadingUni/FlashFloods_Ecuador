@@ -1,7 +1,7 @@
 function [H,FA,M,CN] = import_CT(filename)
 
 opts = delimitedTextImportOptions("NumVariables", 4);
-opts.DataLines = [1, Inf];
+opts.DataLines = [2, Inf];
 opts.Delimiter = ",";
 opts.VariableNames = ["H", "FA", "M", "CN"];
 opts.VariableTypes = ["double", "double", "double", "double"];

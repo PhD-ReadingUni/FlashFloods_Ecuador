@@ -1,0 +1,38 @@
+# Metview Macro
+
+countPR = 1
+for TheDate = 2020-01-01 to 2020-12-31 do
+    
+    TheDateSTR = string(TheDate,"yyyymmdd")
+    
+    for TheTime = 0 to 12 by 12 do
+    
+        if TheTime = 0 then
+            TheTimeSTR = "0" & string(TheTime)
+        else
+            TheTimeSTR = string(TheTime)
+        end if
+        
+        for TheStep = 12 to 246 by 6 do
+            
+            if TheStep < 100 then
+                TheStepSTR = "0" & string(TheStep)
+            else
+                TheStepSTR = string(TheStep)
+            end if
+            
+            Dir_temp = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador/Data/Raw/ecPoint" & "/" & TheDateSTR & TheTimeSTR
+            File_temp = "Pt_BC_PERC_012_" & TheDateSTR & "_" & TheTimeSTR & "_" & TheStepSTR & ".grib"
+            
+            if not exist(Dir_temp & "/" & File_temp) then
+                print(countPR & ") " & TheDateSTR & ", " & TheTimeSTR & " UTC (t+" & TheStepSTR & ")")
+                countPR = countPR + 1
+            end if
+            
+        end for
+    
+    end for
+    
+end for
+            
+            

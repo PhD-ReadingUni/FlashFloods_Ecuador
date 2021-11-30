@@ -7,7 +7,7 @@ clc
 % INPUT PARAMETERS
 Year = 2019;
 Region_list = ["Costa", "Sierra"];
-ThrEFFCI = 10;
+ThrEFFCI = 1;
 Colour_list = ["b", "r"];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 DirIN = "Data/Processed/RainThr";

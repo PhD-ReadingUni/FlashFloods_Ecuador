@@ -7,7 +7,7 @@
 # INPUT PARAMETERS
 Year = 2019
 ThrEFFCI_list = [1,6,10]
-Region_list = ["Costa", "Sierra", "Oriente"]
+Region_list = ["1Region", "Costa", "Sierra", "Oriente"]
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 DirIN_FF = "Data/Processed/ObsFF_Regions"
 DirIN_PR = "Data/Raw/ecPoint"

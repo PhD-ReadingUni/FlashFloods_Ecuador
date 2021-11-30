@@ -1,0 +1,72 @@
+# Metview Macro
+
+countENS = 1
+for TheDate = 2020-01-01 to 2020-03-31 do
+    
+    TheDateSTR = string(TheDate,"yyyymmdd")
+    
+    for TheTime = 0 to 12 by 12 do
+    
+        if TheTime = 0 then
+            TheTimeSTR = "0" & string(TheTime)
+        else
+            TheTimeSTR = string(TheTime)
+        end if
+        
+        for TheStep = 0 to 246 by 6 do
+            
+            if TheStep < 10 then
+                TheStepSTR = "00" & string(TheStep)
+            else if (TheStep >= 10 and TheStep < 100) then
+                TheStepSTR = "0" & string(TheStep)
+            else
+                TheStepSTR = string(TheStep)
+            end if
+            
+            print("Checking forecasts for " & TheDateSTR & ", " & TheTimeSTR & " UTC (t+" & TheStepSTR & ")")
+            Dir_temp = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador/Data/Raw/ENS/" & TheDateSTR & TheTimeSTR
+            File_temp = "tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & TheStepSTR & ".grib"
+            ENS = read(Dir_temp & "/" & File_temp)
+            
+            if count(ENS) <> 51 then
+                
+                print("  - WARNING (" & countENS & ") ! Data not complete. Retrieving again...")
+                countENS = countENS + 1
+                
+                cf = retrieve(
+                        class   : "od",
+                        date    : TheDate,
+                        expver  : 1,
+                        levtype : "sfc",
+                        param   : "228.128",
+                        step    : TheStep,
+                        stream  : "enfo",
+                        time    : TheTime,
+                        type    : "cf"
+                        )
+                
+                pf = retrieve(
+                        class   : "od",
+                        date    : TheDate,
+                        expver  : 1,
+                        levtype : "sfc",
+                        number  : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+                        param   : "228.128",
+                        step    : TheStep,
+                        stream  : "enfo",
+                        time    : TheTime,
+                        type    : "pf"
+                        )
+                
+                ENS_new = cf & pf
+                write(Dir_temp & "/" & File_temp, ENS_new)
+                
+            end if
+            
+        end for
+    
+    end for
+    
+end for
+            
+            

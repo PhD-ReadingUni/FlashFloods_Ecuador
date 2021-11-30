@@ -14,8 +14,7 @@ StepF_S = 12;
 StepF_F = 246;
 DiscStep = 6;
 Acc = 12;
-SystemFC = "ecPoint";
-Sub_DirOUT = "Annual2020";
+SystemFC = "ENS";
 ThrEFFCI_list = [1,6,10];
 PercRT_list = [75,85,90,95,98,99];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
@@ -36,6 +35,11 @@ DirOUT = "Data/Processed/CT_";
 dS=datenum(BaseDateS,'yyyy-mm-dd');
 dF=datenum(BaseDateF,'yyyy-mm-dd');
 AccSTR = num2str(Acc,'%03d');
+if strcmp(SystemFC,"ecPoint-Rainfall")
+    NumCT = 99;
+elseif strcmp(SystemFC,"ENS")
+    NumCT = 51;
+end
 
 
 % Import Ecuador's mask
@@ -60,20 +64,20 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
     FileIN_RainThr = strcat(Git_repo, "/", DirIN_RT, "/RainThr_2019_EFFCI", num2str(ThrEFFCI,'%02d'), "_Sierra.csv");
     [Percs_sierra,RainThr_sierra] = import_RainThr(FileIN_RainThr);
     
-    for indPerc = 1 : length(PercRT_list)
+    for indPercRT = 1 : length(PercRT_list)
         
-        Perc = PercRT_list(indPerc);
-        PercSTR = num2str(Perc,'%02d');
+        PercRT = PercRT_list(indPercRT);
+        PercSTR = num2str(PercRT,'%02d');
         
-        disp(strcat("Considering EFFCI>", num2str(ThrEFFCI), " and RainThr(Perc=", num2str(Perc), ")"))
+        disp(strcat("Considering EFFCI>", num2str(ThrEFFCI), " and RainThr(PercRT=", num2str(PercRT), ")"))
         
         % Select the rainfall threshold correspondent to the considered
         % percentile
-        Perc_costa = RainThr_costa(Percs_costa==Perc);
-        Perc_sierra = RainThr_sierra(Percs_sierra==Perc);
+        PercRT_costa = RainThr_costa(Percs_costa==PercRT);
+        PercRT_sierra = RainThr_sierra(Percs_sierra==PercRT);
         
         % Name of the output directory
-        DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc), "h/", SystemFC, "/", Sub_DirOUT, "/EFFCI", ThrEFFCI_STR, "/Perc", PercSTR);
+        DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc), "h/", SystemFC, "/EFFCI", ThrEFFCI_STR, "/Perc", PercSTR);
         mkdir(DirOUT_temp)
         
         for StepF = StepF_S : DiscStep : StepF_F
@@ -82,11 +86,6 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
             StepFSTR =  num2str(StepF,'%03d');
             
             % Create template for the contingency tables
-            if strcmp(SystemFC,"ecPoint-Rainfall")
-                NumCT = 99;
-            elseif strcmp(SystemFC,"ENS")
-                NumCT = 51;
-            end
             CT = zeros(NumCT,4);
             CT_costa = CT;
             CT_sierra = CT;
@@ -114,10 +113,6 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
                             FC = import_PR(FileIN_FC);
                         elseif strcmp(SystemFC,"ENS")
                             FC = import_ENS(FileIN_FC);
-                            if isnan(FC(:,end))
-                                FC(:,end) = [];
-                                NumCT = 50;
-                            end
                         end
                         FC = FC(:,3:end);
                         
@@ -132,7 +127,7 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
                         FF(pointer_oriente,:) = [];
                         
                         % Define how many events exceed the rainfall threshold
-                        FC_exceed = [FC(pointer_costa,:) >= Perc_costa; FC(pointer_sierra,:) >= Perc_sierra];
+                        FC_exceed = [FC(pointer_costa,:) >= PercRT_costa; FC(pointer_sierra,:) >= PercRT_sierra];
                         FC_exceed_total = sum(FC_exceed,2);
                         
                         % Define the contingency table
@@ -155,7 +150,7 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
                         FF_costa(pointer_sierra,:) = [];
                         
                         % Define how many events exceed the rainfall threshold
-                        FC_costa_exceed = FC_costa >= Perc_costa;
+                        FC_costa_exceed = FC_costa >= PercRT_costa;
                         FC_exceed_total = sum(FC_costa_exceed,2);  
 
                         % Define the contingency table
@@ -178,7 +173,7 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
                         FF_sierra(pointer_costa,:) = [];
                         
                         % Define how many events exceed the rainfall threshold
-                        FC_sierra_exceed = FC_sierra >= Perc_sierra;
+                        FC_sierra_exceed = FC_sierra >= PercRT_sierra;
                         FC_exceed_total = sum(FC_sierra_exceed,2);
                         
                         % Define the contingency table
@@ -193,13 +188,6 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
                             CT_sierra(indCT,4) = CT_sierra(indCT,4) + sum(FF_FC_NO==0); % correct negatives
                         end
                         
-                    end
-                    
-                    % Re-set the standard number of ensemble members
-                    if strcmp(SystemFC,"ecPoint-Rainfall")
-                        NumCT = 99;
-                    elseif strcmp(SystemFC,"ENS")
-                        NumCT = 51;
                     end
                     
                 end

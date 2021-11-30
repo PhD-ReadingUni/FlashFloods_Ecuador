@@ -4,10 +4,10 @@
 # INPUT PARAMETERS
 DateS=2020-01-01
 DateF=2020-12-31
-StepS=54
-StepF=72
+StepS=0
+StepF=246
 Git_repo="/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
-DirOUT="Data/Raw/EcmwfENS"
+DirOUT="Data/Raw/ENS"
 #################################################################
 
 # Setting some general parameters
