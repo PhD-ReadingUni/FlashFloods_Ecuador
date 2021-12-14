@@ -1,0 +1,111 @@
+# Metview Macro
+
+# ExtractCSV_ObsFF.mv creates flash flood observational fields from
+# raw flash flood reports for a specific accumulation period.
+
+# INPUT PARAMETERS
+Year = 2020
+ThrEFFCI_list = [6]
+Acc = 12
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+FileIN_Emask = "Data/Processed/EcuadorMasks_ENS/Ecuador_3Regions.grib"
+DirIN_FF = "Data/Processed/ObsFF_Regions"
+DirOUT_FF = "Data/Processed/ObsFF_12h"
+#########################################################################
+
+
+# Read Ecuador's mask
+Emask = read(Git_repo & "/" & FileIN_Emask)
+Emask_vals = values(Emask)
+Emask_lats = latitudes(Emask)
+Emask_lons = longitudes(Emask)
+Emask_nonzeros = find(Emask_vals,1,"all") & find(Emask_vals,2,"all") & find(Emask_vals,3,"all")
+m = count(Emask_nonzeros)
+Regs_mask = nil
+Lats_mask = nil
+Lons_mask = nil
+for i = 1 to m do
+    ind = Emask_nonzeros[i]
+    Regs_mask = Regs_mask & |round(Emask_vals[ind],2)|
+    Lats_mask = Lats_mask & |round(Emask_lats[ind],2)|
+    Lons_mask = Lons_mask & |round(Emask_lons[ind],2)|
+end for
+Lons_mask = Lons_mask - 360
+
+
+# Create template for observational fields
+valFF = Regs_mask * 0
+latFF = Lats_mask
+lonFF = Lons_mask
+
+
+# Create the [Acc]-hourly observational fields
+for indEFFCI = 1 to count(ThrEFFCI_list) do
+    
+    ThrEFFCI = ThrEFFCI_list[indEFFCI]
+    if ThrEFFCI<10 then
+        ThrEFFCISTR = "0" & string(ThrEFFCI)
+    else
+        ThrEFFCISTR = string(ThrEFFCI)
+    end if
+    
+    # Read the flood reports
+    FileIN_temp = Git_repo & "/" & DirIN_FF & "/ObsFF_" & Year & "_EFFCI" & ThrEFFCISTR & "_1Region.csv"
+    FF = read_table(
+            table_delimiter  : ",",
+            table_header_row : 1,
+            table_filename   : FileIN_temp
+            )
+    Lons = values(FF,1)
+    Lats = values(FF,2)
+    Times = values(FF,4)
+    Months = values(FF,5)
+    Days = values(FF,6)
+    n = count(Lons)
+    
+    # Create the dates and times for each report
+    DatesUTC = []
+    for i = 1 to n do
+        if Months[i] < 10 then
+            MonthSTR = "0" & Months[i]
+        else
+            MonthSTR = Months[i]
+        end if
+        if Days[i] < 10 then
+            DaysSTR = "0" & Days[i]
+        else
+            DaysSTR = Days[i]
+        end if
+        DatesUTC = DatesUTC & [date(Year & "-" & MonthSTR & "-" & DaysSTR & " " & Times[i]) + 5/24]
+    end for
+    
+    # Create the observational fields
+    PeriodS = date(Year & "-01-01")
+    PeriodF = date(Year & "-12-31")
+    
+    FileOUT = file("./NumFF_Day.csv")
+    write(FileOUT,"")
+    
+    for TheDate = PeriodS to PeriodF do    
+        
+        for StepF = 0 to 18 by 6 do
+        
+            DateF = TheDate + (StepF/24)
+            DateS = DateF - (Acc/24)
+            
+            DateSTR = string(DateF, "yyyymmdd")
+            if StepF<10 then
+                StepFSTR = "0" & StepF
+            else
+                StepFSTR = StepF
+            end if
+            
+            tempFF = (DatesUTC>=DateS) and (DatesUTC<DateF)
+            indFF_list = find(tempFF,1,"all")
+            append(FileOUT, count(indFF_list), newline)
+            
+        end for
+    
+    end for
+    
+end for    
