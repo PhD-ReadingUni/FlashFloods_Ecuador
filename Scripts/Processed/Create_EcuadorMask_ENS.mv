@@ -1,14 +1,21 @@
 # Metview Macro
 
-# Create_EcuadorMask_ENS.mv creates Ecuador's mask for the ECMWF ENS grid
+# Create_EcuadorMask_ENS.mv creates Ecuador's mask for the ECMWF ENS 
+# grid. It saves the mask as .grib and .csv files.
 
 # INPUT PARAMETERS
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
-DirOUT = "Data/Processed/EcuadorMasks_ENS"
+DirOUT = "Data/Processed/EcuadorMasks"
+FileName_grib_csv = "Emask_ENS"
 ######################################################################
 
 
+########################
+# CREATION OF THE MASK #
+########################
+
 # Retrieving raw data needed to create Ecuador's mask
+print("Retrieving the raw data needed to create Ecuador's mask...")
 zeros = retrieve(
     type    : "cf",
     stream  : "ef",
@@ -31,14 +38,6 @@ orog = retrieve(
     param   : "z",
     grid: "o640"
     ) / 9.81 
-
-slope = retrieve(
-    type    : "cf",
-    stream  : "ef",
-    levtype : "sfc",
-    param   : "slor"
-    ) * 100
-
 
 # Definition of the areas to remove from the Ecuador mask
 area1 = [1.48,-81.01,-5,-75.11]
@@ -100,23 +99,48 @@ area56 = [-0.388,-75.238,-0.711,-75.076]
 area57 = [-0.159,-75.396,-0.279,-75.260]
 area58 = [0.563,-76.513,0.423,-76.365]
 
-
-# Creation of the Ecuador mask
+# Selection of the grid-boxes belonging to the Ecuador domain
 ecuador = (mask(zeros,area1) and not mask(zeros,area2) and not mask(zeros,area3) and not mask(zeros,area4) and not mask(zeros,area5) and not mask(zeros,area6) and not mask(zeros,area7) and not mask(zeros,area8) and not mask(zeros,area9) and not mask(zeros,area10) and not mask(zeros,area11) and not mask(zeros,area12) and not mask(zeros,area13) and not mask(zeros,area14) and not mask(zeros,area15) and not mask(zeros,area16) and not mask(zeros,area17) and not mask(zeros,area18) and not mask(zeros,area19) and not mask(zeros,area20) and not mask(zeros,area21) and not mask(zeros,area22) and not mask(zeros,area23) and not mask(zeros,area24) and not mask(zeros,area25) and not mask(zeros,area26) and not mask(zeros,area27) and not mask(zeros,area28) and not mask(zeros,area29) and not mask(zeros,area30) and not mask(zeros,area31) and not mask(zeros,area32) and not mask(zeros,area33) and not mask(zeros,area34) and not mask(zeros,area35) and not mask(zeros,area36) and not mask(zeros,area37) and not mask(zeros,area38) and not mask(zeros,area39) and not mask(zeros,area40) and not mask(zeros,area41) and not mask(zeros,area42) and not mask(zeros,area43) and not mask(zeros,area44) and not mask(zeros,area45) and not mask(zeros,area46) and not mask(zeros,area47) and not mask(zeros,area48) and not mask(zeros,area49) and not mask(zeros,area50) and not mask(zeros,area51) and not mask(zeros,area52) and not mask(zeros,area53) and not mask(zeros,area54) and not mask(zeros,area55) and not mask(zeros,area56) and not mask(zeros,area57) and not mask(zeros,area58)) * (lsm>0.05)
+vals = values(ecuador)
+lats = latitudes(ecuador)
+lons = longitudes(ecuador)
+print(" - N. of grid-boxes in the Ecuador domain: " & sum(vals))
+
+# Identification of the three regions in Ecuador (i.e. "La Costa", "La Sierra", "El Oriente"). 
+# Each region gets assigned the numerical code 1,2,3, respectively.
+lons_converted_grib = set_values(ecuador,lons) - 360
+ecuador_regions = (((ecuador*(orog<600)) and (ecuador*(lons_converted_grib<=-78.199))) * 1) + ((ecuador*(orog>=600)) * 2) + (((ecuador*(orog<600)) and (ecuador*(lons_converted_grib>-78.199))) * 3)
+vals_regions= values(ecuador_regions)
+costa = find(vals_regions,1,"all")
+sierra = find(vals_regions,2,"all")
+oriente = find(vals_regions,3,"all")
+print(" - N. of grid-boxes in 'La Costa': " & count(costa))
+print(" - N. of grid-boxes in 'La Sierra': " & count(sierra))
+print(" - N. of grid-boxes in 'El Oriente': " & count(oriente))
+
+# Saving the Ecuador mask as a .grib file
+print("Saving Ecuador's mask as a .grib file...")
+FileOUT_grib = Git_repo & "/" & DirOUT  & "/" & FileName_grib_csv & ".grib"
+write(FileOUT_grib,ecuador_regions)
 
 
-# Creation of the mask for the three regions in Ecuador (i.e. Costa, Sierra, Oriente)
-lats = set_values(ecuador,latitudes(ecuador))
-lons = set_values(ecuador,longitudes(ecuador)) - 360
-ecuador_regions = (((ecuador*(orog<600)) and (ecuador*(lons<=-78.199))) * 1) + ((ecuador*(orog>=600)) * 2) + (((ecuador*(orog<600)) and (ecuador*(lons>-78.199))) * 3)
+######################################
+# EXTRACTION OF THE MASK AS CSV FILE #
+######################################
 
+# Selection of the location of the grid-boxes only within Ecuador's domain (i.e. grid-boxes with values equal to 1,2,3).
+Emask_nonzeros = costa & sierra & oriente
 
-# Save Ecuador's masks
-FileOUT = Git_repo & "/" & DirOUT  & "/Ecuador_1Region.grib"
-write(FileOUT,ecuador)
+# Conversion of the longitude values to range from 0 to 360
+lons_converted_vec = lons - 360
 
-FileOUT = Git_repo & "/" & DirOUT  & "/Ecuador_3Regions.grib"
-write(FileOUT,ecuador_regions)
-
-
-
+# Saving the Ecuador mask as a .csv file
+# N.B.: Latitudes and longitudes are saved with max two decimals.
+print("Saving Ecuador's mask as a .csv file...")
+FileOUT_csv = Git_repo & "/" & DirOUT  & "/" & FileName_grib_csv & ".csv"
+Emask_csv = file(FileOUT_csv)
+write(Emask_csv, "lat,lon,region_code", newline)
+for i = 1 to count(Emask_nonzeros) do
+    ind_Emask = Emask_nonzeros[i]
+    append(Emask_csv, round(lats[ind_Emask],2), ",", round(lons_converted_vec[ind_Emask],2), ",", vals_regions[ind_Emask], newline)
+end for

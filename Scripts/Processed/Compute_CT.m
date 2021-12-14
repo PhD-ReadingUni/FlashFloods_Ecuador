@@ -10,12 +10,12 @@ BaseDateF = "2020-12-31";
 BaseTimeS = 0;
 BaseTimeF = 12;
 DiscTime = 12;
-StepF_S = 12;
+StepF_S = 78;
 StepF_F = 246;
 DiscStep = 6;
 Acc = 12;
-SystemFC = "ENS";
-ThrEFFCI_list = [1,6,10];
+SystemFC = "ecPoint";
+ThrEFFCI_list = [10];
 PercRT_list = [75,85,90,95,98,99];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 FileNameIN_Emask = "Data/Processed/EcuadorMasks_ENS/Ecuador_3Regions.csv";
@@ -35,7 +35,7 @@ DirOUT = "Data/Processed/CT_";
 dS=datenum(BaseDateS,'yyyy-mm-dd');
 dF=datenum(BaseDateF,'yyyy-mm-dd');
 AccSTR = num2str(Acc,'%03d');
-if strcmp(SystemFC,"ecPoint-Rainfall")
+if strcmp(SystemFC,"ecPoint")
     NumCT = 99;
 elseif strcmp(SystemFC,"ENS")
     NumCT = 51;
@@ -109,7 +109,7 @@ for indEFFCI = 1 : length(ThrEFFCI_list)
                     if isfile(FileIN_FC) && isfile(FileIN_FF)
                         
                         % Read the rainfall forecasts 
-                        if strcmp(SystemFC,"ecPoint-Rainfall")
+                        if strcmp(SystemFC,"ecPoint")
                             FC = import_PR(FileIN_FC);
                         elseif strcmp(SystemFC,"ENS")
                             FC = import_ENS(FileIN_FC);
