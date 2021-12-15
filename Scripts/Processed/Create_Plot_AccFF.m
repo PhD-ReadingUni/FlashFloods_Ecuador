@@ -15,8 +15,8 @@ EFFCI_list = [1,6,10];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 FileIN_Emask = "Data/Processed/EcuadorMasks/Emask_ENS.csv";
 FileIN_ObsFF = "Data/Raw/ObsFF_Mod/Ecu_FF_Hist_ECMWF_mod.csv";
-DirOUT_AccFF_csv = "Data/Processed/AccFF";
-DirOUT_AccFF_jpeg = "Data/Figures/AccFF";
+DirOUT_AccFF_csv = "Data/Processed/AccFF_";
+DirOUT_AccFF_jpeg = "Data/Figures/AccFF_";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -37,7 +37,7 @@ AccFF_template = Emask;
 AccFF_template(:,3) = 0;
 
 % Creating the output directory for .jpeg files
-DirOUT_jpeg_temp = strcat(Git_repo, "/", DirOUT_AccFF_jpeg);
+DirOUT_jpeg_temp = strcat(Git_repo, "/", DirOUT_AccFF_jpeg, num2str(Acc), "h");
 if ~exist(DirOUT_jpeg_temp, 'dir')
     mkdir(DirOUT_jpeg_temp)
 end
@@ -51,7 +51,7 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     disp(strcat(" - Considering flood reports with EFFCI>=",num2str(EFFCI)))
     
     % Creating the output directory for .csv files
-    DirOUT_csv_temp = strcat(Git_repo, "/", DirOUT_AccFF_csv, "/EFFCI", num2str(EFFCI,'%02.f'));
+    DirOUT_csv_temp = strcat(Git_repo, "/", DirOUT_AccFF_csv, num2str(Acc), "h", "/EFFCI", num2str(EFFCI,'%02.f'));
     if ~exist(DirOUT_csv_temp, 'dir')
        mkdir(DirOUT_csv_temp)
     end
