@@ -171,7 +171,7 @@ for ind_EFFCI = 1 : length(EFFCI_list)
         
         % Computing the CDF (from 1 to 99) of the distribution of rainfall
         % values associated with flash flood events
-        cdf(:,ind_Region) = round(prctile(fc,Perc),2);
+        cdf(:,ind_Region) = prctile(fc,Perc);
         
         % Plot the CDF
         plot(cdf(:,ind_Region),Perc, RegionPlot_list(ind_Region), "LineWidth", 2)
@@ -194,7 +194,7 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     
     % Converting the matrix to table to store the CDFs in a .csv file with
     % headings
-    cdf_table = array2table([Perc',cdf], 'VariableNames', ["Percentiles",RegionName_list]);
+    cdf_table = array2table([Perc,cdf], 'VariableNames', {""RegionName_list);
     
     % Saving the CDF of the distribution of rainfall values associated with 
     % flash flood events as a .csv file
