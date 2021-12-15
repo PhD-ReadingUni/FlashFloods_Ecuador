@@ -1,13 +1,12 @@
-function mask = import_mask(filename)
+function FF = import_AccFF(filename)
 
 opts = delimitedTextImportOptions("NumVariables", 3);
 opts.DataLines = [2, Inf];
 opts.Delimiter = ",";
-opts.VariableNames = ["lat", "lon", "region_code"];
+opts.VariableNames = ["lat", "lon", "AccFF_code"];
 opts.VariableTypes = ["double", "double", "double"];
 opts.ExtraColumnsRule = "ignore";
 opts.EmptyLineRule = "read";
-mask = readtable(filename, opts);
-mask = table2array(mask);
-
+FF = readtable(filename, opts);
+FF = table2array(FF);
 end

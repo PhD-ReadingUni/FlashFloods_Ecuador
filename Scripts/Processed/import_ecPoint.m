@@ -1,4 +1,4 @@
-function PR = import_PR(filename)
+function PR = import_ecPoint(filename)
 
 opts = delimitedTextImportOptions("NumVariables", 101);
 opts.DataLines = [2, Inf];
