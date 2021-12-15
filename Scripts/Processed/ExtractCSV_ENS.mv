@@ -16,7 +16,7 @@ Acc = 12
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 FileIN_Emask = "Data/Processed/EcuadorMasks/Emask.grib"
 DirIN_ENS = "Data/Raw/ENS"
-DirOUT_ENS = "Data/Processed/ENS_Emask"
+DirOUT_ENS = "Data/Processed/ENS_Emask_Rainfall_"
 #########################################################################
 
 
@@ -60,7 +60,7 @@ for TheDate = BaseDateS to BaseDateF do
             TheTimeSTR = TheTime
         end if
         
-        DirOUT = Git_repo & "/" & DirOUT_ENS & "/" & TheDateSTR & TheTimeSTR 
+        DirOUT = Git_repo & "/" & DirOUT_ENS & Acc & "h/" & TheDateSTR & TheTimeSTR 
         shell("mkdir -p " & DirOUT)
         
         for StepF = StepF_S to StepF_F by DiscStep do
