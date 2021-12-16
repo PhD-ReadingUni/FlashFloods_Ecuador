@@ -8,14 +8,14 @@ clc
 
 % INPUT PARAMETERS
 BaseDateS = "2020-01-01";
-BaseDateF = "2020-01-31";
+BaseDateF = "2020-12-31";
 StepF_S = 12;
-StepF_F = 246;
+StepF_F = 240;
 DiscStep = 6;
 Acc = 12;
-SystemFC = "ENS";
+SystemFC = "ecPoint";
 EFFCI_list = [6];
-Perc_CDF_RainFF_list = [75];
+Perc_CDF_RainFF_list = [75,85,90,95,98,99];
 Region_list = [1,2];
 RegionName_list = {'Costa', 'Sierra'};
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
@@ -26,6 +26,8 @@ DirIN_FF = "Data/Processed/AccFF_";
 DirOUT = "Data/Processed/CT_";
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+tic
 
 % NOTE: Points that belong to Ecuador's region "Oriente" will not be
 % considered in this analysis as there are not many flood reports for that
@@ -54,8 +56,6 @@ for indEFFCI = 1 : length(EFFCI_list)
     
     % Selecting the EFFCI threshold to consider
     EFFCI = EFFCI_list(indEFFCI);
-    disp(" ")
-    disp(strcat(" - Considering flood reports with EFFCI>=",num2str(EFFCI)))
     
     % Importing the cdf distribution of the rainfall values associated with 
     % flash floods 
@@ -66,7 +66,9 @@ for indEFFCI = 1 : length(EFFCI_list)
         
         % Selecting the region to consider
         Region = Region_list(indRegion);
-        
+        disp(" ")
+        disp(strcat(" - Considering flood reports with EFFCI>=",num2str(EFFCI), " for the region '", RegionName_list(indRegion), "'"))
+    
         % Selecting the points that in the Ecuador's mask belong to the
         % considered region
         pointer_region = find(Emask(:,3)==Region);
@@ -80,7 +82,8 @@ for indEFFCI = 1 : length(EFFCI_list)
             % Selecting the rainfall event to verify based on a cdf
             % percentile
             PercCDF = Perc_CDF_RainFF_list(indPercCDF);
-            disp(strcat("  - Considering a rainfall event greater than (PercCDF=", num2str(PercCDF), " percentile)"))
+            disp(" ")
+            disp(strcat("   - Considering a rainfall event greater than (PercCDF=", num2str(PercCDF), " percentile)"))
             
             % Creating output directory
             DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc), "h/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'));
@@ -96,7 +99,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             % forecasts from the 00 UTC run
             for StepF00 = StepF_S : DiscStep : StepF_F
                 
-                disp(strcat("   - StepF (for the 00 UTC run)=", num2str(StepF00)))
+                disp(strcat("     - StepF (for the 00 UTC run)=", num2str(StepF00)))
                 
                 % Create template for the contingency tables
                 CT = zeros(NumCT,4);
@@ -181,3 +184,5 @@ for indEFFCI = 1 : length(EFFCI_list)
     end
     
 end
+
+toc
