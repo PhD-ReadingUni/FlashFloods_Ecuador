@@ -1,4 +1,6 @@
-% Plot_AURC.m plots the Area Under the Roc curve (AURC) for all lead times.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plot_AURC.m plots the Area Under the Roc Curve (AURC) for all lead times,
+% 
 
 clear
 clc
