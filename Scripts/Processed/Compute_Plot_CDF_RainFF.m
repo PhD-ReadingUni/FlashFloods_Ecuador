@@ -23,6 +23,10 @@ DirOUT_CDF_RainFF_csv = "Data/Processed/CDF_RainFF_";
 DirOUT_CDF_RainFF_jpg = "Data/Figures/CDF_RainFF_";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% NOTE: Points that belong to Ecuador's region "Oriente" will not be
+% considered in this analysis as there are not many flood reports for that
+% region and any analysis might be robust.
+
 
 % Creating the output directories
 DirOUT_csv = strcat(Git_repo, "/", DirOUT_CDF_RainFF_csv, num2str(Acc), "h");

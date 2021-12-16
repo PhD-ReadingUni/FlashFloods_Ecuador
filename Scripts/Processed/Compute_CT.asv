@@ -8,12 +8,12 @@ clc
 
 % INPUT PARAMETERS
 BaseDateS = "2020-01-01";
-BaseDateF = "2020-01-31";
+BaseDateF = "2020-12-31";
 StepF_S = 12;
 StepF_F = 246;
 DiscStep = 6;
 Acc = 12;
-SystemFC = "ENS";
+SystemFC = "ecPoint";
 EFFCI_list = [6];
 Perc_CDF_RainFF_list = [75];
 Region_list = [1,2];
@@ -84,7 +84,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             
             % Creating output directory
             DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc), "h/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'));
-            if ~exist(DirOUT_temp, "dir")
+            if exist(DirOUT_temp, "dir")
                 mkdir(DirOUT_temp)
             end
             
@@ -96,7 +96,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             % forecasts from the 00 UTC run
             for StepF00 = StepF_S : DiscStep : StepF_F
                 
-                disp(strcat("   - StepF (for the 00 UTC run)=", num2str(StepF00)))
+                disp(strcat("   - StepF (for the 00 UTC run)=", num2str(StepF)))
                 
                 % Create template for the contingency tables
                 CT = zeros(NumCT,4);
@@ -109,51 +109,42 @@ for indEFFCI = 1 : length(EFFCI_list)
                 % Select the days to consider for the 00 UTC run 
                 for d00 = dS : dF
                 
-                    d12 = d00 - 1;
+                    d12 - d00 - 1;
                     
                     % Select the forecasts to consider
                     FileIN_FC00 = strcat(Git_repo, "/", DirIN_FC, num2str(Acc), "h/", datestr(d00, "yyyymmdd"), "00/tp_", AccSTR, "_", datestr(d00, "yyyymmdd"), "_00_", num2str(StepF00,'%03.f'), ".csv");
-                    FileIN_FC12 = strcat(Git_repo, "/", DirIN_FC, num2str(Acc), "h/", datestr(d12, "yyyymmdd"), "12/tp_", AccSTR, "_", datestr(d12, "yyyymmdd"), "_12_", num2str(StepF12,'%03.f'), ".csv");
+                    FileIN_FC12 = strcat(Git_repo, "/", DirIN_FC, num2str(Acc), "h/", datestr(d12, "yyyymmdd"), "12/tp_", AccSTR, "_", datestr(d12, "yyyymmdd"), "_12_", num2str(StepF00,'%03.f'), ".csv");
                     
                     % Select the observations to consider
-                    ValidTime = d00 + (0/24) + (StepF00/24);
+                    ValidTime = d00 + (t/24) + (StepF00/24);
                     FileIN_FF = strcat(Git_repo, "/", DirIN_FF, num2str(Acc), "h/EFFCI", num2str(EFFCI,'%02.f'), "/AccFF_", datestr(ValidTime, 'yyyymmdd'), "_", datestr(ValidTime, 'HH'), ".csv");
                     
                     % Checking the the files containing the forecasts
                     % and the verifyin gobservations exist
                     if isfile(FileIN_FF)
                         
-                        % Reading the verifying observations
-                        FF = [];
-                        FF_temp = import_AccFF(FileIN_FF);
+                        % Reading the correspondent verifying observations
+                        FF = import_AccFF(FileIN_FF);
+                        FF = FF(:,3);
                         
-                        % Reading the forecasts
-                        FC = [];
                         if isfile(FileIN_FC00)
-                            if strcmp(SystemFC,"ecPoint")
-                                FC00 = import_ecPoint(FileIN_FC00);
-                            elseif strcmp(SystemFC,"ENS")
-                                FC00 = import_ENS(FileIN_FC00);
-                            end
-                            FC = [FC; FC00(pointer_region,3:end)];
-                            FF = [FF; FF_temp(pointer_region,3)];
-                        end
                         
-                        if isfile(FileIN_FC12)
-                            if strcmp(SystemFC,"ecPoint")
-                                FC12 = import_ecPoint(FileIN_FC12);
-                            elseif strcmp(SystemFC,"ENS")
-                                FC12 = import_ENS(FileIN_FC12);
-                            end
-                            FC = [FC; FC12(pointer_region,3:end)];
-                            FF = [FF; FF_temp(pointer_region,3)];
-                        end
                         
-                        % Defining how many events exceed the rainfall threshold
-                        FC_exceed = FC >= RainCDF;
+                            % Read the forecasts
+                            if strcmp(SystemFC,"ecPoint")
+                                FC00 = import_ecPoint(FileIN_FC);
+                            elseif strcmp(SystemFC,"ENS")
+                                FC = import_ENS(FileIN_FC);
+                            end
+                            FC = FC(:,3:end);
+                        
+                        
+                        
+                        % Define how many events exceed the rainfall threshold
+                        FC_exceed = FC(pointer_region,:) >= RainCDF;
                         FC_exceed_total = sum(FC_exceed,2);
                         
-                        % Defining the contingency table
+                        % Define the contingency table
                         for indCT = 1 : NumCT
                             pointer_FC_YES = find(FC_exceed_total>=indCT);
                             pointer_FC_NO = find(FC_exceed_total<indCT);
@@ -169,12 +160,13 @@ for indEFFCI = 1 : length(EFFCI_list)
                     
                 end
                 
-                % Saving contingecy table
-                CT = array2table(CT,'VariableNames', {'H','FA','M','CN'});
-                FileOUT = strcat(DirOUT_temp,"/CT_", RegionName_list(indRegion), "_", num2str(AvStepF,'%03.f'), ".csv");
-                writetable(CT,FileOUT,'Delimiter',',')
-                
             end
+            
+            % Saving contingecy table
+            CT = array2table(CT,'VariableNames', {'H','FA','M','CN'});
+            FileOUT = strcat(DirOUT_temp,"/","CT_All_", StepFSTR, ".csv");
+            writetable(CT,FileOUT,'Delimiter',',')
+            
             
         end
         
