@@ -86,7 +86,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             disp(strcat("   - Considering a rainfall event greater than (PercCDF=", num2str(PercCDF), " percentile)"))
             
             % Creating output directory
-            DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc), "h/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'));
+            DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc), "h/", SystemFC, "/EFFCI_", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'));
             if ~exist(DirOUT_temp, "dir")
                 mkdir(DirOUT_temp)
             end

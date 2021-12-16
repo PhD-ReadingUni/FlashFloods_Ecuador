@@ -72,7 +72,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                     File_FC = strcat(Git_repo, "/", DirIN_CT, num2str(Acc), "h/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'), "/CT_", RegionName, "_", num2str(StepF,'%03.f'), ".csv");
                     [H,FA,M,CN] = import_CT(File_FC);
                     
-                    % Compute HR and FAR for ecPoint
+                    % Computing HR and FAR for ecPoint
                     HR = [1; (H ./ (H + M))];
                     FAR  = [1; (FA ./ (FA + CN))];
                     
@@ -89,14 +89,14 @@ for indEFFCI = 1 : length(EFFCI_list)
                 
             end
             
-            % Addign metadata to the plot
+            % Adding metadata to the plot
             plot([0 1], [0,1], "k-")
             title([strcat("ROC (PercCDF = ", num2str(PercCDF), "th percentile)"), strcat("EFFCI >= ",num2str(EFFCI), " - StepF = ", num2str(StepF), "h")],'FontSize',16)
             xlabel("False Alarm Rate",'FontSize',14)
             ylabel("Hit Rate",'FontSize',14)
             legend(LegendNames, 'Location', 'southeast','FontSize',14)
             
-            % Save the figures as .eps
+            % Saving the figures as .eps
             FileOUT = strcat(DirOUT_temp, "/ROC_", StepFSTR, ".eps");
             saveas(fig, FileOUT, 'epsc')
             
