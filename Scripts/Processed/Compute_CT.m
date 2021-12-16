@@ -10,7 +10,7 @@ clc
 BaseDateS = "2020-01-01";
 BaseDateF = "2020-12-31";
 StepF_S = 12;
-StepF_F = 240;
+StepF_F = 234;
 DiscStep = 6;
 Acc = 12;
 SystemFC = "ecPoint";
