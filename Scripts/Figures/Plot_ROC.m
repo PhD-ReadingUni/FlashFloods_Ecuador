@@ -1,8 +1,10 @@
-% Plot_ROC.m plots the ROC curve for a given lead time
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plot_ROC.m plots ROC curves for a given lead time, for all forecasting
+% systems considered and all Ecuador regions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear
 clc
-close all
 
 % INPUT PARAMETERS
 StepF_S = 18;
