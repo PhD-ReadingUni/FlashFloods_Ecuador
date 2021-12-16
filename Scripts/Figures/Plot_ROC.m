@@ -28,17 +28,18 @@ DirOUT_ROC = "Data/Figures/ROC_";
 % Plotting the ROC curves
 for indEFFCI = 1 : length(EFFCI_list)
     
-    % Selecting the EFFCI rainfall threshold
+    % Selecting the EFFCI to consider
     EFFCI = EFFCI_list(indEFFCI);
     
     for indPercCDF = 1 : length(Perc_CDF_RainFF_list)
         
-        % Selecting the percentile that defines the rainfall threshold
+        % Selecting the percentile that defines the rainfall event to
+        % consider
         PercCDF = Perc_CDF_RainFF_list(indPercCDF);
         disp(strcat("Plotting ROC for EFFCI>", num2str(EFFCI), " and rainfall event greater than (PercCDF=", num2str(PercCDF), ")"))
         
         % Defining the output directory
-        DirOUT_temp = strcat(Git_repo, "/", DirOUT_ROC, num2str(Acc), "h/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'));
+        DirOUT_temp = strcat(Git_repo, "/", DirOUT_ROC, num2str(Acc), "h/EFFCI_", num2str(EFFCI,'%02.f'), "/PercCDF_", num2str(PercCDF,'%02.f'));
         if ~exist(DirOUT_temp)
             mkdir(DirOUT_temp)
         end

@@ -1,40 +1,43 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plot_AURC.m plots the Area Under the Roc Curve (AURC) for all lead times,
-% 
+% all forecasting systems considered and all Ecuador regions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear
 clc
-close all
 
 % INPUT PARAMETERS
-StepF_S = 12;
-StepF_F = 72;
+StepF_S = 18;
+StepF_F = 240;
 Disc_StepF = 6;
 Acc = 12;
-ThrEFFCI_list = [1,6,10];
-PercRT_list = [75,85,90,95,98,99];
+EFFCI_list = [1,6,10];
+Perc_CDF_RainFF_list = [75,85,90,95,98,99];
+SystemFC_list = ["ENS","ecPoint"];
+SystemFCPlot_list = ["r","b"];
+Region_list = [1,2];
+RegionName_list = ["Costa", "Sierra"];
+RegionPlot_list = ["o-","o--"];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
-DirIN_RT = "Data/Processed/RainThr";
 DirIN_CT = "Data/Processed/CT_";
 DirOUT_AURC = "Data/Figures/AURC_";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % Plotting the Area Under the Roc Curve (AURC)
-for indEFFCI = 1 : length(ThrEFFCI_list)
+for indEFFCI = 1 : length(EFFCI_list)
     
-    % Selecting the EFFCI rainfall threshold
-    ThrEFFCI = ThrEFFCI_list(indEFFCI);
-    ThrEFFCI_STR = num2str(ThrEFFCI,'%02d');
+    % Selecting the EFFCI to consider
+    EFFCI = EFFCI_list(indEFFCI);
     
     % Defining the output directory
-    DirOUT_temp = strcat(Git_repo, "/", DirOUT_AURC, num2str(Acc), "h/EFFCI", ThrEFFCI_STR);
+    DirOUT_temp = strcat(Git_repo, "/", DirOUT_AURC, num2str(Acc), "h/EFFCI", num2str(ThrEFFCI,'%02d'));
     mkdir(DirOUT_temp)
     
-    for indPercRT = 1 : length(PercRT_list)
+    for indPercRT = 1 : length(Perc_CDF_RainFF_list)
         
         % Selecting the percentile that defines the rainfall threshold
-        PercRT = PercRT_list(indPercRT);
+        PercRT = Perc_CDF_RainFF_list(indPercRT);
         PercRT_STR = num2str(PercRT,'%02d');
         disp(strcat("Plotting AURC for EFFCI>", num2str(ThrEFFCI), " and RainThr(PercRT=", num2str(PercRT), ")"))
                 
