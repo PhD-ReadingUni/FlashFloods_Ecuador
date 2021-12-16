@@ -70,7 +70,7 @@ for indSystemFC = 1: length(SystemFC_list)
             % percentile)
             PercCDF = Perc_CDF_RainFF_list(indPercCDF);
             disp(" ")
-            disp(strcat("  - Considering rainfall events >= (PercCDF=", num2str(PercCDF), "th percentile)"))
+            disp(strcat(" - Considering rainfall events >= (PercCDF=", num2str(PercCDF), "th percentile)"))
             
             % Creating output directory
             DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc), "h/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'));
@@ -82,6 +82,7 @@ for indSystemFC = 1: length(SystemFC_list)
                 
                 % Selecting the region to consider
                 Region = Region_list(indRegion);
+                disp(strcat("  - Considering the '", Region, "' region"))
                 
                 % Selecting the points that in the Ecuador's mask belong to the
                 % considered region
@@ -100,7 +101,7 @@ for indSystemFC = 1: length(SystemFC_list)
                 % forecasts from the 00 UTC run
                 for StepF00 = StepF_S : DiscStep : StepF_F
                     
-                    disp(strcat("    - StepF=", num2str(StepF00)))
+                    disp(strcat("   - StepF=", num2str(StepF00)))
                     
                     % Creating template for the contingency tables
                     CT = zeros(NumEM,4);
