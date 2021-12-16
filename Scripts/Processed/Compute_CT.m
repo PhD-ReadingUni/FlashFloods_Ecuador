@@ -9,15 +9,15 @@ clc
 % INPUT PARAMETERS
 BaseDateS = "2020-01-01";
 BaseDateF = "2020-12-31";
-StepF_S = 18;
-StepF_F = 18;
+StepF_S = 12;
+StepF_F = 234;
 DiscStep = 6;
 Acc = 12;
 SystemFC_list = ["ecPoint","ENS"];
-EFFCI_list = [6];
-Perc_CDF_RainFF_list = [75];
+EFFCI_list = [1,6,10];
+Perc_CDF_RainFF_list = [75,85,90,95,98,99];
 Region_list = [1,2];
-RegionName_list = {'Costa', 'Sierra'};
+RegionName_list = ["Costa","Sierra"];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 FileIN_Emask = "Data/Processed/EcuadorMasks/Emask_ENS.csv";
 DirIN_CDF = "Data/Processed/CDF_RainFF_";
