@@ -40,7 +40,7 @@ for indEFFCI = 1 : length(EFFCI_list)
         
         % Defining the output directory
         DirOUT_temp = strcat(Git_repo, "/", DirOUT_ROC, num2str(Acc), "h/EFFCI_", num2str(EFFCI,'%02.f'), "/PercCDF_", num2str(PercCDF,'%02.f'));
-        if ~exist(DirOUT_temp)
+        if ~exist(DirOUT_temp, "dir")
             mkdir(DirOUT_temp)
         end
         

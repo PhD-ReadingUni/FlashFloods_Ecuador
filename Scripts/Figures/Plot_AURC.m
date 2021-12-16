@@ -31,8 +31,10 @@ for indEFFCI = 1 : length(EFFCI_list)
     EFFCI = EFFCI_list(indEFFCI);
     
     % Defining the output directory
-    DirOUT_temp = strcat(Git_repo, "/", DirOUT_AURC, num2str(Acc), "h/EFFCI", num2str(ThrEFFCI,'%02d'));
-    mkdir(DirOUT_temp)
+    DirOUT_temp = strcat(Git_repo, "/", DirOUT_AURC, num2str(Acc), "h/EFFCI_", num2str(ThrEFFCI,'%02d'));
+    if ~exist(DirOUT_temp, "dir")
+    	mkdir(DirOUT_temp)
+    end
     
     for indPercRT = 1 : length(Perc_CDF_RainFF_list)
         
@@ -41,14 +43,6 @@ for indEFFCI = 1 : length(EFFCI_list)
         PercRT_STR = num2str(PercRT,'%02d');
         disp(strcat("Plotting AURC for EFFCI>", num2str(ThrEFFCI), " and RainThr(PercRT=", num2str(PercRT), ")"))
                 
-        % Importing the rainfall thresholds
-        FileIN_RT_Costa = strcat(Git_repo, "/", DirIN_RT, "/RainThr_2019_EFFCI", num2str(ThrEFFCI,'%02d'), "_Costa.csv");
-        [Ps_Costa,RTs_Costa] = import_RainThr(FileIN_RT_Costa);
-        RT_Costa = RTs_Costa(Ps_Costa==PercRT);
-        
-        FileIN_RT_Sierra = strcat(Git_repo, "/", DirIN_RT, "/RainThr_2019_EFFCI", num2str(ThrEFFCI,'%02d'), "_Sierra.csv");
-        [Ps_Sierra,RTs_Sierra] = import_RainThr(FileIN_RT_Sierra);
-        RT_Sierra = RTs_Sierra(Ps_Sierra==PercRT);
         
         
         % Creating the variable that will store the AURC
