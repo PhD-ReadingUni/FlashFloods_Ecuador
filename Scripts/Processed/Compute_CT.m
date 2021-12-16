@@ -82,7 +82,8 @@ for indSystemFC = 1: length(SystemFC_list)
                 
                 % Selecting the region to consider
                 Region = Region_list(indRegion);
-                disp(strcat("  - Considering the '", Region, "' region"))
+                RegionName = RegionName_list(indRegion);
+                disp(strcat("  - Considering the '", RegionName, "' region"))
                 
                 % Selecting the points that in the Ecuador's mask belong to the
                 % considered region
