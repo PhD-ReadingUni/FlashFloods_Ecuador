@@ -24,22 +24,27 @@ DirIN_CT = "Data/Processed/CT_";
 DirOUT_ROC = "Data/Figures/ROC_";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Plotting the Area Under the Roc Curve (AURC)
+disp("Plotting ROC curves")
 
 % Plotting the ROC curves
 for indEFFCI = 1 : length(EFFCI_list)
     
     % Selecting the EFFCI to consider
     EFFCI = EFFCI_list(indEFFCI);
+    disp(" ")
+    disp(strcat(" - Plotting AURC for EFFCI>", num2str(EFFCI)))
     
     for indPercCDF = 1 : length(Perc_CDF_RainFF_list)
         
         % Selecting the percentile that defines the rainfall event to
         % consider
         PercCDF = Perc_CDF_RainFF_list(indPercCDF);
-        disp(strcat("Plotting ROC for EFFCI>", num2str(EFFCI), " and rainfall event greater than (PercCDF=", num2str(PercCDF), ")"))
+        disp(" ")
+        disp(strcat("   - PercCDF=", num2str(PercCDF)))
         
         % Defining the output directory
-        DirOUT_temp = strcat(Git_repo, "/", DirOUT_ROC, num2str(Acc), "h/EFFCI_", num2str(EFFCI,'%02.f'), "/PercCDF_", num2str(PercCDF,'%02.f'));
+        DirOUT_temp = strcat(Git_repo, "/", DirOUT_ROC, num2str(Acc), "h/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'));
         if ~exist(DirOUT_temp, "dir")
             mkdir(DirOUT_temp)
         end
@@ -48,7 +53,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             
             % Selecting the StepF to consider
             StepFSTR =  num2str(StepF,'%03d');
-            disp(strcat(" - StepF=",StepFSTR))
+            disp(strcat("     - StepF=",StepFSTR))
             
             % Initiating the figure that will contain the ROC plot and the
             % variable that will contain the plot legend 

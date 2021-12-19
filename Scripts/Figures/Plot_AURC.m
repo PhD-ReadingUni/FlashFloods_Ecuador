@@ -11,10 +11,10 @@ StepF_S = 18;
 StepF_F = 240;
 Disc_StepF = 6;
 Acc = 12;
-EFFCI_list = [6];
-Perc_CDF_RainFF_list = [75];
-SystemFC_list = ["ENS","ecPoint"];
-SystemFCPlot_list = ["r","b"];
+EFFCI_list = [1,6,10];
+Perc_CDF_RainFF_list = [75,85,90,95,98,99];
+SystemFC_list = ["ENS", "ecPoint"];
+SystemFCPlot_list = ["r", "b"];
 Region_list = [1,2];
 RegionName_list = ["Costa", "Sierra"];
 RegionPlot_list = ["o-","o--"];
@@ -34,7 +34,7 @@ for indEFFCI = 1 : length(EFFCI_list)
     disp(strcat(" - Plotting AURC for EFFCI>", num2str(EFFCI)))
     
     % Defining the output directory
-    DirOUT_temp = strcat(Git_repo, "/", DirOUT_AURC, num2str(Acc), "h/EFFCI_", num2str(EFFCI,'%02d'));
+    DirOUT_temp = strcat(Git_repo, "/", DirOUT_AURC, num2str(Acc), "h/EFFCI", num2str(EFFCI,'%02d'));
     if ~exist(DirOUT_temp, "dir")
         mkdir(DirOUT_temp)
     end
@@ -47,8 +47,7 @@ for indEFFCI = 1 : length(EFFCI_list)
         
         % Initiating the figure that will contain the ROC plot and the
         % variable that will contain the plot legend
-        %fig = figure('visible','off');
-        figure
+        fig = figure('visible','off');
         LegendNames = {};
         
         for indSystemFC = 1 :length(SystemFC_list)
@@ -79,7 +78,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                 for StepF = StepF_S : Disc_StepF : StepF_F
                     
                     % Reading the contingency table
-                    File_CT = strcat(Git_repo, "/", DirIN_CT, num2str(Acc), "h/", SystemFC, "/EFFCI_", num2str(EFFCI,'%02d'), "/PercCDF_", num2str(PercCDF,'%02d') , "/CT_", RegionName, "_", num2str(StepF,'%03d'), ".csv");
+                    File_CT = strcat(Git_repo, "/", DirIN_CT, num2str(Acc), "h/", SystemFC, "/EFFCI", num2str(EFFCI,'%02d'), "/Perc", num2str(PercCDF,'%02d') , "/CT_", RegionName, "_", num2str(StepF,'%03d'), ".csv");
                     [H,FA,M,CN] = import_CT(File_CT);
                     
                     % Computing HR and FAR for ecPoint
@@ -115,17 +114,17 @@ for indEFFCI = 1 : length(EFFCI_list)
             % Adding metadata to the plot
             plot([StepF_S,StepF_F],[0.5,0.5], "k-")
             xticks((StepF_S:Disc_StepF:StepF_F)')
-            ylim([0.4,1])
+            ylim([0.2,1])
             xlim([StepF_S StepF_F])
             title([strcat("AURC (PercCDF = ", num2str(PercCDF,'%02d'), "th percentile)"), strcat("EFFCI >= ",num2str(EFFCI,'%02d'))],'FontSize',16)
             xlabel("End 12-h accumulation period (hours)",'FontSize',14)
             ylabel("AURC",'FontSize',14)
-            legend(LegendNames, 'Location','southeast','FontSize',14)
+            legend(LegendNames, 'Location','southeast','FontSize',12)
             grid on
             
             % Saving the figures as .eps
             FileOUT = strcat(DirOUT_temp, "/AURC_PercCDF_", num2str(PercCDF,'%02d'), ".eps");
-            %saveas(fig, FileOUT, "epsc")
+            saveas(fig, FileOUT, "epsc")
             
         end
         
