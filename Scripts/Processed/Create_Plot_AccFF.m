@@ -104,7 +104,7 @@ for ind_EFFCI = 1 : length(EFFCI_list)
             
             % Saving the accumulated observational field in a .csv file
             FileOUT_csv = strcat(DirOUT_csv_temp, "/AccFF_", datestr(Date_F, "yyyymmdd"), "_", datestr(Date_F, "HH"), ".csv");
-            writetable(AccFF_table, FileOUT_csv, 'Delimiter',',')
+            %writetable(AccFF_table, FileOUT_csv, 'Delimiter',',')
             
         end
         
@@ -138,6 +138,6 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     
     % Saving the plot as .jpeg file
     FileOUT_eps = strcat(DirOUT_jpeg_temp, "/AccFF_EFFCI", num2str(EFFCI,'%02.f'), ".eps");
-    saveas(gcf,FileOUT_eps, "epsc")
+    %saveas(gcf,FileOUT_eps, "epsc")
     
 end

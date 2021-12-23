@@ -114,12 +114,12 @@ for indEFFCI = 1 : length(EFFCI_list)
             % Adding metadata to the plot
             plot([StepF_S,StepF_F],[0.5,0.5], "k-")
             xticks((StepF_S:Disc_StepF:StepF_F)')
-            ylim([0.2,1])
+            ylim([0.45,1])
             xlim([StepF_S StepF_F])
             title([strcat("AURC (PercCDF = ", num2str(PercCDF,'%02d'), "th percentile)"), strcat("EFFCI >= ",num2str(EFFCI,'%02d'))],'FontSize',16)
             xlabel("End 12-h accumulation period (hours)",'FontSize',14)
             ylabel("AURC",'FontSize',14)
-            legend(LegendNames, 'Location','southeast','FontSize',12)
+            %legend(LegendNames, 'Location','southeast','FontSize',12)
             grid on
             
             % Saving the figures as .eps
