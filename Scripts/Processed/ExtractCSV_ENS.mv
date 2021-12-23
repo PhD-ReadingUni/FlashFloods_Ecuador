@@ -4,17 +4,17 @@
 # grid-boxes belonging to Ecuador's domain
 
 # INPUT PARAMETERS
-BaseDateS = 2019-12-01
-BaseDateF = 2019-12-31
+BaseDateS = 2020-01-01
+BaseDateF = 2020-12-31
 BaseTimeS = 0
 BaseTimeF = 12
 DiscTime = 12
-StepF_S = 6
+StepF_S = 12
 StepF_F = 246
 DiscStep = 6
 Acc = 12
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
-FileIN_Emask = "Data/Processed/EcuadorMasks/Emask.grib"
+FileIN_Emask = "Data/Processed/EcuadorMasks/Emask_ENS.grib"
 DirIN_ENS = "Data/Raw/ENS"
 DirOUT_ENS = "Data/Processed/FC_Emask_Rainfall_"
 #########################################################################
@@ -98,11 +98,11 @@ for TheDate = BaseDateS to BaseDateF do
             write(File_csv, "lat,lon,ENS01,ENS02,ENS03,ENS04,ENS05,ENS06,ENS07,ENS08,ENS09,ENS10,ENS11,ENS12,ENS13,ENS14,ENS15,ENS16,ENS17,ENS18,ENS19,ENS20,ENS21,ENS22,ENS23,ENS24,ENS25,ENS26,ENS27,ENS28,ENS29,ENS30,ENS31,ENS32,ENS33,ENS34,ENS35,ENS36,ENS37,ENS38,ENS39,ENS40,ENS41,ENS42,ENS43,ENS44,ENS45,ENS46,ENS47,ENS48,ENS49,ENS50,ENS51",newline)
             for i = 1 to count(ENS_Emask[1]) do
                 append(File_csv, Lats_mask[i], ",", Lons_mask[i], ",", 
-                ENS_Emask[01][i], ",", ENS_Emask[02][i], ",", ENS_Emask[03][i], ",", ENS_Emask[04][i], ",", ENS_Emask[05][i], ",", ENS_Emask[06][i], ",", ENS_Emask[07][i], ",", ENS_Emask[08][i], ",", ENS_Emask[09][i], ",", ENS_Emask[10][i], ",",
-                ENS_Emask[11][i], ",", ENS_Emask[12][i], ",", ENS_Emask[13][i], ",", ENS_Emask[14][i], ",", ENS_Emask[15][i], ",", ENS_Emask[16][i], ",", ENS_Emask[17][i], ",", ENS_Emask[18][i], ",", ENS_Emask[19][i], ",", ENS_Emask[20][i], ",",
-                ENS_Emask[21][i], ",", ENS_Emask[22][i], ",", ENS_Emask[23][i], ",", ENS_Emask[24][i], ",", ENS_Emask[25][i], ",", ENS_Emask[26][i], ",", ENS_Emask[27][i], ",", ENS_Emask[28][i], ",", ENS_Emask[29][i], ",", ENS_Emask[30][i], ",",
-                ENS_Emask[31][i], ",", ENS_Emask[32][i], ",", ENS_Emask[33][i], ",", ENS_Emask[34][i], ",", ENS_Emask[35][i], ",", ENS_Emask[36][i], ",", ENS_Emask[37][i], ",", ENS_Emask[38][i], ",", ENS_Emask[39][i], ",", ENS_Emask[40][i], ",",
-                ENS_Emask[41][i], ",", ENS_Emask[42][i], ",", ENS_Emask[43][i], ",", ENS_Emask[44][i], ",", ENS_Emask[45][i], ",", ENS_Emask[46][i], ",", ENS_Emask[47][i], ",", ENS_Emask[48][i], ",", ENS_Emask[49][i], ",", ENS_Emask[50][i], ",", ENS_Emask[51][i], newline)
+                round(ENS_Emask[01][i],3), ",", round(ENS_Emask[02][i],3), ",", round(ENS_Emask[03][i],3), ",", round(ENS_Emask[04][i],3), ",", round(ENS_Emask[05][i],3), ",", round(ENS_Emask[06][i],3), ",", round(ENS_Emask[07][i],3), ",", round(ENS_Emask[08][i],3), ",", round(ENS_Emask[09][i],3), ",", round(ENS_Emask[10][i],3), ",",
+                round(ENS_Emask[11][i],3), ",", round(ENS_Emask[12][i],3), ",", round(ENS_Emask[13][i],3), ",", round(ENS_Emask[14][i],3), ",", round(ENS_Emask[15][i],3), ",", round(ENS_Emask[16][i],3), ",", round(ENS_Emask[17][i],3), ",", round(ENS_Emask[18][i],3), ",", round(ENS_Emask[19][i],3), ",", round(ENS_Emask[20][i],3), ",",
+                round(ENS_Emask[21][i],3), ",", round(ENS_Emask[22][i],3), ",", round(ENS_Emask[23][i],3), ",", round(ENS_Emask[24][i],3), ",", round(ENS_Emask[25][i],3), ",", round(ENS_Emask[26][i],3), ",", round(ENS_Emask[27][i],3), ",", round(ENS_Emask[28][i],3), ",", round(ENS_Emask[29][i],3), ",", round(ENS_Emask[30][i],3), ",",
+                round(ENS_Emask[31][i],3), ",", round(ENS_Emask[32][i],3), ",", round(ENS_Emask[33][i],3), ",", round(ENS_Emask[34][i],3), ",", round(ENS_Emask[35][i],3), ",", round(ENS_Emask[36][i],3), ",", round(ENS_Emask[37][i],3), ",", round(ENS_Emask[38][i],3), ",", round(ENS_Emask[39][i],3), ",", round(ENS_Emask[40][i],3), ",",
+                round(ENS_Emask[41][i],3), ",", round(ENS_Emask[42][i],3), ",", round(ENS_Emask[43][i],3), ",", round(ENS_Emask[44][i],3), ",", round(ENS_Emask[45][i],3), ",", round(ENS_Emask[46][i],3), ",", round(ENS_Emask[47][i],3), ",", round(ENS_Emask[48][i],3), ",", round(ENS_Emask[49][i],3), ",", round(ENS_Emask[50][i],3), ",", round(ENS_Emask[51][i],3), newline)
             end for
             
         end for
