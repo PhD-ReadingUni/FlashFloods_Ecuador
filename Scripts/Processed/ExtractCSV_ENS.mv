@@ -4,13 +4,13 @@
 # grid-boxes belonging to Ecuador's domain
 
 # INPUT PARAMETERS
-BaseDateS = 2020-01-01
-BaseDateF = 2020-12-31
+BaseDateS = 2019-09-01
+BaseDateF = 2019-09-30
 BaseTimeS = 0
 BaseTimeF = 12
 DiscTime = 12
 StepF_S = 12
-StepF_F = 246
+StepF_F = 30
 DiscStep = 6
 Acc = 12
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
@@ -61,52 +61,57 @@ for TheDate = BaseDateS to BaseDateF do
         end if
         
         DirOUT = Git_repo & "/" & DirOUT_ENS & Acc & "h/ENS/" & TheDateSTR & TheTimeSTR 
-        shell("mkdir -p " & DirOUT)
         
-        for StepF = StepF_S to StepF_F by DiscStep do
+        if exist(DirOUT) then
+            
+            shell("mkdir -p " & DirOUT)
         
-            StepS = StepF - Acc
+            for StepF = StepF_S to StepF_F by DiscStep do
             
-            if StepS<10 then
-                StepSSTR = "00" & StepS
-            else if (StepS>=10 and StepS<100) then
-                StepSSTR = "0" & StepS
-            else    
-                StepSSTR = StepS
-            end if
-            
-            if StepF<10 then
-                StepFSTR = "00" & StepF
-            else if (StepF>=10 and StepF<100) then
-                StepFSTR = "0" & StepF
-            else    
-                StepFSTR = StepF
-            end if
-            
-            print("Post-processing " & Acc & "-h ENS forecasts computed on " & TheDateSTR & " at " & TheTimeSTR & " UTC (t+" & StepS & ",t+" & StepF & ")")
-            DirIN = Git_repo & "/" & DirIN_ENS & "/" & TheDateSTR & TheTimeSTR 
-            FileIN_S = "tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepSSTR & ".grib"
-            FileIN_F = "tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".grib"
-            tpS = read(DirIN & "/" & FileIN_S)
-            tpF = read(DirIN & "/" & FileIN_F)
-            tp = (tpF - tpS) * 1000
-            ENS_Emask = nearest_gridpoint(tp,Lats_mask,Lons_mask)
+                StepS = StepF - Acc
                 
-            # Saving the ENS forecast as .csv files
-            FileOUT = DirOUT & "/tp_" & AccSTR & "_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".csv"
-            File_csv = file(FileOUT)
-            write(File_csv, "lat,lon,ENS01,ENS02,ENS03,ENS04,ENS05,ENS06,ENS07,ENS08,ENS09,ENS10,ENS11,ENS12,ENS13,ENS14,ENS15,ENS16,ENS17,ENS18,ENS19,ENS20,ENS21,ENS22,ENS23,ENS24,ENS25,ENS26,ENS27,ENS28,ENS29,ENS30,ENS31,ENS32,ENS33,ENS34,ENS35,ENS36,ENS37,ENS38,ENS39,ENS40,ENS41,ENS42,ENS43,ENS44,ENS45,ENS46,ENS47,ENS48,ENS49,ENS50,ENS51",newline)
-            for i = 1 to count(ENS_Emask[1]) do
-                append(File_csv, Lats_mask[i], ",", Lons_mask[i], ",", 
-                round(ENS_Emask[01][i],3), ",", round(ENS_Emask[02][i],3), ",", round(ENS_Emask[03][i],3), ",", round(ENS_Emask[04][i],3), ",", round(ENS_Emask[05][i],3), ",", round(ENS_Emask[06][i],3), ",", round(ENS_Emask[07][i],3), ",", round(ENS_Emask[08][i],3), ",", round(ENS_Emask[09][i],3), ",", round(ENS_Emask[10][i],3), ",",
-                round(ENS_Emask[11][i],3), ",", round(ENS_Emask[12][i],3), ",", round(ENS_Emask[13][i],3), ",", round(ENS_Emask[14][i],3), ",", round(ENS_Emask[15][i],3), ",", round(ENS_Emask[16][i],3), ",", round(ENS_Emask[17][i],3), ",", round(ENS_Emask[18][i],3), ",", round(ENS_Emask[19][i],3), ",", round(ENS_Emask[20][i],3), ",",
-                round(ENS_Emask[21][i],3), ",", round(ENS_Emask[22][i],3), ",", round(ENS_Emask[23][i],3), ",", round(ENS_Emask[24][i],3), ",", round(ENS_Emask[25][i],3), ",", round(ENS_Emask[26][i],3), ",", round(ENS_Emask[27][i],3), ",", round(ENS_Emask[28][i],3), ",", round(ENS_Emask[29][i],3), ",", round(ENS_Emask[30][i],3), ",",
-                round(ENS_Emask[31][i],3), ",", round(ENS_Emask[32][i],3), ",", round(ENS_Emask[33][i],3), ",", round(ENS_Emask[34][i],3), ",", round(ENS_Emask[35][i],3), ",", round(ENS_Emask[36][i],3), ",", round(ENS_Emask[37][i],3), ",", round(ENS_Emask[38][i],3), ",", round(ENS_Emask[39][i],3), ",", round(ENS_Emask[40][i],3), ",",
-                round(ENS_Emask[41][i],3), ",", round(ENS_Emask[42][i],3), ",", round(ENS_Emask[43][i],3), ",", round(ENS_Emask[44][i],3), ",", round(ENS_Emask[45][i],3), ",", round(ENS_Emask[46][i],3), ",", round(ENS_Emask[47][i],3), ",", round(ENS_Emask[48][i],3), ",", round(ENS_Emask[49][i],3), ",", round(ENS_Emask[50][i],3), ",", round(ENS_Emask[51][i],3), newline)
-            end for
+                if StepS<10 then
+                    StepSSTR = "00" & StepS
+                else if (StepS>=10 and StepS<100) then
+                    StepSSTR = "0" & StepS
+                else    
+                    StepSSTR = StepS
+                end if
+                
+                if StepF<10 then
+                    StepFSTR = "00" & StepF
+                else if (StepF>=10 and StepF<100) then
+                    StepFSTR = "0" & StepF
+                else    
+                    StepFSTR = StepF
+                end if
+                
+                print("Post-processing " & Acc & "-h ENS forecasts computed on " & TheDateSTR & " at " & TheTimeSTR & " UTC (t+" & StepS & ",t+" & StepF & ")")
+                DirIN = Git_repo & "/" & DirIN_ENS & "/" & TheDateSTR & TheTimeSTR 
+                FileIN_S = "tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepSSTR & ".grib"
+                FileIN_F = "tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".grib"
+                tpS = read(DirIN & "/" & FileIN_S)
+                tpF = read(DirIN & "/" & FileIN_F)
+                tp = (tpF - tpS) * 1000
+                ENS_Emask = nearest_gridpoint(tp,Lats_mask,Lons_mask)
+                    
+                # Saving the ENS forecast as .csv files
+                FileOUT = DirOUT & "/tp_" & AccSTR & "_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".csv"
+                File_csv = file(FileOUT)
+                write(File_csv, "lat,lon,ENS01,ENS02,ENS03,ENS04,ENS05,ENS06,ENS07,ENS08,ENS09,ENS10,ENS11,ENS12,ENS13,ENS14,ENS15,ENS16,ENS17,ENS18,ENS19,ENS20,ENS21,ENS22,ENS23,ENS24,ENS25,ENS26,ENS27,ENS28,ENS29,ENS30,ENS31,ENS32,ENS33,ENS34,ENS35,ENS36,ENS37,ENS38,ENS39,ENS40,ENS41,ENS42,ENS43,ENS44,ENS45,ENS46,ENS47,ENS48,ENS49,ENS50,ENS51",newline)
+                for i = 1 to count(ENS_Emask[1]) do
+                    append(File_csv, Lats_mask[i], ",", Lons_mask[i], ",", 
+                    round(ENS_Emask[01][i],3), ",", round(ENS_Emask[02][i],3), ",", round(ENS_Emask[03][i],3), ",", round(ENS_Emask[04][i],3), ",", round(ENS_Emask[05][i],3), ",", round(ENS_Emask[06][i],3), ",", round(ENS_Emask[07][i],3), ",", round(ENS_Emask[08][i],3), ",", round(ENS_Emask[09][i],3), ",", round(ENS_Emask[10][i],3), ",",
+                    round(ENS_Emask[11][i],3), ",", round(ENS_Emask[12][i],3), ",", round(ENS_Emask[13][i],3), ",", round(ENS_Emask[14][i],3), ",", round(ENS_Emask[15][i],3), ",", round(ENS_Emask[16][i],3), ",", round(ENS_Emask[17][i],3), ",", round(ENS_Emask[18][i],3), ",", round(ENS_Emask[19][i],3), ",", round(ENS_Emask[20][i],3), ",",
+                    round(ENS_Emask[21][i],3), ",", round(ENS_Emask[22][i],3), ",", round(ENS_Emask[23][i],3), ",", round(ENS_Emask[24][i],3), ",", round(ENS_Emask[25][i],3), ",", round(ENS_Emask[26][i],3), ",", round(ENS_Emask[27][i],3), ",", round(ENS_Emask[28][i],3), ",", round(ENS_Emask[29][i],3), ",", round(ENS_Emask[30][i],3), ",",
+                    round(ENS_Emask[31][i],3), ",", round(ENS_Emask[32][i],3), ",", round(ENS_Emask[33][i],3), ",", round(ENS_Emask[34][i],3), ",", round(ENS_Emask[35][i],3), ",", round(ENS_Emask[36][i],3), ",", round(ENS_Emask[37][i],3), ",", round(ENS_Emask[38][i],3), ",", round(ENS_Emask[39][i],3), ",", round(ENS_Emask[40][i],3), ",",
+                    round(ENS_Emask[41][i],3), ",", round(ENS_Emask[42][i],3), ",", round(ENS_Emask[43][i],3), ",", round(ENS_Emask[44][i],3), ",", round(ENS_Emask[45][i],3), ",", round(ENS_Emask[46][i],3), ",", round(ENS_Emask[47][i],3), ",", round(ENS_Emask[48][i],3), ",", round(ENS_Emask[49][i],3), ",", round(ENS_Emask[50][i],3), ",", round(ENS_Emask[51][i],3), newline)
+                end for
             
-        end for
-    
+            end for
+        
+        end if
+            
     end for            
 
 end for

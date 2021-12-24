@@ -2,8 +2,8 @@
 # from ECMWF ENS forecsting system
 
 # INPUT PARAMETERS
-DateS=2019-01-01
-DateF=2019-01-31
+DateS=2019-09-20
+DateF=2019-09-20
 StepS=0
 StepF=30
 Git_repo="/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
@@ -20,7 +20,7 @@ DateF=$(date -d $DateF +%Y%m%d)
 TheDate=${DateS}
 while [[ ${TheDate} -le ${DateF} ]]; do
     
-    for Time in 0 12; do
+    for Time in 12 12; do
         
         if [[ ${Time} -eq 0 ]]; then
             TheTime=0
