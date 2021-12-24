@@ -4,8 +4,10 @@
 # grid-boxes belonging to Ecuador's domain
 
 # INPUT PARAMETERS
-BaseDateS = 2020-01-01
-BaseDateF = 2020-12-31
+x = arguments()
+BaseDateS = x[1]
+BaseDateF = x[2]
+
 BaseTimeS = 0
 BaseTimeF = 12
 DiscTime = 12
@@ -21,6 +23,8 @@ DirOUT_PR = "Data/Processed/FC_Emask_Rainfall_"
 
 
 # Set general parameters
+BaseDateS = date(BaseDateS)
+BaseDateF = date(BaseDateF)
 if Acc<10 then
     AccSTR = "00" & Acc
 else 

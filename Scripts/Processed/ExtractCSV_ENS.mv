@@ -4,13 +4,15 @@
 # grid-boxes belonging to Ecuador's domain
 
 # INPUT PARAMETERS
-BaseDateS = 2019-09-01
-BaseDateF = 2019-09-30
+x = arguments()
+BaseDateS = x[1]
+BaseDateF = x[2]
+
 BaseTimeS = 0
 BaseTimeF = 12
 DiscTime = 12
 StepF_S = 12
-StepF_F = 30
+StepF_F = 246
 DiscStep = 6
 Acc = 12
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
@@ -21,12 +23,13 @@ DirOUT_ENS = "Data/Processed/FC_Emask_Rainfall_"
 
 
 # Set general parameters
+BaseDateS = date(BaseDateS)
+BaseDateF = date(BaseDateF)
 if Acc<10 then
     AccSTR = "00" & Acc
 else 
     AccSTR = "0" & Acc
 end if 
-
 
 # Read Ecuador's mask
 Emask = read(Git_repo & "/" & FileIN_Emask)
@@ -60,9 +63,10 @@ for TheDate = BaseDateS to BaseDateF do
             TheTimeSTR = TheTime
         end if
         
+        DirIN = Git_repo & "/" & DirIN_ENS & "/" & TheDateSTR & TheTimeSTR
         DirOUT = Git_repo & "/" & DirOUT_ENS & Acc & "h/ENS/" & TheDateSTR & TheTimeSTR 
         
-        if exist(DirOUT) then
+        if exist(DirIN) then
             
             shell("mkdir -p " & DirOUT)
         
@@ -87,7 +91,6 @@ for TheDate = BaseDateS to BaseDateF do
                 end if
                 
                 print("Post-processing " & Acc & "-h ENS forecasts computed on " & TheDateSTR & " at " & TheTimeSTR & " UTC (t+" & StepS & ",t+" & StepF & ")")
-                DirIN = Git_repo & "/" & DirIN_ENS & "/" & TheDateSTR & TheTimeSTR 
                 FileIN_S = "tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepSSTR & ".grib"
                 FileIN_F = "tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".grib"
                 tpS = read(DirIN & "/" & FileIN_S)
