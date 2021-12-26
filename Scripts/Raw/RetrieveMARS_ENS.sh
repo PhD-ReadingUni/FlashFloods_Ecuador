@@ -2,10 +2,10 @@
 # from ECMWF ENS forecsting system
 
 # INPUT PARAMETERS
-DateS=2019-09-20
-DateF=2019-09-20
+DateS=2020-01-01
+DateF=2020-12-31
 StepS=0
-StepF=30
+StepF=246
 Git_repo="/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 DirOUT="Data/Raw/ENS"
 #################################################################
