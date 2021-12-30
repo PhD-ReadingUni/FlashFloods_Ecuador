@@ -1,4 +1,4 @@
-function [ObsFF] = import_PointFR(filename, Year, Thr_EFFCI)
+function PointFR = import_PointFR(filename, Year, Thr_EFFCI)
 
 % Read the raw point flood observations
 opts = delimitedTextImportOptions("NumVariables", 47);
@@ -14,38 +14,38 @@ opts = setvaropts(opts, "Date", "InputFormat", "MM/dd/yy");
 opts = setvaropts(opts, "Hora", "InputFormat", "HH:mm:ss");
 opts = setvaropts(opts, ["ADM1_PCODE", "ADM2_PCODE", "ADM3_PCODE"], "TrimNonNumeric", true);
 opts = setvaropts(opts, ["ADM1_PCODE", "ADM2_PCODE", "ADM3_PCODE"], "ThousandsSeparator", ",");
-ObsFF_temp = readtable(filename, opts);
+PointFR_temp = readtable(filename, opts);
 
 % Eliminate rows with NaN
-ObsFF_temp(isnan(ObsFF_temp.ID),:) = [];
+PointFR_temp(isnan(PointFR_temp.ID),:) = [];
 
 % Eliminate rows with NaT
-ObsFF_temp(isnat(ObsFF_temp.Hora),:) = [];
+PointFR_temp(isnat(PointFR_temp.Hora),:) = [];
 
 % Extract only certain variables
 Var2Extract = {'X_DD', 'Y_DD', 'Georegion', 'Hora', 'month', 'day', 'year','EFFCI'};
-ObsFF_temp = ObsFF_temp(:,Var2Extract);
+PointFR_temp = PointFR_temp(:,Var2Extract);
 
 % Convert the local times to UTC
 % Ecuador's time zone is UTC-5
-ObsFF_temp.Hora = ObsFF_temp.Hora + hours(5);
+PointFR_temp.Hora = PointFR_temp.Hora + hours(5);
 
 % Convert the Georegions to numerical codes
-pointer1 = find(ObsFF_temp.Georegion == "La Costa");
-pointer2 = find(ObsFF_temp.Georegion == "La Sierra");
-pointer3 = find(ObsFF_temp.Georegion == "El Oriente");
-ObsFF_temp.Georegion(pointer1) = "1"; 
-ObsFF_temp.Georegion(pointer2) = "2"; 
-ObsFF_temp.Georegion(pointer3) = "3"; 
+pointer1 = find(PointFR_temp.Georegion == "La Costa");
+pointer2 = find(PointFR_temp.Georegion == "La Sierra");
+pointer3 = find(PointFR_temp.Georegion == "El Oriente");
+PointFR_temp.Georegion(pointer1) = "1"; 
+PointFR_temp.Georegion(pointer2) = "2"; 
+PointFR_temp.Georegion(pointer3) = "3"; 
 
 % Add a datetime array to the flood reports' dates
-[h,m,s] = hms(ObsFF_temp.Hora);
-ObsFF_temp.DateTimeNum = datenum(ObsFF_temp.year, ObsFF_temp.month, ObsFF_temp.day,h,m,s);
+[h,m,s] = hms(PointFR_temp.Hora);
+PointFR_temp.DateTimeNum = datenum(PointFR_temp.year, PointFR_temp.month, PointFR_temp.day,h,m,s);
 
 % Extract flood reports for a specific year
-ObsFF_temp = ObsFF_temp(ObsFF_temp.year==Year,:);
+PointFR_temp = PointFR_temp(PointFR_temp.year==Year,:);
 
 % Extract flood reports for a specific EFFCI threshold
-ObsFF = ObsFF_temp(ObsFF_temp.EFFCI>=Thr_EFFCI,:);
+PointFR = PointFR_temp(PointFR_temp.EFFCI>=Thr_EFFCI,:);
 
 end

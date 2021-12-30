@@ -1,4 +1,4 @@
-% import_AccFF imports in .mat format the flood reports accumulated over a
+% import_GridAccFR imports in .mat format the flood reports accumulated over a
 % considered accumulation period
 %
 % Inputs

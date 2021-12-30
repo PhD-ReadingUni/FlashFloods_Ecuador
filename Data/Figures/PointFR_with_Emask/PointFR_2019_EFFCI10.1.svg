@@ -17,7 +17,7 @@ viewBox="0 0 801 566" xml:space="preserve">
 	<dc:format>image/svg+xml</dc:format>
 	<dc:title>MAGICS++ PLOT</dc:title>
 	<dc:author>mofp on omicron</dc:author>
-	<dc:date>Wed Nov 17 10:59:34 2021</dc:date>
+	<dc:date>Thu Dec 30 06:22:48 2021</dc:date>
 	<dc:language>en-GB</dc:language>
 	<dc:creator><cc:Agent><dc:title>Metview 5.13.2</dc:title></cc:Agent></dc:creator>
 	<dc:publisher><cc:Agent>
@@ -35,7 +35,7 @@ viewBox="0 0 801 566" xml:space="preserve">
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="Plot_EcuadorMask_ObsFF.mv, line 82:9(BG)" id="Plot_EcuadorMask_ObsFF.mv, line 82:9(BG)"><title>Plot_EcuadorMask_ObsFF.mv, line 82:9(BG)</title>
+<g inkscape:groupmode="layer" inkscape:label="Plot_PointFR_with_Emask.mv, line 101:40(BG)" id="Plot_PointFR_with_Emask.mv, line 101:40(BG)"><title>Plot_PointFR_with_Emask.mv, line 101:40(BG)</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g fill-rule="evenodd" stroke="none">
@@ -69,121 +69,125 @@ M-5072.45 191.709L-5073.94 191.324L-5074.85 190.845L-5075.22 189.449L-5074.84 18
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="marsXFeYsn" id="marsXFeYsn"><title>marsXFeYsn</title>
+<g inkscape:groupmode="layer" inkscape:label="marsBj4nTX" id="marsBj4nTX"><title>marsBj4nTX</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
 </g>
 <g stroke="rgb(0,0,0)" fill="rgb(0,0,0)">
-<circle cx="-5022" cy="70" r="3"/>
-<circle cx="-5055" cy="134" r="3"/>
-<circle cx="-5056" cy="117" r="3"/>
-<circle cx="-5041" cy="99" r="3"/>
-<circle cx="-5020" cy="147" r="3"/>
-<circle cx="-5028" cy="108" r="3"/>
-<circle cx="-5016" cy="126" r="3"/>
-<circle cx="-5016" cy="60" r="3"/>
-<circle cx="-5047" cy="212" r="3"/>
-<circle cx="-5018" cy="55" r="3"/>
-<circle cx="-5024" cy="99" r="3"/>
-<circle cx="-5011" cy="125" r="3"/>
-<circle cx="-5014" cy="124" r="3"/>
-<circle cx="-5027" cy="-63" r="3"/>
-<circle cx="-5028" cy="-63" r="3"/>
-<circle cx="-5060" cy="15" r="3"/>
-<circle cx="-5024" cy="62" r="3"/>
-<circle cx="-5024" cy="64" r="3"/>
-<circle cx="-5024" cy="64" r="3"/>
-<circle cx="-5025" cy="66" r="3"/>
-<circle cx="-5026" cy="67" r="3"/>
-<circle cx="-5035" cy="-60" r="3"/>
-<circle cx="-4981" cy="246" r="3"/>
-<circle cx="-4909" cy="104" r="3"/>
-<circle cx="-4913" cy="100" r="3"/>
-<circle cx="-4943" cy="89" r="3"/>
-<circle cx="-4986" cy="253" r="3"/>
-<circle cx="-5000" cy="250" r="3"/>
-<circle cx="-4963" cy="85" r="3"/>
-<circle cx="-4965" cy="88" r="3"/>
-<circle cx="-4965" cy="96" r="3"/>
-<circle cx="-5006" cy="185" r="3"/>
-<circle cx="-5028" cy="211" r="3"/>
-<circle cx="-4958" cy="187" r="3"/>
-<circle cx="-4962" cy="19" r="3"/>
-<circle cx="-4970" cy="85" r="3"/>
-<circle cx="-5012" cy="113" r="3"/>
-<circle cx="-4922" cy="-24" r="3"/>
-<circle cx="-4952" cy="15" r="3"/>
-<circle cx="-4954" cy="11" r="3"/>
-<circle cx="-4959" cy="2" r="3"/>
-<circle cx="-4960" cy="3" r="3"/>
-<circle cx="-4960" cy="3" r="3"/>
-<circle cx="-4962" cy="13" r="3"/>
-<circle cx="-4964" cy="17" r="3"/>
-<circle cx="-4964" cy="18" r="3"/>
-<circle cx="-4996" cy="100" r="3"/>
-<circle cx="-4998" cy="182" r="3"/>
+<circle cx="-5024" cy="66" r="2.25"/>
+<circle cx="-5024" cy="90" r="2.25"/>
+<circle cx="-5025" cy="56" r="2.25"/>
+<circle cx="-5025" cy="56" r="2.25"/>
+<circle cx="-5040" cy="112" r="2.25"/>
+<circle cx="-5044" cy="108" r="2.25"/>
+<circle cx="-5022" cy="101" r="2.25"/>
+<circle cx="-5051" cy="140" r="2.25"/>
+<circle cx="-5052" cy="136" r="2.25"/>
+<circle cx="-5085" cy="97" r="2.25"/>
+<circle cx="-5091" cy="54" r="2.25"/>
+<circle cx="-5099" cy="66" r="2.25"/>
+<circle cx="-5067" cy="76" r="2.25"/>
+<circle cx="-5102" cy="61" r="2.25"/>
+<circle cx="-5010" cy="123" r="2.25"/>
+<circle cx="-5065" cy="50" r="2.25"/>
+<circle cx="-5030" cy="90" r="2.25"/>
+<circle cx="-4951" cy="172" r="2.25"/>
+<circle cx="-4979" cy="242" r="2.25"/>
+<circle cx="-5011" cy="103" r="2.25"/>
+<circle cx="-4923" cy="29" r="2.25"/>
+<circle cx="-4924" cy="29" r="2.25"/>
+<circle cx="-4929" cy="27" r="2.25"/>
+<circle cx="-4931" cy="26" r="2.25"/>
+<circle cx="-4936" cy="23" r="2.25"/>
+<circle cx="-4943" cy="155" r="2.25"/>
+<circle cx="-4961" cy="87" r="2.25"/>
+<circle cx="-4923" cy="36" r="2.25"/>
+<circle cx="-4958" cy="187" r="2.25"/>
+<circle cx="-5012" cy="114" r="2.25"/>
+<circle cx="-5028" cy="235" r="2.25"/>
+<circle cx="-4946" cy="-12" r="2.25"/>
+<circle cx="-4949" cy="-13" r="2.25"/>
+<circle cx="-4957" cy="20" r="2.25"/>
+<circle cx="-5008" cy="262" r="2.25"/>
+<circle cx="-4939" cy="-20" r="2.25"/>
+<circle cx="-4940" cy="-21" r="2.25"/>
+<circle cx="-4941" cy="-19" r="2.25"/>
+<circle cx="-4951" cy="8" r="2.25"/>
+<circle cx="-4952" cy="14" r="2.25"/>
+<circle cx="-4954" cy="23" r="2.25"/>
+<circle cx="-4963" cy="117" r="2.25"/>
+<circle cx="-4963" cy="118" r="2.25"/>
+<circle cx="-4963" cy="9" r="2.25"/>
+<circle cx="-4965" cy="14" r="2.25"/>
+<circle cx="-4965" cy="17" r="2.25"/>
+<circle cx="-4966" cy="17" r="2.25"/>
+<circle cx="-4993" cy="96" r="2.25"/>
+<circle cx="-4994" cy="100" r="2.25"/>
+<circle cx="-5004" cy="199" r="2.25"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(153,100,0)" fill="none">
 </g>
 <g stroke="rgb(153,100,0)" fill="rgb(153,100,0)">
-<circle cx="-4981" cy="246" r="2.25"/>
-<circle cx="-4909" cy="104" r="2.25"/>
-<circle cx="-4913" cy="100" r="2.25"/>
-<circle cx="-4943" cy="89" r="2.25"/>
-<circle cx="-4986" cy="253" r="2.25"/>
-<circle cx="-5000" cy="250" r="2.25"/>
-<circle cx="-4963" cy="85" r="2.25"/>
-<circle cx="-4965" cy="88" r="2.25"/>
-<circle cx="-4965" cy="96" r="2.25"/>
-<circle cx="-5006" cy="185" r="2.25"/>
-<circle cx="-5028" cy="211" r="2.25"/>
-<circle cx="-4958" cy="187" r="2.25"/>
-<circle cx="-4962" cy="19" r="2.25"/>
-<circle cx="-4970" cy="85" r="2.25"/>
-<circle cx="-5012" cy="113" r="2.25"/>
-<circle cx="-4922" cy="-24" r="2.25"/>
-<circle cx="-4952" cy="15" r="2.25"/>
-<circle cx="-4954" cy="11" r="2.25"/>
-<circle cx="-4959" cy="2" r="2.25"/>
-<circle cx="-4960" cy="3" r="2.25"/>
-<circle cx="-4960" cy="3" r="2.25"/>
-<circle cx="-4962" cy="13" r="2.25"/>
-<circle cx="-4964" cy="17" r="2.25"/>
-<circle cx="-4964" cy="18" r="2.25"/>
-<circle cx="-4996" cy="100" r="2.25"/>
-<circle cx="-4998" cy="182" r="2.25"/>
+<circle cx="-4951" cy="172" r="1.5"/>
+<circle cx="-4979" cy="242" r="1.5"/>
+<circle cx="-5011" cy="103" r="1.5"/>
+<circle cx="-4923" cy="29" r="1.5"/>
+<circle cx="-4924" cy="29" r="1.5"/>
+<circle cx="-4929" cy="27" r="1.5"/>
+<circle cx="-4931" cy="26" r="1.5"/>
+<circle cx="-4936" cy="23" r="1.5"/>
+<circle cx="-4943" cy="155" r="1.5"/>
+<circle cx="-4961" cy="87" r="1.5"/>
+<circle cx="-4923" cy="36" r="1.5"/>
+<circle cx="-4958" cy="187" r="1.5"/>
+<circle cx="-5012" cy="114" r="1.5"/>
+<circle cx="-5028" cy="235" r="1.5"/>
+<circle cx="-4946" cy="-12" r="1.5"/>
+<circle cx="-4949" cy="-13" r="1.5"/>
+<circle cx="-4957" cy="20" r="1.5"/>
+<circle cx="-5008" cy="262" r="1.5"/>
+<circle cx="-4939" cy="-20" r="1.5"/>
+<circle cx="-4940" cy="-21" r="1.5"/>
+<circle cx="-4941" cy="-19" r="1.5"/>
+<circle cx="-4951" cy="8" r="1.5"/>
+<circle cx="-4952" cy="14" r="1.5"/>
+<circle cx="-4954" cy="23" r="1.5"/>
+<circle cx="-4963" cy="117" r="1.5"/>
+<circle cx="-4963" cy="118" r="1.5"/>
+<circle cx="-4963" cy="9" r="1.5"/>
+<circle cx="-4965" cy="14" r="1.5"/>
+<circle cx="-4965" cy="17" r="1.5"/>
+<circle cx="-4966" cy="17" r="1.5"/>
+<circle cx="-4993" cy="96" r="1.5"/>
+<circle cx="-4994" cy="100" r="1.5"/>
+<circle cx="-5004" cy="199" r="1.5"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(255,217,0)" fill="none">
 </g>
 <g stroke="rgb(255,217,0)" fill="rgb(255,217,0)">
-<circle cx="-5022" cy="70" r="2.25"/>
-<circle cx="-5055" cy="134" r="2.25"/>
-<circle cx="-5056" cy="117" r="2.25"/>
-<circle cx="-5041" cy="99" r="2.25"/>
-<circle cx="-5020" cy="147" r="2.25"/>
-<circle cx="-5028" cy="108" r="2.25"/>
-<circle cx="-5016" cy="126" r="2.25"/>
-<circle cx="-5016" cy="60" r="2.25"/>
-<circle cx="-5047" cy="212" r="2.25"/>
-<circle cx="-5018" cy="55" r="2.25"/>
-<circle cx="-5024" cy="99" r="2.25"/>
-<circle cx="-5011" cy="125" r="2.25"/>
-<circle cx="-5014" cy="124" r="2.25"/>
-<circle cx="-5027" cy="-63" r="2.25"/>
-<circle cx="-5028" cy="-63" r="2.25"/>
-<circle cx="-5060" cy="15" r="2.25"/>
-<circle cx="-5024" cy="62" r="2.25"/>
-<circle cx="-5024" cy="64" r="2.25"/>
-<circle cx="-5024" cy="64" r="2.25"/>
-<circle cx="-5025" cy="66" r="2.25"/>
-<circle cx="-5026" cy="67" r="2.25"/>
-<circle cx="-5035" cy="-60" r="2.25"/>
+<circle cx="-5024" cy="66" r="1.5"/>
+<circle cx="-5024" cy="90" r="1.5"/>
+<circle cx="-5025" cy="56" r="1.5"/>
+<circle cx="-5025" cy="56" r="1.5"/>
+<circle cx="-5040" cy="112" r="1.5"/>
+<circle cx="-5044" cy="108" r="1.5"/>
+<circle cx="-5022" cy="101" r="1.5"/>
+<circle cx="-5051" cy="140" r="1.5"/>
+<circle cx="-5052" cy="136" r="1.5"/>
+<circle cx="-5085" cy="97" r="1.5"/>
+<circle cx="-5091" cy="54" r="1.5"/>
+<circle cx="-5099" cy="66" r="1.5"/>
+<circle cx="-5067" cy="76" r="1.5"/>
+<circle cx="-5102" cy="61" r="1.5"/>
+<circle cx="-5010" cy="123" r="1.5"/>
+<circle cx="-5065" cy="50" r="1.5"/>
+<circle cx="-5030" cy="90" r="1.5"/>
 </g>
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="Plot_EcuadorMask_ObsFF.mv, line 82:9(FG)" id="Plot_EcuadorMask_ObsFF.mv, line 82:9(FG)"><title>Plot_EcuadorMask_ObsFF.mv, line 82:9(FG)</title>
+<g inkscape:groupmode="layer" inkscape:label="Plot_PointFR_with_Emask.mv, line 101:40(FG)" id="Plot_PointFR_with_Emask.mv, line 101:40(FG)"><title>Plot_PointFR_with_Emask.mv, line 101:40(FG)</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g fill-rule="evenodd" stroke="none">
@@ -279,7 +283,7 @@ M-5072.45 191.709L-5073.94 191.324L-5074.85 190.845L-5075.22 189.449L-5074.84 18
 <g>
 <g id="TextVisitor0" inkscape:label="TextVisitor0" transform="translate(60,-483.502)">
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,102)">
-<text x="195.999" y="-2.6936" dominant-baseline="no-change">Sunday 14 November 2021 12 UTC ecmf t+12 VT:Monday 15 November 2021 00 UTC surface  Total precipitation </text>
+<text x="195.999" y="-2.6936" dominant-baseline="no-change">Monday 13 December 2021 12 UTC ecmf t+12 VT:Tuesday 14 December 2021 00 UTC surface  Total precipitation </text>
 </g>
 </g>
 </g>

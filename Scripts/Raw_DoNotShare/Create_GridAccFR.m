@@ -15,7 +15,8 @@ EFFCI_list = [1,6,10];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 FileIN_Emask = "Data/Raw/EcuadorMasks/Emask_ENS.csv";
 FileIN_PointFR = "Data/Raw_DoNotShare/PointFR_Mod/Ecu_FF_Hist_ECMWF_mod.csv";
-DirOUT = "Data/Raw/GridAccFR_";
+DirOUT_GridAccFR = "Data/Raw/GridAccFR_";
+DirOUT_NumAccFR = "Data/Raw/NumAccFR_";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -37,13 +38,17 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     
     % Selecting the EFFCI threshold to consider
     EFFCI = EFFCI_list(ind_EFFCI);
-    disp(" ")
     disp(strcat(" - Considering flood reports with EFFCI>=",num2str(EFFCI)))
     
     % Creating the output directory for the .csv files
-    DirOUT_temp = strcat(Git_repo, "/", DirOUT, num2str(Acc,"%03.f"), "/EFFCI", num2str(EFFCI,'%02.f'));
-    if ~exist(DirOUT_temp, 'dir')
-       mkdir(DirOUT_temp)
+    DirOUT_GridAccFR_temp = strcat(Git_repo, "/", DirOUT_GridAccFR, num2str(Acc,"%03.f"), "/EFFCI", num2str(EFFCI,'%02.f'));
+    if ~exist(DirOUT_GridAccFR_temp, 'dir')
+       mkdir(DirOUT_GridAccFR_temp)
+    end
+    
+    DirOUT_NumAccFR_temp = strcat(Git_repo, "/", DirOUT_NumAccFR, num2str(Acc,"%03.f"), "/EFFCI", num2str(EFFCI,'%02.f'));
+    if ~exist(DirOUT_NumAccFR_temp, 'dir')
+       mkdir(DirOUT_NumAccFR_temp)
     end
     
     % Reading the flood reports for the correspondent year and EFFCI
@@ -53,8 +58,8 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     % Initiating the variable that will store the number of point and 
     % gridded flood reports in each accumulation period. Note that the end
     % of the correspondent accumulation period will be stored.
-    Num_PointFR = cell(0);
-    Num_GridFR = cell(0);
+    NumAccFR_Point = cell(0);
+    NumAccFR_Grid = cell(0);
     
     for TheDate = datenum(Year,1,1) : datenum(Year,12,31)
         
@@ -75,8 +80,8 @@ for ind_EFFCI = 1 : length(EFFCI_list)
             % The grid-boxes that have at least one point flood report are
             % set to 1; otherwise, they are set to 0.
             GridAccFR = GridAccFR_template;
-            Num_PointFR_temp = 0;
-            Num_GridFR_temp = 0;
+            NumAccFR_Point_temp = 0;
+            NumAccFR_Grid_temp = 0;
             
             if ~isempty(pointer_pointFR)
                 
@@ -84,19 +89,19 @@ for ind_EFFCI = 1 : length(EFFCI_list)
                 pointer_gridFR = dsearchn(Emask(:,1:2),coord_pointFR);
                 GridAccFR(pointer_gridFR,3) = 1; 
                 
-                Num_PointFR_temp = length(pointer_pointFR);
-                Num_GridFR_temp = sum(GridAccFR(:,3));
+                NumAccFR_Point_temp = length(pointer_pointFR);
+                NumAccFR_Grid_temp = sum(GridAccFR(:,3));
             
             end
             
             % Recording the number of point and gridded flood reports in
             % each accumulation period
-            Num_PointFR = [Num_PointFR; strcat(datestr(Date_F,"yyyy-mm-dd HH"), " UTC"), num2cell(Num_PointFR_temp)];
-            Num_GridFR = [Num_GridFR; strcat(datestr(Date_F,"yyyy-mm-dd HH"), " UTC"), num2cell(Num_GridFR_temp)];
+            NumAccFR_Point = [NumAccFR_Point; strcat(datestr(Date_F,"yyyy-mm-dd HH"), " UTC"), num2cell(NumAccFR_Point_temp)];
+            NumAccFR_Grid = [NumAccFR_Grid; strcat(datestr(Date_F,"yyyy-mm-dd HH"), " UTC"), num2cell(NumAccFR_Grid_temp)];
             
             % Saving the accumulated observational field in a .csv file
             GridAccFR_table = array2table(GridAccFR,'VariableNames',{'lat','lon','AccFR_code'});
-            FileOUT = strcat(DirOUT_temp, "/GridAccFR_", datestr(Date_F, "yyyymmdd"), "_", datestr(Date_F, "HH"), ".csv");
+            FileOUT = strcat(DirOUT_GridAccFR_temp, "/GridAccFR_", datestr(Date_F, "yyyymmdd"), "_", datestr(Date_F, "HH"), ".csv");
             writetable(GridAccFR_table, FileOUT, 'Delimiter',',')
             
         end
@@ -105,10 +110,10 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     
     % Saving the number of point and gridded flood reports in each 
     % accumulation period
-    FileOUT1 = strcat(DirOUT_temp, "/Num_PointFR.csv");
-    writematrix(Num_PointFR, FileOUT1, 'Delimiter',',')
+    FileOUT_NumAccFR_Point = strcat(DirOUT_NumAccFR_temp, "/NumAccFR_Point.csv");
+    writematrix(["End_Acc_Period", "NumAccFR_Point"; NumAccFR_Point], FileOUT_NumAccFR_Point, 'Delimiter',',')
     
-    FileOUT2 = strcat(DirOUT_temp, "/Num_GridFR.csv");
-    writematrix(Num_GridFR, FileOUT2, 'Delimiter',',')
+    FileOUT_NumAccFR_Grid = strcat(DirOUT_NumAccFR_temp, "/NumAccFR_Grid.csv");
+    writematrix(["End_Acc_Period", "NumAccFR_Grid"; NumAccFR_Grid], FileOUT_NumAccFR_Grid, 'Delimiter',',')
     
 end

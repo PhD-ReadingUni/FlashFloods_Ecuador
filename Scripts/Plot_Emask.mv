@@ -1,16 +1,30 @@
 # Metview Macro
 
-# Plot_EcuadorMask.mv plots Ecuador's mask for the ECMWF ENS grid
+# Plot_EcuadorMask.mv plots Ecuador's mask for ECMWF ENS grid
 
 # INPUT PARAMETERS
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
-FileIN_Emask = "Data/Processed/EcuadorMasks_ENS/Ecuador_3Regions.grib"
-DirOUT = "Data/Figures/EcuadorMask_ENS"
+FileIN_Emask_MAP = "Data/Raw/EcuadorMasks/Emask_ENS.grib"
+FileIN_Emask_GP = "Data/Raw/EcuadorMasks/Emask_ENS.csv"
+FileOUT = "Data/Figures/EcuadorMasks/Emask_ENS"
 #########################################################################
 
 
 # Read Ecuador's mask
-ecuador_mask = read(Git_repo & "/" & FileIN_Emask)
+Emask_map = read(Git_repo & "/" & FileIN_Emask_MAP)
+
+Emask_gp = read_table(
+    table_delimiter  : ",",
+    table_header_row : 1,
+    table_filename   : Git_repo & "/" & FileIN_Emask_GP
+    )
+Emask_gp_geo = create_geo(
+                type      : 'xyv',
+                latitudes : values(Emask_gp,1),
+                longitudes: values(Emask_gp,2),
+                values    : vector(count(values(Emask_gp,3)))
+                )
+
 
 # Plotting
 coastlines = mcoast(
@@ -43,8 +57,20 @@ contouring = mcont(
     contour_shade_colour_list    : ["RGB(1.0000,0.8549,0.0000)","RGB(0.6000,0.3922,0.0000)","RGB(0.0000,0.5490,0.1882)"]
     )
 
+symbol = msymb(
+    legend              : "on",
+    symbol_type         : "marker",
+    symbol_table_mode   : "on",
+    symbol_outline      : "on",
+    symbol_min_table    : [-1],
+    symbol_max_table    : [1],
+    symbol_colour_table : ["RGB(0000,0.0000,0.0000)"],
+    symbol_marker_table : 15,
+    symbol_height_table : 0.2
+    )
+
 # Saving the plot
-FileOUT = Git_repo & "/" & DirOUT & "/EcuadorMask_ENS"
-svg = svg_output(output_name: FileOUT)
+FileOUT_temp = Git_repo & "/" & FileOUT
+svg = svg_output(output_name: FileOUT_temp)
 setoutput(svg)
-plot(geo_view, ecuador_mask, contouring, coastlines)
+plot(geo_view, Emask_map, contouring, Emask_gp_geo, symbol, coastlines)
