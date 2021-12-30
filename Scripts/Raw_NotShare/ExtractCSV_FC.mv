@@ -1,0 +1,163 @@
+# Metview Macro
+
+# ExtractCSV_FC.mv extracts the rainfall values of ENS and ecPoint forecasts 
+# as csv files for the Ecuador's domain
+
+# INPUT PARAMETERS
+x = arguments()
+BaseDateS = x[1]
+BaseDateF = x[2]
+SystemFC = x[3]
+StepF_F = x[4]
+
+BaseTimeS = 0
+BaseTimeF = 12
+DiscTime = 12
+StepF_S = 12
+DiscStep = 6
+Acc = 12
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+FileIN_Emask = "Data/Raw/EcuadorMasks/Emask_ENS.grib"
+DirIN_FC = "Data/Raw_DoNotShare/FC"
+DirOUT_FC = "Data/Raw/FC_Emask_Rainfall_"
+#########################################################################
+
+
+# Set general parameters
+BaseDateS = date(BaseDateS)
+BaseDateF = date(BaseDateF)
+
+if Acc<10 then
+    AccSTR = "00" & string(Acc)
+else if (Acc>=10 and Acc<100) then
+    AccSTR = "0" & string(Acc)
+else
+    AccSTR = string(Acc)
+end if 
+
+
+# Set input/output directories
+DirIN = Git_repo & "/" & DirIN_FC & "/" & SystemFC
+DirOUT = Git_repo & "/" & DirOUT_FC & AccSTR & "/" & SystemFC 
+
+
+# Read Ecuador's mask
+Emask = read(Git_repo & "/" & FileIN_Emask)
+Emask_vals = values(Emask)
+Emask_lats = latitudes(Emask)
+Emask_lons = longitudes(Emask)
+Emask_nonzeros = find(Emask_vals,1,"all") & find(Emask_vals,2,"all") & find(Emask_vals,3,"all")
+m = count(Emask_nonzeros)
+Regs_mask = nil
+Lats_mask = nil
+Lons_mask = nil
+for i = 1 to m do
+    ind = Emask_nonzeros[i]
+    Regs_mask = Regs_mask & |round(Emask_vals[ind],2)|
+    Lats_mask = Lats_mask & |round(Emask_lats[ind],2)|
+    Lons_mask = Lons_mask & |round(Emask_lons[ind],2) - 360|
+end for
+NumGP = count(Regs_mask)
+
+
+# Extract the rainfall forecasts as csv files for the Ecuador domain
+for TheDate = BaseDateS to BaseDateF do 
+    
+    TheDateSTR = string(TheDate, "yyyymmdd")
+    
+    for TheTime = BaseTimeS to BaseTimeF by DiscTime do
+    
+        if TheTime<10 then
+            TheTimeSTR = "0" & TheTime
+        else
+            TheTimeSTR = TheTime
+        end if
+        
+        DirIN_temp = DirIN & "/" & TheDateSTR & TheTimeSTR 
+        DirOUT_temp = DirOUT & "/" & TheDateSTR & TheTimeSTR 
+        shell("mkdir -p " & DirOUT_temp)
+        
+        for StepF = StepF_S to StepF_F by DiscStep do
+        
+            StepS = StepF - Acc
+            
+            if StepS<10 then
+                StepSSTR = "00" & string(StepS)
+            else if (StepS>=10 and StepS<100) then
+                StepSSTR = "0" & string(StepS)
+            else    
+                StepSSTR = string(StepS)
+            end if
+            
+            if StepF<10 then
+                StepFSTR = "00" & string(StepF)
+            else if (StepF>=10 and StepF<100) then
+                StepFSTR = "0" & string(StepF)
+            else    
+                StepFSTR = string(StepF)
+            end if
+
+            if SystemFC = "ENS" then
+            
+                print("Post-processing " & Acc & "-hourly ENS rainfall forecasts computed on " & TheDateSTR & " at " & TheTimeSTR & " UTC (t+" & StepS & ",t+" & StepF & ")")
+                FileIN_S = DirIN_temp & "/tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepSSTR & ".grib"
+                FileIN_F = DirIN_temp & "/tp_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".grib"
+                
+                if (exist(FileIN_S) and exist(FileIN_F)) then
+                    
+                    tpS = read(FileIN_S)
+                    tpF = read(FileIN_F)
+                    tp = (tpF - tpS) * 1000
+                    tp_Emask = nearest_gridpoint(tp,Lats_mask,Lons_mask)
+                    
+                    FileOUT = DirOUT_temp & "/tp_" & AccSTR & "_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".csv"
+                    File_csv = file(FileOUT)
+                    write(File_csv, "lat,lon,ENS01,ENS02,ENS03,ENS04,ENS05,ENS06,ENS07,ENS08,ENS09,ENS10,ENS11,ENS12,ENS13,ENS14,ENS15,ENS16,ENS17,ENS18,ENS19,ENS20,ENS21,ENS22,ENS23,ENS24,ENS25,ENS26,ENS27,ENS28,ENS29,ENS30,ENS31,ENS32,ENS33,ENS34,ENS35,ENS36,ENS37,ENS38,ENS39,ENS40,ENS41,ENS42,ENS43,ENS44,ENS45,ENS46,ENS47,ENS48,ENS49,ENS50,ENS51",newline)
+                    for i = 1 to NumGP do
+                        append(File_csv, Lats_mask[i], ",", Lons_mask[i], ",", 
+                        round(tp_Emask[01][i],3), ",", round(tp_Emask[02][i],3), ",", round(tp_Emask[03][i],3), ",", round(tp_Emask[04][i],3), ",", round(tp_Emask[05][i],3), ",", round(tp_Emask[06][i],3), ",", round(tp_Emask[07][i],3), ",", round(tp_Emask[08][i],3), ",", round(tp_Emask[09][i],3), ",", round(tp_Emask[10][i],3), ",",
+                        round(tp_Emask[11][i],3), ",", round(tp_Emask[12][i],3), ",", round(tp_Emask[13][i],3), ",", round(tp_Emask[14][i],3), ",", round(tp_Emask[15][i],3), ",", round(tp_Emask[16][i],3), ",", round(tp_Emask[17][i],3), ",", round(tp_Emask[18][i],3), ",", round(tp_Emask[19][i],3), ",", round(tp_Emask[20][i],3), ",",
+                        round(tp_Emask[21][i],3), ",", round(tp_Emask[22][i],3), ",", round(tp_Emask[23][i],3), ",", round(tp_Emask[24][i],3), ",", round(tp_Emask[25][i],3), ",", round(tp_Emask[26][i],3), ",", round(tp_Emask[27][i],3), ",", round(tp_Emask[28][i],3), ",", round(tp_Emask[29][i],3), ",", round(tp_Emask[30][i],3), ",",
+                        round(tp_Emask[31][i],3), ",", round(tp_Emask[32][i],3), ",", round(tp_Emask[33][i],3), ",", round(tp_Emask[34][i],3), ",", round(tp_Emask[35][i],3), ",", round(tp_Emask[36][i],3), ",", round(tp_Emask[37][i],3), ",", round(tp_Emask[38][i],3), ",", round(tp_Emask[39][i],3), ",", round(tp_Emask[40][i],3), ",",
+                        round(tp_Emask[41][i],3), ",", round(tp_Emask[42][i],3), ",", round(tp_Emask[43][i],3), ",", round(tp_Emask[44][i],3), ",", round(tp_Emask[45][i],3), ",", round(tp_Emask[46][i],3), ",", round(tp_Emask[47][i],3), ",", round(tp_Emask[48][i],3), ",", round(tp_Emask[49][i],3), ",", round(tp_Emask[50][i],3), ",", 
+                        round(tp_Emask[51][i],3), newline)
+                    end for
+                    
+                end if
+                
+            else if SystemFC = "ecPoint" then
+            
+                print("Post-processing " & Acc & "-hourly ecPoint rainfall forecasts computed on " & TheDateSTR & " at " & TheTimeSTR & " UTC (t+" & StepS & ",t+" & StepF & ")")
+                FileIN = DirIN_temp & "/Pt_BC_PERC_" & AccSTR & "_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".grib"
+                
+                if exist(FileIN) then 
+                
+                    tp = read(FileIN)
+                    tp_Emask = nearest_gridpoint(tp,Lats_mask,Lons_mask)
+                    
+                    FileOUT = DirOUT_temp & "/tp_" & AccSTR & "_" & TheDateSTR & "_" & TheTimeSTR & "_" & StepFSTR & ".csv"
+                    File_csv = file(FileOUT)
+                    write(File_csv, "lat,lon,ecPoint_P01,ecPoint_P02,ecPoint_P03,ecPoint_P04,ecPoint_P05,ecPoint_P06,ecPoint_P07,ecPoint_P08,ecPoint_P09,ecPoint_P10,ecPoint_P11,ecPoint_P12,ecPoint_P13,ecPoint_P14,ecPoint_P15,ecPoint_P16,ecPoint_P17,ecPoint_P18,ecPoint_P19,ecPoint_P20,ecPoint_P21,ecPoint_P22,ecPoint_P23,ecPoint_P24,ecPoint_P25,ecPoint_P26,ecPoint_P27,ecPoint_P28,ecPoint_P29,ecPoint_P30,ecPoint_P31,ecPoint_P32,ecPoint_P33,ecPoint_P34,ecPoint_P35,ecPoint_P36,ecPoint_P37,ecPoint_P38,ecPoint_P39,ecPoint_P40,ecPoint_P41,ecPoint_P42,ecPoint_P43,ecPoint_P44,ecPoint_P45,ecPoint_P46,ecPoint_P47,ecPoint_P48,ecPoint_P49,ecPoint_P50,ecPoint_P51,ecPoint_P52,ecPoint_P53,ecPoint_P54,ecPoint_P55,ecPoint_P56,ecPoint_P57,ecPoint_P58,ecPoint_P59,ecPoint_P60,ecPoint_P61,ecPoint_P62,ecPoint_P63,ecPoint_P64,ecPoint_P65,ecPoint_P66,ecPoint_P67,ecPoint_P68,ecPoint_P69,ecPoint_P70,ecPoint_P71,ecPoint_P72,ecPoint_P73,ecPoint_P74,ecPoint_P75,ecPoint_P76,ecPoint_P77,ecPoint_P78,ecPoint_P79,ecPoint_P80,ecPoint_P81,ecPoint_P82,ecPoint_P83,ecPoint_P84,ecPoint_P85,ecPoint_P86,ecPoint_P87,ecPoint_P88,ecPoint_P89,ecPoint_P90,ecPoint_P91,ecPoint_P92,ecPoint_P93,ecPoint_P94,ecPoint_P95,ecPoint_P96,ecPoint_P97,ecPoint_P98,ecPoint_P99",newline)
+                    for i = 1 to count(tp_Emask[1]) do
+                        append(File_csv, Lats_mask[i], ",", Lons_mask[i], ",", 
+                        round(tp_Emask[01][i],3), ",", round(tp_Emask[02][i],3), ",", round(tp_Emask[03][i],3), ",", round(tp_Emask[04][i],3), ",", round(tp_Emask[05][i],3), ",", round(tp_Emask[06][i],3), ",", round(tp_Emask[07][i],3), ",", round(tp_Emask[08][i],3), ",", round(tp_Emask[09][i],3), ",", round(tp_Emask[10][i],3), ",",
+                        round(tp_Emask[11][i],3), ",", round(tp_Emask[12][i],3), ",", round(tp_Emask[13][i],3), ",", round(tp_Emask[14][i],3), ",", round(tp_Emask[15][i],3), ",", round(tp_Emask[16][i],3), ",", round(tp_Emask[17][i],3), ",", round(tp_Emask[18][i],3), ",", round(tp_Emask[19][i],3), ",", round(tp_Emask[20][i],3), ",",
+                        round(tp_Emask[21][i],3), ",", round(tp_Emask[22][i],3), ",", round(tp_Emask[23][i],3), ",", round(tp_Emask[24][i],3), ",", round(tp_Emask[25][i],3), ",", round(tp_Emask[26][i],3), ",", round(tp_Emask[27][i],3), ",", round(tp_Emask[28][i],3), ",", round(tp_Emask[29][i],3), ",", round(tp_Emask[30][i],3), ",",
+                        round(tp_Emask[31][i],3), ",", round(tp_Emask[32][i],3), ",", round(tp_Emask[33][i],3), ",", round(tp_Emask[34][i],3), ",", round(tp_Emask[35][i],3), ",", round(tp_Emask[36][i],3), ",", round(tp_Emask[37][i],3), ",", round(tp_Emask[38][i],3), ",", round(tp_Emask[39][i],3), ",", round(tp_Emask[40][i],3), ",",
+                        round(tp_Emask[41][i],3), ",", round(tp_Emask[42][i],3), ",", round(tp_Emask[43][i],3), ",", round(tp_Emask[44][i],3), ",", round(tp_Emask[45][i],3), ",", round(tp_Emask[46][i],3), ",", round(tp_Emask[47][i],3), ",", round(tp_Emask[48][i],3), ",", round(tp_Emask[49][i],3), ",", round(tp_Emask[50][i],3), ",",
+                        round(tp_Emask[51][i],3), ",", round(tp_Emask[52][i],3), ",", round(tp_Emask[53][i],3), ",", round(tp_Emask[54][i],3), ",", round(tp_Emask[55][i],3), ",", round(tp_Emask[56][i],3), ",", round(tp_Emask[57][i],3), ",", round(tp_Emask[58][i],3), ",", round(tp_Emask[59][i],3), ",", round(tp_Emask[60][i],3), ",",
+                        round(tp_Emask[61][i],3), ",", round(tp_Emask[62][i],3), ",", round(tp_Emask[63][i],3), ",", round(tp_Emask[64][i],3), ",", round(tp_Emask[65][i],3), ",", round(tp_Emask[66][i],3), ",", round(tp_Emask[67][i],3), ",", round(tp_Emask[68][i],3), ",", round(tp_Emask[69][i],3), ",", round(tp_Emask[70][i],3), ",",
+                        round(tp_Emask[71][i],3), ",", round(tp_Emask[72][i],3), ",", round(tp_Emask[73][i],3), ",", round(tp_Emask[74][i],3), ",", round(tp_Emask[75][i],3), ",", round(tp_Emask[76][i],3), ",", round(tp_Emask[77][i],3), ",", round(tp_Emask[78][i],3), ",", round(tp_Emask[79][i],3), ",", round(tp_Emask[80][i],3), ",",
+                        round(tp_Emask[81][i],3), ",", round(tp_Emask[82][i],3), ",", round(tp_Emask[83][i],3), ",", round(tp_Emask[84][i],3), ",", round(tp_Emask[85][i],3), ",", round(tp_Emask[86][i],3), ",", round(tp_Emask[87][i],3), ",", round(tp_Emask[88][i],3), ",", round(tp_Emask[89][i],3), ",", round(tp_Emask[90][i],3), ",",
+                        round(tp_Emask[91][i],3), ",", round(tp_Emask[92][i],3), ",", round(tp_Emask[93][i],3), ",", round(tp_Emask[94][i],3), ",", round(tp_Emask[95][i],3), ",", round(tp_Emask[96][i],3), ",", round(tp_Emask[97][i],3), ",", round(tp_Emask[98][i],3), ",", round(tp_Emask[99][i],3),newline)
+                    end for
+                    
+                end if       
+                
+             end if
+            
+        end for
+    
+    end for            
+
+end for

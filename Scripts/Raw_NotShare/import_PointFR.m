@@ -1,6 +1,6 @@
-function [ObsFF] = import_ObsFF(filename, Year, Thr_EFFCI)
+function [ObsFF] = import_PointFR(filename, Year, Thr_EFFCI)
 
-% Read the raw flash flood observations
+% Read the raw point flood observations
 opts = delimitedTextImportOptions("NumVariables", 47);
 opts.DataLines = [3, Inf];
 opts.Delimiter = ",";
@@ -38,14 +38,14 @@ ObsFF_temp.Georegion(pointer1) = "1";
 ObsFF_temp.Georegion(pointer2) = "2"; 
 ObsFF_temp.Georegion(pointer3) = "3"; 
 
-% Add a datetime array for the flash flood reports' dates
+% Add a datetime array to the flood reports' dates
 [h,m,s] = hms(ObsFF_temp.Hora);
 ObsFF_temp.DateTimeNum = datenum(ObsFF_temp.year, ObsFF_temp.month, ObsFF_temp.day,h,m,s);
 
-% Extract observations for a specific year
+% Extract flood reports for a specific year
 ObsFF_temp = ObsFF_temp(ObsFF_temp.year==Year,:);
 
-% Extract flash flood observations for a specific EFFCI threshold
+% Extract flood reports for a specific EFFCI threshold
 ObsFF = ObsFF_temp(ObsFF_temp.EFFCI>=Thr_EFFCI,:);
 
 end

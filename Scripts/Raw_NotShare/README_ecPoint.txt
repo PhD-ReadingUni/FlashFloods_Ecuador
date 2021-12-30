@@ -1,32 +1,19 @@
-The ecPoint-Rainfall forecasts have been downloaded from the ECFS directory ec/:ecpoint
-The total amount of forecasts that sould be available is:
-2019) 365 days * 2 runs/day * 40 12-hourly overlapping steps = 29200 forecasts
-2020) 366 days * 2 runs/day * 40 12-hourly overlapping steps = 29280 forecasts
+ecPoint-Rainfall forecasts were downloaded from the ECFS archive.
 
-For 2019, the following 0.04% of data is not available:
-01) 20190630, 00 UTC (t+012)
-02) 20190720, 12 UTC (t+090)
-03) 20190720, 12 UTC (t+096)
-04) 20190720, 12 UTC (t+102)
-05) 20190803, 00 UTC (t+150)
-06) 20190803, 00 UTC (t+180)
-07) 20190803, 00 UTC (t+186)
-08) 20190803, 00 UTC (t+192)
-09) 20191217, 00 UTC (t+030)
-10) 20191217, 00 UTC (t+036)
-11) 20191217, 00 UTC (t+042)
-12) 20191217, 00 UTC (t+054)
+For 2019, the following forecasts are not available:
+1) 20190630, 00 UTC (t+012)
+2) 20191217, 00 UTC (t+030)
 
-For 2020, the following 0.5% of data is not available:
-01) 20200819, 00 UTC (t+246)
-02) 20200820, 00 UTC (t+246)
-03) 20200821, 00 UTC (t+246)
-04) 20200822, 00 UTC (t+222)
-05) 20200822, 00 UTC (t+246)
-06) 20200823, 00 UTC (t+246)
-07) 20200825, 00 UTC (t+246)
-08) 20200826, 00 UTC (t+246)
-09) 20200828, 00 UTC (t+246)
+For 2020, the following forecasts are not available:
+1) 20200819, 00 UTC (t+246)
+2) 20200820, 00 UTC (t+246)
+3) 20200821, 00 UTC (t+246)
+4) 20200822, 00 UTC (t+222)
+5) 20200822, 00 UTC (t+246)
+6) 20200823, 00 UTC (t+246)
+7) 20200825, 00 UTC (t+246)
+8) 20200826, 00 UTC (t+246)
+9) 20200828, 00 UTC (t+246)
 10) 20200829, 00 UTC (t+246)
 11) 20200831, 00 UTC (t+246)
 12) 20200901, 00 UTC (t+246)

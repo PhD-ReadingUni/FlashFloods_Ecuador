@@ -7,7 +7,7 @@ DateF=2020-12-31
 StepS=0
 StepF=246
 Git_repo="/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
-DirOUT="Data/Raw/ENS"
+DirOUT="Data/Raw_DoNotShare/FC/ENS"
 #################################################################
 
 # Setting some general parameters

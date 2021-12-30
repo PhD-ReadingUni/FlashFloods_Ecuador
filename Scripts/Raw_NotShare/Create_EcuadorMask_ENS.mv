@@ -5,7 +5,7 @@
 
 # INPUT PARAMETERS
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
-DirOUT = "Data/Processed/EcuadorMasks"
+DirOUT = "Data/Raw/EcuadorMasks"
 FileName_grib_csv = "Emask_ENS"
 ######################################################################
 
