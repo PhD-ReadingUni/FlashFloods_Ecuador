@@ -1,0 +1,55 @@
+# Metview Macro
+
+Date1 = 2020-01-01
+Date2 = 2020-12-31
+Time1 = 0
+Time2 = 12
+DiscTime= 12
+Step1 = 12
+Step2 = 246
+DiscStep = 6
+
+countPR = 1
+print("The following forecasts are not available:")
+for TheDate = Date1 to Date2 do
+    
+    TheDateSTR = string(TheDate,"yyyymmdd")
+    
+    for TheTime = Time1 to Time2 by DiscTime do
+    
+        if TheTime = 0 then
+            TheTimeSTR = "0" & string(TheTime)
+        else
+            TheTimeSTR = string(TheTime)
+        end if
+        
+        for TheStep = Step1 to Step2 by DiscStep do
+            
+            if TheStep < 10 then
+                TheStepSTR = "00" & string(TheStep)
+            else if (TheStep >= 10 and TheStep < 100) then
+                TheStepSTR = "0" & string(TheStep)
+            else
+                TheStepSTR = string(TheStep)
+            end if
+            
+            Dir_temp = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador/Data/Raw_DoNotShare/FC/ecPoint/" & TheDateSTR & TheTimeSTR
+            FileName_temp = "Pt_BC_PERC_012_" & TheDateSTR & "_" & TheTimeSTR & "_" & TheStepSTR & ".grib"
+            File_temp = Dir_temp & "/" & FileName_temp
+            
+            if not exist(File_temp) then
+                
+                print(countPR & ") " & TheDateSTR & ", " & TheTimeSTR & " UTC (t+" & TheStepSTR & ")")
+                countPR = countPR + 1
+                
+            end if
+            
+        end for
+    
+    end for
+    
+end for
+
+if countPR = 1 then
+    print("All required forecasts are in the database.")
+end if
