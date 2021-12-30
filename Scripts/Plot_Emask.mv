@@ -1,0 +1,76 @@
+# Metview Macro
+
+# Plot_EcuadorMask.mv plots Ecuador's mask for ECMWF ENS grid
+
+# INPUT PARAMETERS
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+FileIN_Emask_MAP = "Data/Raw/EcuadorMasks/Emask_ENS.grib"
+FileIN_Emask_GP = "Data/Raw/EcuadorMasks/Emask_ENS.csv"
+FileOUT = "Data/Figures/EcuadorMasks/Emask_ENS"
+#########################################################################
+
+
+# Read Ecuador's mask
+Emask_map = read(Git_repo & "/" & FileIN_Emask_MAP)
+
+Emask_gp = read_table(
+    table_delimiter  : ",",
+    table_header_row : 1,
+    table_filename   : Git_repo & "/" & FileIN_Emask_GP
+    )
+Emask_gp_geo = create_geo(
+                type      : 'xyv',
+                latitudes : values(Emask_gp,1),
+                longitudes: values(Emask_gp,2),
+                values    : vector(count(values(Emask_gp,3)))
+                )
+
+
+# Plotting
+coastlines = mcoast(
+    map_coastline_resolution       : "full",
+    map_coastline_colour           : "charcoal",
+    map_coastline_thickness        : 3,
+    map_coastline_sea_shade        : "on",
+    map_coastline_sea_shade_colour : "RGB(0.7084,0.9465,0.9465)",
+    map_boundaries                 : "on",
+    map_boundaries_colour          : "blue",
+    map_boundaries_thickness       : 3,
+    map_grid                       : "off",
+    map_label                      : "off"
+    )
+
+geo_view = geoview(
+    map_area_definition : "corners",
+    area                : [1.6,-81.2,-5.11,-75],
+    coastlines          : coastlines
+    )
+
+contouring = mcont(
+    contour                      : "off",
+    contour_level_selection_type : "level_list",
+    contour_level_list           : [0.1,1.1,2.1,3.1],
+    contour_label                : "off",
+    contour_shade                : "on",
+    contour_shade_technique      : "grid_shading",
+    contour_shade_colour_method  : "list",
+    contour_shade_colour_list    : ["RGB(1.0000,0.8549,0.0000)","RGB(0.6000,0.3922,0.0000)","RGB(0.0000,0.5490,0.1882)"]
+    )
+
+symbol = msymb(
+    legend              : "on",
+    symbol_type         : "marker",
+    symbol_table_mode   : "on",
+    symbol_outline      : "on",
+    symbol_min_table    : [-1],
+    symbol_max_table    : [1],
+    symbol_colour_table : ["RGB(0000,0.0000,0.0000)"],
+    symbol_marker_table : 15,
+    symbol_height_table : 0.2
+    )
+
+# Saving the plot
+FileOUT_temp = Git_repo & "/" & FileOUT
+svg = svg_output(output_name: FileOUT_temp)
+setoutput(svg)
+plot(geo_view, Emask_map, contouring, Emask_gp_geo, symbol, coastlines)

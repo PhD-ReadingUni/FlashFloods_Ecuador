@@ -1,0 +1,154 @@
+# Metview Macro
+
+# Plot_PointFR_with_Emask.mv plots the point flood reports for Ecuador 
+# regions, for specific years and EFFCI thresholds. It includes Ecuador's 
+# mask.
+
+# INPUT PARAMETERS
+Year_list = [2019,2020]
+EFFCI_list = [1,6,10]
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+FileIN_Emask = "Data/Raw/EcuadorMasks/Emask_ENS.grib"
+DirIN_PointFR = "Data/Raw_DoNotShare/PointFR_Processed"
+DirOUT = "Data/Figures/PointFR_with_Emask"
+#########################################################################
+
+
+# Read Ecuador's mask
+Emask = read(Git_repo & "/" & FileIN_Emask)
+
+# Reading point flood reports
+for ind_Year = 1 to count(Year_list) do
+    
+    # Selecting the year to consider
+    Year = Year_list[ind_Year]
+    YearSTR = string(Year)
+    
+    for ind_EFFCI = 1 to count(EFFCI_list) do
+        
+        # Selecting the EFFCI threshold to consider
+        EFFCI = EFFCI_list[ind_EFFCI]   
+        
+        if EFFCI<10 then
+            EFFCI_STR = "0" & string(EFFCI)
+        else
+            EFFCI_STR = string(EFFCI)
+        end if            
+        
+        # Reading point flood reports for "La Costa"
+        FileIN_PointFR_costa = Git_repo & "/" & DirIN_PointFR & "/" & "PointFR_" & YearSTR & "_EFFCI" & EFFCI_STR & "_Costa.csv"
+        
+        PointFR_costa = read_table(
+            table_delimiter  : ",",
+            table_header_row : 1,
+            table_filename   : FileIN_PointFR_costa
+            )
+        
+        PointFR_costa = create_geo(
+                        type      : 'xyv',
+                        latitudes : values(PointFR_costa,1),
+                        longitudes: values(PointFR_costa,2),
+                        values    : vector(count(values(PointFR_costa,1)))+1
+                        )        
+
+        # Reading point flood reports for "La Sierra"
+        FileIN_PointFR_sierra = Git_repo & "/" & DirIN_PointFR & "/" & "PointFR_" & YearSTR & "_EFFCI" & EFFCI_STR & "_Sierra.csv"
+        
+        PointFR_sierra = read_table(
+            table_delimiter  : ",",
+            table_header_row : 1,
+            table_filename   : FileIN_PointFR_sierra
+            )
+        
+        PointFR_sierra = create_geo(
+                        type      : 'xyv',
+                        latitudes : values(PointFR_sierra,1),
+                        longitudes: values(PointFR_sierra,2),
+                        values    : vector(count(values(PointFR_sierra,1)))+2
+                        )
+
+        # Reading point flood reports for "El Oriente"
+        FileIN_PointFR_oriente = Git_repo & "/" & DirIN_PointFR & "/" & "PointFR_" & YearSTR & "_EFFCI" & EFFCI_STR & "_Oriente.csv"
+        
+        PointFR_oriente = read_table(
+            table_delimiter  : ",",
+            table_header_row : 1,
+            table_filename   : FileIN_PointFR_oriente
+            )
+        
+        PointFR_oriente = create_geo(
+                        type      : 'xyv',
+                        latitudes : values(PointFR_oriente,1),
+                        longitudes: values(PointFR_oriente,2),
+                        values    : vector(count(values(PointFR_oriente,1)))+3
+                        )
+
+        # Merging the point flood reports for all the regions
+        PointFR = PointFR_costa & PointFR_sierra & PointFR_oriente
+
+        # Plotting
+        coastlines = mcoast(
+            map_coastline_resolution       : "full",
+            map_coastline_colour           : "charcoal",
+            map_coastline_thickness        : 3,
+            map_coastline_sea_shade        : "on",
+            map_coastline_sea_shade_colour : "RGB(0.7084,0.9465,0.9465)",
+            map_boundaries                 : "on",
+            map_boundaries_colour          : "blue",
+            map_boundaries_thickness       : 3,
+            map_grid                       : "off",
+            map_label                      : "off"
+            )
+
+        geo_view = geoview(
+            map_area_definition : "corners",
+            area                : [1.6,-81.2,-5.11,-75],
+            coastlines          : coastlines
+            )
+
+        contouring = mcont(
+            contour                      : "off",
+            contour_level_selection_type : "level_list",
+            contour_level_list           : [0.1,1.1,2.1,3.1],
+            contour_label                : "off",
+            contour_shade                : "on",
+            contour_shade_technique      : "grid_shading",
+            contour_shade_colour_method  : "list",
+            contour_shade_colour_list    : ["RGB(1.0000,0.8549,0.0000)","RGB(0.6000,0.3922,0.0000)","RGB(0.0000,0.5490,0.1882)"]
+            )
+
+        symbol_black = msymb(
+            legend              : "on",
+            symbol_type         : "marker",
+            symbol_table_mode   : "on",
+            symbol_outline      : "on",
+            symbol_min_table    : [0.1],
+            symbol_max_table    : [3.1],
+            symbol_colour_table : ["RGB(0000,0.0000,0.0000)"],
+            symbol_marker_table : 15,
+            symbol_height_table : 0.3
+            )
+
+        symbol = msymb(
+            legend              : "on",
+            symbol_type         : "marker",
+            symbol_table_mode   : "on",
+            symbol_outline      : "on",
+            symbol_min_table    : [0.1,1.1,2.1],
+            symbol_max_table    : [1.1,2.1,3.1],
+            symbol_colour_table : ["RGB(1.0000,0.8549,0.0000)", # 1 (La Costa)
+                                   "RGB(0.6000,0.3922,0.0000)", # 2 (La Sierra)
+                                   "RGB(0.0000,0.5490,0.1882)"], # 3 (El Oriente)
+            symbol_marker_table : 15,
+            symbol_height_table : 0.2
+            )
+
+        # Saving the plot
+        FileOUT = Git_repo & "/" & DirOUT & "/PointFR_" & YearSTR & "_EFFCI" & EFFCI_STR
+        svg = svg_output(output_name: FileOUT)
+        setoutput(svg)
+        plot(geo_view, Emask, contouring, PointFR, symbol_black, symbol, coastlines)
+        
+    end for
+    
+end for
