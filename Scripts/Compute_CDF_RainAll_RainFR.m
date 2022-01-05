@@ -49,108 +49,108 @@ FileIN_FR = strcat(Git_repo, "/", FileIN_PointFR);
 % Creating the CDF of the distribution of all rainfall values using day1 
 % ENS and ecPoint forecasts
 % disp("Creating the CDF of the distribution of all rainfall values using day1 ENS and ecPoint forecasts")
-% 
-% for indFC = 1 : length(SystemFC_list)
-%      
-%     % Selecting the forecasting system to consider
-%     SystemFC = SystemFC_list(indFC);
-%     disp(strcat(" - Considering '", SystemFC, "'"))
-%     
-%     DirIN_FC_temp = strcat(Git_repo, "/", DirIN_FC, AccSTR, "/", SystemFC);
-%     
-%     for indRegion = 1 : length(Region_list)
-%     
-%         % Selecting the region to consider
-%         Region = Region_list(indRegion);
-%         RegionName = RegionName_list(indRegion);
-%         disp(strcat("   - Considering the region '", RegionName, "'"))
-%         
-%         pointer_region = find(Emask(:,3)==Region);
-%         FC = [];
-%         RainExt = [];
-%         
-%         for TheDate = date1 : date2
-%             
-%             % Selecting the forecast dates to consider
-%             
-%             % NOTE: the following accumulation periods are going to be considered
-%             % for Day(x):
-%             %  - Period n.1 (P1): from 00 to 12 UTC
-%             %  - Period n.2 (P2): from 06 to 18 UTC
-%             %  - Period n.3 (P3): from 12 to 00 (of the following day) UTC
-%             %  - Period n.4 (P4): from 18 to 06 (of the following day) UTC
-%             % The day1 forecasts to consider are:
-%             %  - P1: Day(x), 00 UTC (t+0,t+12)
-%             %  - P2: Day(x), 00 UTC (t+6,t+18)
-%             %  - P3: Day(x), 00 UTC (t+12,t+24)
-%             %  - P4: Day(x), 00 UTC (t+18,t+30)
-%             %  - P1: Day(x-1), 12 UTC (t+12,t+24)
-%             %  - P2: Day(x-1), 12 UTC (t+18,t+30)
-%             %  - P3: Day(x), 12 UTC (t+0,t+12)
-%             %  - P4: Day(x), 12 UTC (t+6,t+18)
-%             
-%             TheDateSTR_x = datestr(TheDate, "yyyymmdd");
-%             TheDateSTR_1x = datestr(TheDate-1, "yyyymmdd");
-%             
-%             FileIN_FC_list = [strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_012.csv");
-%                               strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_018.csv");
-%                               strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_024.csv");
-%                               strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_030.csv");
-%                               strcat(DirIN_FC_temp, "/", TheDateSTR_1x, "12/tp_", AccSTR, "_", TheDateSTR_1x, "_12_024.csv");
-%                               strcat(DirIN_FC_temp, "/", TheDateSTR_1x, "12/tp_", AccSTR, "_", TheDateSTR_1x, "_12_030.csv");
-%                               strcat(DirIN_FC_temp, "/", TheDateSTR_x, "12/tp_", AccSTR, "_", TheDateSTR_x, "_12_012.csv");
-%                               strcat(DirIN_FC_temp, "/", TheDateSTR_x, "12/tp_", AccSTR, "_", TheDateSTR_x, "_12_018.csv")];
-%             
-%             % Initializing the variable that will contain all the rainfall
-%             % forecasts associated to each single day
-%             FC_Day = [];             
-%                           
-%             % Reading the forecasts
-%             FC_Day = [];              
-%             for i = 1 : length(FileIN_FC_list)
-%                 FileIN_FC = FileIN_FC_list(i);
-%                 if isfile(FileIN_FC)
-%                     FC_temp = import_FC(FileIN_FC,SystemFC);
-%                     FC_Day = [FC_Day; FC_temp(pointer_region,3:end)];
-%                 end
-%             end
-%             
-%             % Computing the distribution of extreme rainfall values (given 
-%             % by user percentiles), for all points, for each day
-%             RainExt = [RainExt; round(prctile(FC_Day(:),PercExt_list),3)];
-%             
-%             % Assembling the forecasts for the whole period
-%             FC = [FC; FC_Day(:)];
-%             
-%         end
-%         
-%         % Computing the percentiles for all points, for the whole period
-%         CDF_All = array2table([Percs', round(prctile(FC,Percs)',3)],'VariableNames', {'Percentiles','Rainfall Values'});
-%         
-%         % Saving the percentiles
-%         DirOUT_temp = strcat(Git_repo, "/", DirOUT, AccSTR, "/RainAll/", SystemFC, "/", RegionName);
-%         if ~exist(DirOUT_temp, 'dir')
-%             mkdir(DirOUT_temp)
-%         end
-%         FileOUT = strcat(DirOUT_temp, strcat("/RainCDF_All.csv"));
-%         writetable(CDF_All,FileOUT,'Delimiter',',')
-%         
-%         % Computing the percentiles for the extreme rainfall values, for
-%         % all points, for the whole period
-%         for i = 1 : length(PercExt_list)
-%             
-%             PercExt = PercExt_list(i);
-%             PercExtSTR = num2str(PercExt, strcat('%0',num2str(LZ_Perc),'.f'));
-%             
-%             FileOUT = strcat(DirOUT_temp, strcat("/RainCDF_RainExt", PercExtSTR, ".csv"));
-%             CDF_RainExt = array2table([Percs', round(prctile(RainExt(:,i),Percs)',3)],'VariableNames', {'Percentiles','Rainfall Values'});
-%             writetable(CDF_RainExt,FileOUT,'Delimiter',',')
-%             
-%         end
-%             
-%     end
-%     
-% end
+
+for indFC = 1 : length(SystemFC_list)
+     
+    % Selecting the forecasting system to consider
+    SystemFC = SystemFC_list(indFC);
+    disp(strcat(" - Considering '", SystemFC, "'"))
+    
+    DirIN_FC_temp = strcat(Git_repo, "/", DirIN_FC, AccSTR, "/", SystemFC);
+    
+    for indRegion = 1 : length(Region_list)
+    
+        % Selecting the region to consider
+        Region = Region_list(indRegion);
+        RegionName = RegionName_list(indRegion);
+        disp(strcat("   - Considering the region '", RegionName, "'"))
+        
+        pointer_region = find(Emask(:,3)==Region);
+        FC = [];
+        RainExt = [];
+        
+        for TheDate = date1 : date2
+            
+            % Selecting the forecast dates to consider
+            
+            % NOTE: the following accumulation periods are going to be considered
+            % for Day(x):
+            %  - Period n.1 (P1): from 00 to 12 UTC
+            %  - Period n.2 (P2): from 06 to 18 UTC
+            %  - Period n.3 (P3): from 12 to 00 (of the following day) UTC
+            %  - Period n.4 (P4): from 18 to 06 (of the following day) UTC
+            % The day1 forecasts to consider are:
+            %  - P1: Day(x), 00 UTC (t+0,t+12)
+            %  - P2: Day(x), 00 UTC (t+6,t+18)
+            %  - P3: Day(x), 00 UTC (t+12,t+24)
+            %  - P4: Day(x), 00 UTC (t+18,t+30)
+            %  - P1: Day(x-1), 12 UTC (t+12,t+24)
+            %  - P2: Day(x-1), 12 UTC (t+18,t+30)
+            %  - P3: Day(x), 12 UTC (t+0,t+12)
+            %  - P4: Day(x), 12 UTC (t+6,t+18)
+            
+            TheDateSTR_x = datestr(TheDate, "yyyymmdd");
+            TheDateSTR_1x = datestr(TheDate-1, "yyyymmdd");
+            
+            FileIN_FC_list = [strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_012.csv");
+                              strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_018.csv");
+                              strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_024.csv");
+                              strcat(DirIN_FC_temp, "/", TheDateSTR_x, "00/tp_", AccSTR, "_", TheDateSTR_x, "_00_030.csv");
+                              strcat(DirIN_FC_temp, "/", TheDateSTR_1x, "12/tp_", AccSTR, "_", TheDateSTR_1x, "_12_024.csv");
+                              strcat(DirIN_FC_temp, "/", TheDateSTR_1x, "12/tp_", AccSTR, "_", TheDateSTR_1x, "_12_030.csv");
+                              strcat(DirIN_FC_temp, "/", TheDateSTR_x, "12/tp_", AccSTR, "_", TheDateSTR_x, "_12_012.csv");
+                              strcat(DirIN_FC_temp, "/", TheDateSTR_x, "12/tp_", AccSTR, "_", TheDateSTR_x, "_12_018.csv")];
+            
+            % Initializing the variable that will contain all the rainfall
+            % forecasts associated to each single day
+            FC_Day = [];             
+                          
+            % Reading the forecasts
+            FC_Day = [];              
+            for i = 1 : length(FileIN_FC_list)
+                FileIN_FC = FileIN_FC_list(i);
+                if isfile(FileIN_FC)
+                    FC_temp = import_FC(FileIN_FC,SystemFC);
+                    FC_Day = [FC_Day; FC_temp(pointer_region,3:end)];
+                end
+            end
+            
+            % Computing the distribution of extreme rainfall values (given 
+            % by user percentiles), for all points, for each day
+            RainExt = [RainExt; round(prctile(FC_Day(:),PercExt_list),3)];
+            
+            % Assembling the forecasts for the whole period
+            FC = [FC; FC_Day(:)];
+            
+        end
+        
+        % Computing the percentiles for all points, for the whole period
+        CDF_All = array2table([Percs', round(prctile(FC,Percs)',3)],'VariableNames', {'Percentiles','Rainfall Values'});
+        
+        % Saving the percentiles
+        DirOUT_temp = strcat(Git_repo, "/", DirOUT, AccSTR, "/RainAll/", SystemFC, "/", RegionName);
+        if ~exist(DirOUT_temp, 'dir')
+            mkdir(DirOUT_temp)
+        end
+        FileOUT = strcat(DirOUT_temp, strcat("/RainCDF_All.csv"));
+        writetable(CDF_All,FileOUT,'Delimiter',',')
+        
+        % Computing the percentiles for the extreme rainfall values, for
+        % all points, for the whole period
+        for i = 1 : length(PercExt_list)
+            
+            PercExt = PercExt_list(i);
+            PercExtSTR = num2str(PercExt, strcat('%0',num2str(LZ_Perc),'.f'));
+            
+            FileOUT = strcat(DirOUT_temp, strcat("/RainCDF_RainExt", PercExtSTR, ".csv"));
+            CDF_RainExt = array2table([Percs', round(prctile(RainExt(:,i),Percs)',3)],'VariableNames', {'Percentiles','Rainfall Values'});
+            writetable(CDF_RainExt,FileOUT,'Delimiter',',')
+            
+        end
+            
+    end
+    
+end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -234,7 +234,7 @@ for indRegion = 1 : length(Region_list)
                 %     - FC_00 -> Day(x), 00 UTC (t+0,t+12)
                 %     - FC_12 -> Day(x-1), 12 UTC (t+12,t+24)
                 
-                if DateTime >= (Date_x + hours(0)) && DateTime <= (Date_x + hours(6))
+                if DateTime >= (Date_x + hours(0)) && DateTime < (Date_x + hours(6))
                     
                     FileIN_FC_list = [strcat(DirIN_FC_temp, "/", DateSTR_1x, "00/tp_", AccSTR, "_", DateSTR_1x, "_00_030.csv");
                                       strcat(DirIN_FC_temp, "/", DateSTR_x, "00/tp_", AccSTR, "_", DateSTR_x, "_00_012.csv");
@@ -262,7 +262,7 @@ for indRegion = 1 : length(Region_list)
                 %     - FC_00 -> Day(x), 00 UTC (t+6,t+18)
                 %     - FC_12 -> Day(x-1), 12 UTC (t+18,t+30)
                 
-                if DateTime >= (Date_x + hours(6)) && DateTime <= (Date_x + hours(12))
+                if DateTime >= (Date_x + hours(6)) && DateTime < (Date_x + hours(12))
                     
                     FileIN_FC_list = [strcat(DirIN_FC_temp, "/", DateSTR_x, "00/tp_", AccSTR, "_", DateSTR_x, "_00_012.csv");
                                       strcat(DirIN_FC_temp, "/", DateSTR_x, "00/tp_", AccSTR, "_", DateSTR_x, "_00_018.csv");
@@ -290,7 +290,7 @@ for indRegion = 1 : length(Region_list)
                 %     - FC_00 -> Day(x), 00 UTC (t+12,t+24)
                 %     - FC_12 -> Day(x), 12 UTC (t+0,t+12)
                 
-                if DateTime >= (Date_x + hours(12)) && DateTime <= (Date_x + hours(18))
+                if DateTime >= (Date_x + hours(12)) && DateTime < (Date_x + hours(18))
                     
                     FileIN_FC_list = [strcat(DirIN_FC_temp, "/", DateSTR_x, "00/tp_", AccSTR, "_", DateSTR_x, "_00_018.csv");
                                       strcat(DirIN_FC_temp, "/", DateSTR_x, "00/tp_", AccSTR, "_", DateSTR_x, "_00_024.csv");
@@ -318,11 +318,11 @@ for indRegion = 1 : length(Region_list)
                 %     - FC_00 -> Day(x), 00 UTC (t+18,t+30)
                 %     - FC_12 -> Day(x), 12 UTC (t+6,t+18)
                 
-                if DateTime >= (Date_x + hours(18)) && DateTime <= (Date_x1 + hours(0))
+                if DateTime >= (Date_x + hours(18)) && DateTime < (Date_x1 + hours(0))
                     
                     FileIN_FC_list = [strcat(DirIN_FC_temp, "/", DateSTR_x, "00/tp_", AccSTR, "_", DateSTR_x, "_00_024.csv");
                                       strcat(DirIN_FC_temp, "/", DateSTR_x, "00/tp_", AccSTR, "_", DateSTR_x, "_00_030.csv");
-                                      strcat(DirIN_FC_temp, "/", DateSTR_x, "12/tp_", AccSTR, "_", DateSTR_1x, "_12_012.csv");
+                                      strcat(DirIN_FC_temp, "/", DateSTR_x, "12/tp_", AccSTR, "_", DateSTR_x, "_12_012.csv");
                                       strcat(DirIN_FC_temp, "/", DateSTR_x, "12/tp_", AccSTR, "_", DateSTR_x, "_12_018.csv");];
                     
                     for i = 1 : length(FileIN_FC_list)
