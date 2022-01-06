@@ -15,7 +15,7 @@
 %           respectively, at least one flood report was recorded or not in 
 %           the grid-box for the considered accumulation period.
 
-function FR = import_AccFR(FileName)
+function FR = import_GridAccFR(FileName)
 
 opts = delimitedTextImportOptions("NumVariables", 3);
 opts.DataLines = [2, Inf];

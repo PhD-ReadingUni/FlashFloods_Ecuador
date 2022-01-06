@@ -66,7 +66,7 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     ylabel("Number of point flood reports")
     xticks(XTick_list)
     xticklabels(XLabel_list)
-    ylim([0 7])
+    ylim([0 10])
     grid on
     
     FileOUT_Point = strcat(DirOUT, "/NumAccFR_Point_EFFCI", num2str(EFFCI,'%02.f'), ".eps");
@@ -79,7 +79,7 @@ for ind_EFFCI = 1 : length(EFFCI_list)
     ylabel("Number of gridded flood reports")
     xticks(XTick_list)
     xticklabels(XLabel_list)
-    ylim([0 7])
+    ylim([0 10])
     grid on
     
     FileOUT_Grid = strcat(DirOUT, "/NumAccFR_Grid_EFFCI", num2str(EFFCI,'%02.f'), ".eps");
