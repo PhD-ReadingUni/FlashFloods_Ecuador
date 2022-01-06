@@ -11,8 +11,8 @@ clc
 
 % INPUT PARAMETERS
 Year = 2020;
-StepF_S = 18;
-StepF_F = 246;
+StepF_S = 12;
+StepF_F = 24;
 DiscStep = 6;
 Acc = 12;
 SystemFC_list = ["ENS","ecPoint"];
@@ -57,7 +57,6 @@ for indSystemFC = 1: length(SystemFC_list)
     % Selecting the forecasting system to consider
     SystemFC = SystemFC_list(indSystemFC);
     NumEM = NumEM_list(indSystemFC);
-    disp(" ")
     disp(strcat(" - Considering the ", SystemFC, " forecasting system"))
     
     for indRegion = 1 : length(Region_list)
@@ -65,7 +64,6 @@ for indSystemFC = 1: length(SystemFC_list)
         % Selecting the region to consider
         Region = Region_list(indRegion);
         RegionName = RegionName_list(indRegion);
-        disp(" ")
         disp(strcat("  - Considering the '", RegionName, "' region"))
         
         % Selecting the points that belong to the considered region in the
@@ -85,7 +83,7 @@ for indSystemFC = 1: length(SystemFC_list)
                 % rainfall event to verify 
                 PercCDF = PercCDF_list(indPercCDF);
                 disp(" ")
-                disp(strcat("    - Considering rainfall events >= (PercCDF=", num2str(PercCDF), "th percentile)"))
+                disp(strcat(" - Considering rainfall events >= (PercCDF=", num2str(PercCDF), "th percentile)"))
                 
                 % Reading the rainfall values that define the verification
                 % events
@@ -101,7 +99,7 @@ for indSystemFC = 1: length(SystemFC_list)
                 DiscRunTime = 12;
                 for StepF00 = StepF_S : DiscStep : StepF_F
                     
-                    disp(strcat("     - StepF=", num2str(StepF00)))
+                    disp(strcat("   - StepF=", num2str(StepF00)))
                     StepS00 = StepF00 - Acc;
                     NumDay = 1;
                     
@@ -119,10 +117,14 @@ for indSystemFC = 1: length(SystemFC_list)
                             d12 = d00;
                             StepS12 = StepS00 - DiscRunTime;
                         end
+                        
+                        % Determining the average step of end of the 
+                        % accumulation period between the 00 and 12 UTC run
                         StepF12 = StepS12 + Acc;
+                        AvStepF = (StepF00 + StepF12) / 2;
                         
                         % Creating output directory
-                        DirOUT_temp = strcat(Git_repo, "/", DirOUT, AccSTR, "/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'), "/", RegionName, "/", num2str(StepF00,'%03.f'));
+                        DirOUT_temp = strcat(Git_repo, "/", DirOUT, AccSTR, "/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/Perc", num2str(PercCDF,'%02.f'), "/", RegionName, "/", num2str(AvStepF,'%03.f'));
                         if ~exist(DirOUT_temp, "dir")
                             mkdir(DirOUT_temp)
                         end
@@ -142,41 +144,37 @@ for indSystemFC = 1: length(SystemFC_list)
                             FC12 = import_FC(FileIN_FC12,SystemFC);
                             FC = [FC00(pointer_region,3:end); FC12(pointer_region,3:end)];
                             
-                            if isfile(FileIN_FR)
+                            FR_temp = import_GridAccFR(FileIN_FR);
+                            FR = [FR_temp(pointer_region,3); FR_temp(pointer_region,3)];
+                            
+                            % Defining how many events exceed the rainfall threshold
+                            FC_exceed = (FC >= rev);
+                            FC_exceed_total = sum(FC_exceed,2);
+                            
+                            % Defining the contingency table
+                            for indEM = 1 : NumEM
                                 
-                                FR_temp = import_GridAccFR(FileIN_FR);
-                                FR = [FR_temp(pointer_region,3); FR_temp(pointer_region,3)];
+                                indCT = NumEM - indEM + 1;
                                 
-                                % Defining how many events exceed the rainfall threshold
-                                FC_exceed = (FC >= rev);
-                                FC_exceed_total = sum(FC_exceed,2);
+                                pointer_FC_YES = find(FC_exceed_total>=indEM);
+                                pointer_FC_NO = find(FC_exceed_total<indEM);
                                 
-                                % Defining the contingency table
-                                for indEM = 1 : NumEM
-                                    
-                                    indCT = NumEM - indEM + 1;
-                                    
-                                    pointer_FC_YES = find(FC_exceed_total>=indEM);
-                                    pointer_FC_NO = find(FC_exceed_total<indEM);
-                                    
-                                    FR_FC_YES = FR(pointer_FC_YES);
-                                    FR_FC_NO = FR(pointer_FC_NO);
-                                    
-                                    CT(indCT,1) = sum(FR_FC_YES==1); % hits (H)
-                                    CT(indCT,2) = sum(FR_FC_YES==0); % false alarms (FA)
-                                    CT(indCT,3) = sum(FR_FC_NO==1); % misses (M)
-                                    CT(indCT,4) = sum(FR_FC_NO==0); % correct negatives (CN)
-                                    
-                                end
+                                FR_FC_YES = FR(pointer_FC_YES);
+                                FR_FC_NO = FR(pointer_FC_NO);
                                 
-                                % Saving contingecy table
-                                CT = array2table(CT,'VariableNames', {'H','FA','M','CN'});
-                                FileOUT = strcat(DirOUT_temp,"/CT_Day", num2str(NumDay,'%03.f'), ".csv");
-                                writetable(CT,FileOUT,'Delimiter',',')
-                                
-                                NumDay = NumDay + 1;
+                                CT(indCT,1) = sum(FR_FC_YES==1); % hits (H)
+                                CT(indCT,2) = sum(FR_FC_YES==0); % false alarms (FA)
+                                CT(indCT,3) = sum(FR_FC_NO==1); % misses (M)
+                                CT(indCT,4) = sum(FR_FC_NO==0); % correct negatives (CN)
                                 
                             end
+                            
+                            % Saving contingecy table
+                            CT = array2table(CT,'VariableNames', {'H','FA','M','CN'});
+                            FileOUT = strcat(DirOUT_temp,"/CT_Day", num2str(NumDay,'%03.f'), ".csv");
+                            writetable(CT,FileOUT,'Delimiter',',')
+                            
+                            NumDay = NumDay + 1;
                         
                         end
                         
