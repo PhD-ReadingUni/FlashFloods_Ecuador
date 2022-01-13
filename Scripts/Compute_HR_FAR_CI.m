@@ -15,9 +15,9 @@ StepF_F = 246;
 DiscStep = 6;
 Acc = 12;
 
-EFFCI_list = [1,6,10];
+EFFCI_list = [6,10,1];
 
-PercCDF_list = [85,90,95,98,99];
+PercCDF_list = [99,98,95,90,85];
 PercRetentionFR = 25;
 
 SystemFC_list = ["ENS","ecPoint"];
@@ -97,7 +97,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                 
                 % Reading the rainfall values that define the verification
                 % events
-                FileIN_CDF = strcat(Git_repo, "/", DirIN_CDF, AccSTR, "/RainFR/", SystemFC, "/EFFCI", num2str(EFFCI,'%02.f'), "/", RegionName, "/RainCDF_RainExt", num2str(PercCDF,"%02.f"), ".csv");
+                FileIN_CDF = strcat(Git_repo, "/", DirIN_CDF, AccSTR, "/RainFR/ecPoint/EFFCI", num2str(EFFCI,'%02.f'), "/", RegionName, "/RainCDF_RainExt", num2str(PercCDF,"%02.f"), ".csv");
                 cdf = import_CDF(FileIN_CDF);
             
                 % Selecting the rainfall value that corresponds to a
