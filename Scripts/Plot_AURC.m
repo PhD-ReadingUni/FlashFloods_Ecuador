@@ -1,130 +1,149 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plot_AURC.m plots the Area Under the Roc Curve (AURC) for all lead times,
-% all forecasting systems considered and all Ecuador regions
+% all forecasting systems, and all regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+close all
 clear
 clc
 
 % INPUT PARAMETERS
-StepF_S = 18;
-StepF_F = 240;
+StepF_S = 12;
+StepF_F = 246;
 Disc_StepF = 6;
 Acc = 12;
 EFFCI_list = [1,6,10];
-Perc_CDF_RainFF_list = [75,85,90,95,98,99];
+PercCDF_list = [85,90,95,98,99];
 SystemFC_list = ["ENS", "ecPoint"];
-SystemFCPlot_list = ["r", "b"];
+PlotSystemFC_list = ["r", "b"];
 Region_list = [1,2];
 RegionName_list = ["Costa", "Sierra"];
-RegionPlot_list = ["o-","o--"];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
-DirIN_CT = "Data/Processed/CT_";
-DirOUT_AURC = "Data/Figures/AURC_";
+DirIN = "Data/Processed/HR_FAR_";
+DirOUT = "Data/Figures/AURC_";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Plotting the Area Under the Roc Curve (AURC)
+
+% Plotting the Area Under the ROC Curve (AURC)
 disp("Plotting Areas Under the Roc Curve (AURC)")
 
+% Setting some general parameters
+StepF_list = (StepF_S : Disc_StepF : StepF_F);
+AccSTR = num2str(Acc,"%03.f");
+XTickLabels = [];
+for i = 1 : length(StepF_list)
+    if mod(i,2) ~= 0
+        XTickLabels = [XTickLabels, num2str(StepF_list(i))];
+    else
+        XTickLabels = [XTickLabels, " "];
+    end
+end
+
+
+% Plotting the AURC
 for indEFFCI = 1 : length(EFFCI_list)
     
-    % Selecting the EFFCI to consider
+    % Selecting the EFFCI threshold to consider
     EFFCI = EFFCI_list(indEFFCI);
     disp(" ")
-    disp(strcat(" - Plotting AURC for EFFCI>", num2str(EFFCI)))
+    disp(strcat(" - Considering the flood reports with EFFCI>=",num2str(EFFCI)))
     
-    % Defining the output directory
-    DirOUT_temp = strcat(Git_repo, "/", DirOUT_AURC, num2str(Acc), "h/EFFCI", num2str(EFFCI,'%02d'));
+    % Creating output directory
+    DirOUT_temp = strcat(Git_repo, "/", DirOUT, AccSTR, "/EFFCI", num2str(EFFCI,'%02.f'));
     if ~exist(DirOUT_temp, "dir")
         mkdir(DirOUT_temp)
     end
     
-    for indPercCDF = 1 : length(Perc_CDF_RainFF_list)
+    for indPercCDF = 1 : length(PercCDF_list)
         
-        % Selecting the percentile that defines the rainfall threshold
-        PercCDF = Perc_CDF_RainFF_list(indPercCDF);
-        disp(strcat("   - PercCDF=", num2str(PercCDF)))
-        
-        % Initiating the figure that will contain the ROC plot and the
-        % variable that will contain the plot legend
-        fig = figure('visible','off');
-        LegendNames = {};
-        
-        for indSystemFC = 1 :length(SystemFC_list)
+        % Selecting the rainfall event to verify
+        PercCDF = PercCDF_list(indPercCDF);
+        disp(strcat("  - Considering rainfall events >= (PercCDF=", num2str(PercCDF), "th percentile)"))
+
+        for indRegion = 1 : length(Region_list)
             
-            % Selecting the forecasting system to consider
-            SystemFC = SystemFC_list(indSystemFC);
-            SystemFCPlot = SystemFCPlot_list(indSystemFC);
+            % Selecting the region to consider
+            Region = Region_list(indRegion);
+            RegionName = RegionName_list(indRegion);
+            disp(strcat("    - Considering the '", RegionName, "' region"))
             
-            for indRegion = 1 : length(Region_list)
+            figure('visible','off')
+            
+            for indSystemFC = 1 : length(SystemFC_list)
                 
-                % Selecting the region to consider
-                Region = Region_list(indRegion);
-                RegionName = RegionName_list(indRegion);
-                RegionPlot = RegionPlot_list(indRegion);
+                % Selecting the forecasting system to consider
+                SystemFC = SystemFC_list(indSystemFC);
+                PlotSystemFC = PlotSystemFC_list(indSystemFC);
                 
-                % Defining the number of ensemble members (EM) in the
-                % considered forecasting systems
-                if strcmp(SystemFC, "ENS")
-                    NumEM = 51;
-                elseif strcmp(SystemFC, "ecPoint")
-                    NumEM = 99;
-                end
+                % Reading the HRs and FARs
+                FileIN_temp = strcat(Git_repo, "/", DirIN, AccSTR, "/", SystemFC, "/EFFCI", num2str(EFFCI,"%02.f"), "/Perc", num2str(PercCDF,"%02.f"), "/HR_FAR_CI_", RegionName, ".mat");
+                load(FileIN_temp)
+                [m,n] = size(HR_AllSteps);
                 
                 % Computing the AURC
-                NumStepF = length(StepF_S:Disc_StepF:StepF_F);
-                AURC = zeros(NumStepF,1);
-                indStepF = 1;
-                for StepF = StepF_S : Disc_StepF : StepF_F
+                AURC = zeros(1,n);
+                AURC_low = zeros(1,n);
+                AURC_up = zeros(1,n);
+                
+                for p = 1 : n
                     
-                    % Reading the contingency table
-                    File_CT = strcat(Git_repo, "/", DirIN_CT, num2str(Acc), "h/", SystemFC, "/EFFCI", num2str(EFFCI,'%02d'), "/Perc", num2str(PercCDF,'%02d') , "/CT_", RegionName, "_", num2str(StepF,'%03d'), ".csv");
-                    [H,FA,M,CN] = import_CT(File_CT);
+                    HR = [HR_AllSteps(:,p); 1];
+                    FAR = [FAR_AllSteps(:,p); 1];
                     
-                    % Computing HR and FAR for ecPoint
-                    HR = [1; (H ./ (H + M))];
-                    FAR  = [1; (FA ./ (FA + CN))];
+                    HR_low = [HR_lowCI_AllSteps(:,p); 1];
+                    HR_up = [HR_upCI_AllSteps(:,p); 1];
+                    FAR_low = [FAR_lowCI_AllSteps(:,p); 1];
+                    FAR_up = [FAR_upCI_AllSteps(:,p); 1];
                     
-                    % Computing the AURC
-                    AURC_temp = 0;
-                    for i = NumEM : -1 : 2
-                        j = i - 1;
-                        b = HR(j);
-                        B = HR(i);
+                    for i = 1 : (m)
+                        
+                        j = i + 1;
+                        
+                        b = HR(i);
+                        B = HR(j);
                         h = FAR(j)-FAR(i);
-                        AURC_temp = AURC_temp + ((B + b) * h / 2);
+                        AURC(1,p) = AURC(1,p) + ((b+B)*h/2);
+                        
+                        b = HR_low(i);
+                        B = HR_low(j);
+                        h = FAR_low(j)-FAR_low(i);
+                        AURC_low(1,p) = AURC_low(1,p) + ((b+B)*h/2);
+                        
+                        b = HR_up(i);
+                        B = HR_up(j);
+                        h = FAR_up(j)-FAR_up(i);
+                        AURC_up(1,p) = AURC_up(1,p) + ((b+B)*h/2);
+        
+        
                     end
-                    
-                    AURC(indStepF,1) = AURC_temp;
-                    indStepF = indStepF + 1;
-                    
+    
                 end
-                
+
                 % Plotting the AURC
-                TypeCurve = strcat(SystemFCPlot,RegionPlot);
-                plot((StepF_S:Disc_StepF:StepF_F)', AURC, TypeCurve, "LineWidth", 1, 'MarkerFaceColor', SystemFCPlot)
                 hold on
+                StepF2_list = [StepF_list,fliplr(StepF_list)];
+                inBetween = [AURC_low, fliplr(AURC_up)];
+                hold on
+                fill(StepF2_list, inBetween, PlotSystemFC, "FaceAlpha", 0.1, 'LineStyle','none')
                 
-                % Building legend
-                legend_temp = strcat(SystemFC, ", ", RegionName);
-                LegendNames = [LegendNames, {legend_temp}];
+                hold on
+                plot(StepF_list, AURC, strcat(PlotSystemFC,".-"), "LineWidth", 0.5, 'MarkerFaceColor', PlotSystemFC)
                 
             end
             
-            % Adding metadata to the plot
-            plot([StepF_S,StepF_F],[0.5,0.5], "k-")
-            xticks((StepF_S:Disc_StepF:StepF_F)')
-            ylim([0.45,1])
-            xlim([StepF_S StepF_F])
-            title([strcat("AURC (PercCDF = ", num2str(PercCDF,'%02d'), "th percentile)"), strcat("EFFCI >= ",num2str(EFFCI,'%02d'))],'FontSize',16)
-            xlabel("End 12-h accumulation period (hours)",'FontSize',14)
-            ylabel("AURC",'FontSize',14)
-            %legend(LegendNames, 'Location','southeast','FontSize',12)
+            hold on
+            plot([StepF_S,StepF_F], [0.5,0.5], "k-")
+            
+            xlim([StepF_S,StepF_F])
+            xticks(StepF_list)
+            xticklabels(XTickLabels)
+            ylim([0.4,1])
+            set(gca,'FontSize',15);
             grid on
             
-            % Saving the figures as .eps
-            FileOUT = strcat(DirOUT_temp, "/AURC_PercCDF_", num2str(PercCDF,'%02d'), ".eps");
-            saveas(fig, FileOUT, "epsc")
+            % Saving the AURC
+            FileOUT = strcat(DirOUT_temp, "/AURC_Perc", num2str(PercCDF,"%02.f"), "_", RegionName, ".jpeg");
+            saveas(gcf,FileOUT, "jpeg")
             
         end
         

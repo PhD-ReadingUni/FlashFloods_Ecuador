@@ -71,6 +71,8 @@ for indEFFCI = 1 : length(EFFCI_list)
                     SystemFC = SystemFC_list(indSystemFC);
                     PlotSystemFC = PlotSystemFC_list(indSystemFC);
                     
+                    disp(SystemFC)
+                    
                     % Reading the HRs and FARs
                     FileIN_temp = strcat(Git_repo, "/", DirIN, AccSTR, "/", SystemFC, "/EFFCI", num2str(EFFCI,"%02.f"), "/Perc", num2str(PercCDF,"%02.f"), "/HR_FAR_CI_", RegionName, ".mat");
                     load(FileIN_temp)
