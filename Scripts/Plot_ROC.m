@@ -85,7 +85,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                 end
                 
                 hold on
-                plot([0,1], [0,1], "k-")
+                plot([0,1], [0,1], "k-", "LineWidth", 1)
                 
                 xlim([0 1])
                 ylim([0,1])
@@ -93,9 +93,9 @@ for indEFFCI = 1 : length(EFFCI_list)
                 grid on
                 
                 % Saving the AURC
-                FileOUT = strcat(DirOUT_temp, "/ROC_", num2str(StepF,'%03.f'), ".jpeg");
-                saveas(gcf,FileOUT, "jpeg")
-                
+                FileOUT = strcat(DirOUT_temp, "/ROC_", num2str(StepF,'%03.f'), ".tiff");
+                print(gcf,"-dtiff", "-r500",FileOUT)
+            
             end
             
             indStepF = indStepF + 1;

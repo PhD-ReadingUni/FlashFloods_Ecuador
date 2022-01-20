@@ -1,5 +1,5 @@
 # RetrieveMARS_tpENS.sh retrieves from MARS rainfall forecasts 
-# from ECMWF ENS forecsting system
+# from the ECMWF ENS forecasting system
 
 # INPUT PARAMETERS
 DateS=2020-01-01
@@ -20,7 +20,7 @@ DateF=$(date -d $DateF +%Y%m%d)
 TheDate=${DateS}
 while [[ ${TheDate} -le ${DateF} ]]; do
     
-    for Time in 12 12; do
+    for Time in 0 12; do
         
         if [[ ${Time} -eq 0 ]]; then
             TheTime=0

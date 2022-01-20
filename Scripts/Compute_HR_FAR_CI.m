@@ -52,6 +52,7 @@ BaseDateS = strcat(num2str(Year), "-01-01");
 BaseDateF = strcat(num2str(Year), "-12-31");
 dS=datenum(BaseDateS,'yyyy-mm-dd');
 dF=datenum(BaseDateF,'yyyy-mm-dd');
+NumDays_Year = dF - dS + 1;
 
 % Creating strings from numbers
 AccSTR = num2str(Acc, strcat('%03.f'));
@@ -100,9 +101,8 @@ for indEFFCI = 1 : length(EFFCI_list)
                 FileIN_CDF = strcat(Git_repo, "/", DirIN_CDF, AccSTR, "/RainFR/ecPoint/EFFCI", num2str(EFFCI,'%02.f'), "/", RegionName, "/RainCDF_RainExt", num2str(PercCDF,"%02.f"), ".csv");
                 cdf = import_CDF(FileIN_CDF);
             
-                % Selecting the rainfall value that corresponds to a
-                % certain percentage of flood report retention
-                rev = cdf(cdf(:,1)==PercRetentionFR,2);
+                % Selecting the Verifying Rainfall Event
+                vre = cdf(cdf(:,1)==PercRetentionFR,2);
                 
                 % Initialize the variables that will store the HRs and
                 % FARs, and the their correspondent confidence intervals
@@ -124,10 +124,10 @@ for indEFFCI = 1 : length(EFFCI_list)
                     
                     % Initializing the variables that will store the daily
                     % CTs 
-                    H = zeros(NumEM,366);
-                    FA = zeros(NumEM,366);
-                    M = zeros(NumEM,366);
-                    CN = zeros(NumEM,366);
+                    H = zeros(NumEM,NumDays_Year);
+                    FA = zeros(NumEM,NumDays_Year);
+                    M = zeros(NumEM,NumDays_Year);
+                    CN = zeros(NumEM,NumDays_Year);
                     
                     % Selecting the step of end accumulation period to 
                     % consider for forecasts from the 12 UTC run
@@ -135,6 +135,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                     CountDay = 1;
                     
                     for d00 = dS : dF
+                        disp(datestr(d00))
                         
                         if StepS00 < 12
                             d12 = d00 - 1;
@@ -169,10 +170,12 @@ for indEFFCI = 1 : length(EFFCI_list)
                                 
                             % Defining how many events exceed the rainfall 
                             % threshold
-                            EMs_exceedFC = (FC >= rev);
+                            EMs_exceedFC = (FC >= vre);
                             NumEMs_exceedFC = sum(EMs_exceedFC,2);
+                            p = length(NumEMs_exceedFC);
                                 
                             % Defining the contingency table
+                            FC_YES = zeros(p,1);
                             for ind_NumEM = 1 : NumEM
                                 
                                 indCT = NumEM - ind_NumEM + 1;
@@ -180,13 +183,13 @@ for indEFFCI = 1 : length(EFFCI_list)
                                 pointer_NumEMs_exceedFC_YES = find(NumEMs_exceedFC>=ind_NumEM);
                                 pointer_NumEMs_exceedFC_NO = find(NumEMs_exceedFC<ind_NumEM);
                                 
-                                FR_YES = FR(pointer_NumEMs_exceedFC_YES);
-                                FR_NO = FR(pointer_NumEMs_exceedFC_NO);
+                                FR_exceedFC_YES = FR(pointer_NumEMs_exceedFC_YES);
+                                FR_exceedFC_NO = FR(pointer_NumEMs_exceedFC_NO);
                                 
-                                H(indCT,CountDay) = sum(FR_YES==1);
-                                FA(indCT,CountDay) = sum(FR_YES==0);
-                                M(indCT,CountDay) = sum(FR_NO==1);
-                                CN(indCT,CountDay) = sum(FR_NO==0);
+                                H(indCT,CountDay) = sum(FR_exceedFC_YES==1);
+                                FA(indCT,CountDay) = sum(FR_exceedFC_YES==0);
+                                M(indCT,CountDay) = sum(FR_exceedFC_NO==1);
+                                CN(indCT,CountDay) = sum(FR_exceedFC_NO==0);
                                 
                             end
                             
