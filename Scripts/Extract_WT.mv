@@ -4,12 +4,12 @@
 
 # INPUT PARAMETERS
 BaseDateS = 2020-01-01
-BaseDateF = 2020-01-31
-StepF_S = 36
-StepF_F = 48
+BaseDateF = 2020-12-31
+StepF_S = 12
+StepF_F = 246
 Disc_StepF = 6
-Region_list = [2]
-RegionName_List = ["Sierra"]
+Region_list = [1,2]
+RegionName_List = ["Costa","Sierra"]
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 FileIN_Emask = "Data/Raw/EcuadorMasks/Emask_ENS.grib"
 DirIN_WT = "Data/Raw_DoNotShare/FC/ecPoint_WT"
