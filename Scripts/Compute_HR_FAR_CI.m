@@ -113,6 +113,10 @@ for indEFFCI = 1 : length(EFFCI_list)
                 HR_lowCI_AllSteps = zeros(NumEM,NumSteps);
                 FAR_upCI_AllSteps = zeros(NumEM,NumSteps);
                 FAR_lowCI_AllSteps = zeros(NumEM,NumSteps);
+                H_AllSteps = zeros(NumEM,NumSteps);
+                FA_AllSteps = zeros(NumEM,NumSteps);
+                M_AllSteps = zeros(NumEM,NumSteps);
+                CN_AllSteps = zeros(NumEM,NumSteps);
                 
                 % Selecting the step of end accumulation period to consider
                 % for forecasts from the 00 UTC run
@@ -135,7 +139,6 @@ for indEFFCI = 1 : length(EFFCI_list)
                     CountDay = 1;
                     
                     for d00 = dS : dF
-                        disp(datestr(d00))
                         
                         if StepS00 < 12
                             d12 = d00 - 1;
@@ -207,12 +210,18 @@ for indEFFCI = 1 : length(EFFCI_list)
                     CN(:,CountDay:end) = [];
                     [m,n] = size(H);
                     
-                    % Compute HRs and FARs for the original data 
+                    % Save H/FA/M/CN for each step 
                     H_year = sum(H,2);
                     FA_year = sum(FA,2);
                     M_year = sum(M,2);
                     CN_year = sum(CN,2);
                     
+                    H_AllSteps(:,indStep) = H_year;
+                    FA_AllSteps(:,indStep) = FA_year;
+                    M_AllSteps(:,indStep) = M_year;
+                    CN_AllSteps(:,indStep) = CN_year;
+                    
+                    % Compute HRs and FARs for the original data
                     HR_AllSteps(:,indStep) = H_year ./ (H_year + M_year);
                     FAR_AllSteps(:,indStep) = FA_year ./ (FA_year + CN_year);
                     
@@ -251,7 +260,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                 end
                 
                 FileOut = strcat(DirOUT_temp, "/HR_FAR_CI_", RegionName, ".mat");
-                save(FileOut, "HR_AllSteps", "FAR_AllSteps", "HR_upCI_AllSteps", "HR_lowCI_AllSteps", "FAR_upCI_AllSteps", "FAR_lowCI_AllSteps")
+                save(FileOut, "H_AllSteps", "FA_AllSteps", "M_AllSteps", "CN_AllSteps", "HR_AllSteps", "FAR_AllSteps", "HR_upCI_AllSteps", "HR_lowCI_AllSteps", "FAR_upCI_AllSteps", "FAR_lowCI_AllSteps")
                 
             end
             

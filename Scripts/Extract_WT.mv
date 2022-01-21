@@ -1,0 +1,83 @@
+# Metview Macro
+
+# Extract_WTs.mv extracts the WTs for Ecuador's
+
+# INPUT PARAMETERS
+BaseDateS = 2020-01-01
+BaseDateF = 2020-01-31
+StepF_S = 36
+StepF_F = 48
+Disc_StepF = 6
+Region_list = [2]
+RegionName_List = ["Sierra"]
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+FileIN_Emask = "Data/Raw/EcuadorMasks/Emask_ENS.grib"
+DirIN_WT = "Data/Raw_DoNotShare/FC/ecPoint_WT"
+DirOUT = "Data/Processed/WT_012"
+##############################################################################
+
+# Insert the list of WTs to consider
+WT_list = |11111,11112,11120,11211,11212,11220,11230,12111,12112,12113,12120,12130,12211,12212,12213,12221,12222,12230,13111,13112,13113,13120,13211,13212,13220,13230,13311,13312,13320,14111,14112,14113,14120,14211,14212,14213,14221,14222,14223,14230,14311,14312,14320,21111,21112,21113,21120,21130,21211,21212,21213,21220,21230,21311,21312,21320,22111,22112,22113,22120,22130,22211,22212,22213,22220,22230,22311,22312,22320,23110,23120,23130,23211,23212,23213,23221,23222,23230,23311,23312,23320,24110,24120,24130,24211,24212,24213,24221,24222,24223,24230,24311,24312,24320,31111,31112,31113,31121,31122,31131,31132,31140,31211,31212,31213,31220,31230,31240,31311,31312,31320,32111,32112,32113,32120,32130,32140,32211,32212,32213,32221,32222,32230,32240,32311,32312,32320,33110,33120,33130,33211,33212,33220,33230,33311,33312,33321,33322,34110,34120,34130,34210,34220,34230,34310,34320,35100,35200,35300,41111,41112,41113,41121,41122,41131,41132,41141,41142,41211,41212,41213,41221,41222,41223,41230,41240,41311,41312,41313,41320,42111,42112,42113,42120,42130,42140,42211,42212,42213,42221,42222,42223,42230,42240,42311,42312,42321,42322,43110,43120,43130,43141,43142,43211,43212,43220,43230,43240,43311,43312,43320,44110,44120,44130,44140,44210,44220,44230,44240,44310,44320,45100,45200,45300|
+nWT = count(WT_list)
+
+# Reading the Ecuador's mask
+Emask = values(read(Git_repo & "/" & FileIN_Emask))
+
+# Reading the WTs
+for indReg = 1 to count(Region_list) do
+
+    Region = Region_list[indReg]
+    RegionName = RegionName_List[indReg]
+    
+    for StepF = StepF_S to StepF_F by Disc_StepF do
+        
+        print("Processing WTs for t+" & StepF & ", " & RegionName)
+        
+        if StepF<10 then
+            StepFSTR = "00" & string(StepF)
+        else if (StepF>=10 and StepF<100) then
+            StepFSTR = "0" & string(StepF)
+        else
+            StepFSTR = string(StepF)
+        end if
+        
+        wt_counts = vector(nWT)
+        wt_reg = vector(0)
+        
+        for BaseDate = BaseDateS to BaseDateF do
+            
+            print(BaseDate)
+            BaseDateSTR = string(BaseDate, "yyyymmdd")
+            FileIN_WT = Git_repo & "/" & DirIN_WT & "/" & BaseDateSTR & "00/WT_012_" & BaseDateSTR & "_00_" & StepFSTR & ".grib"
+            
+            if exist(FileIN_WT) then
+                
+                wt = values(read(FileIN_WT))
+                nEM = count(wt)
+            
+                for indEM = 1 to nEM do
+                    wt_temp = wt[indEM]
+                    wt_reg = wt_reg & filter(wt_temp,Emask=Region)
+                end for
+            
+            end if
+            
+        end for
+        
+        # Counting the instances for each WT
+        for indWT = 1 to nWT do
+            WT = WT_list[indWT]
+            wt_counts[indWT] = wt_counts[indWT] + count(filter(wt_reg,wt_reg=WT))
+        end for
+        
+        # Saving the WTs
+        FileOUT = Git_repo & "/" & DirOUT & "/WTs_" & RegionName & "_" & StepFSTR & ".csv"
+        File_csv = file(FileOUT)
+        write(File_csv, "WT_code,Count", newline)
+        for i = 1 to nWT do
+            append(File_csv, WT_list[i], ",", wt_counts[i], newline)
+        end for
+        
+    end for
+    
+end for

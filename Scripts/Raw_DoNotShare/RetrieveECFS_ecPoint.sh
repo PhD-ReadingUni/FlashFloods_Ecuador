@@ -21,7 +21,7 @@ TheDate=${DateS}
 
 while [[ ${TheDate} -le ${DateF} ]]; do
     
-    for Time in 0 12; do
+    for Time in 0; do
     
         if [[ ${Time} -eq 0 ]]; then
             TheTime=0
@@ -40,8 +40,8 @@ while [[ ${TheDate} -le ${DateF} ]]; do
         mkdir -p ${DirOUT_WT_temp}
         ecp ${DirIN_temp}/WT.tar ${DirOUT_WT_temp}    
         tar -xvf "${DirOUT_WT_temp}/WT.tar"
-        #mv "sc2/tcwork/emos/emos_data/log/ecpoint_oper/emos/Forecasts/Oper/ecPoint_Rainfall/012/Vers1.2/${TheDate}${TheTimeSTR}/WT/*" ${DirOUT_WT_temp}
-        #rm -rf "${DirOUT_WT_temp}/WT.tar" "${DirOUT_WT_temp}/sc2"
+        mv "${DirOUT_WT_temp}/sc2/tcwork/emos/emos_data/log/ecpoint_oper/emos/Forecasts/Oper/ecPoint_Rainfall/012/Vers1.2/${TheDate}${TheTimeSTR}/WT/*" ${DirOUT_WT_temp}
+        rm -rf "${DirOUT_WT_temp}/WT.tar" "${DirOUT_WT_temp}/sc2"
         
     done
     
