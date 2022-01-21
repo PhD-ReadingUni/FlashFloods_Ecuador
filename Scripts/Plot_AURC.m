@@ -3,7 +3,6 @@
 % all forecasting systems, and all regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-close all
 clear
 clc
 
@@ -30,7 +29,8 @@ disp("Plotting Areas Under the Roc Curve (AURC)")
 % Setting some general parameters
 StepF_list = (StepF_S : Disc_StepF : StepF_F);
 AccSTR = num2str(Acc,"%03.f");
-XTickLabels = [];
+
+XTickLabels = {};
 for i = 1 : length(StepF_list)
     if mod(i,2) ~= 0
         XTickLabels = [XTickLabels, num2str(StepF_list(i))];
@@ -95,7 +95,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                     FAR_low = [FAR_lowCI_AllSteps(:,p); 1];
                     FAR_up = [FAR_upCI_AllSteps(:,p); 1];
                     
-                    for i = 1 : (m)
+                    for i = 1 : m
                         
                         j = i + 1;
                         
@@ -114,11 +114,10 @@ for indEFFCI = 1 : length(EFFCI_list)
                         h = FAR_up(j)-FAR_up(i);
                         AURC_up(1,p) = AURC_up(1,p) + ((b+B)*h/2);
         
-        
                     end
     
                 end
-
+                                
                 % Plotting the AURC
                 hold on
                 StepF2_list = [StepF_list,fliplr(StepF_list)];
@@ -127,23 +126,26 @@ for indEFFCI = 1 : length(EFFCI_list)
                 fill(StepF2_list, inBetween, PlotSystemFC, "FaceAlpha", 0.1, 'LineStyle','none')
                 
                 hold on
-                plot(StepF_list, AURC, strcat(PlotSystemFC,".-"), "LineWidth", 0.5, 'MarkerFaceColor', PlotSystemFC)
+                plot(StepF_list, AURC, strcat(PlotSystemFC,"x-"), "LineWidth", 0.5, 'MarkerFaceColor', PlotSystemFC, "Linewidth", 1)
                 
             end
             
             hold on
-            plot([StepF_S,StepF_F], [0.5,0.5], "k-")
+            plot([StepF_S,StepF_F], [0.5,0.5], "k-", "Linewidth", 2)
             
             xlim([StepF_S,StepF_F])
             xticks(StepF_list)
             xticklabels(XTickLabels)
             ylim([0.4,1])
-            set(gca,'FontSize',15);
+            
+            ax = gca;
+            ax.FontSize = 15;
+            ax.GridAlpha = 0.5;
             grid on
             
             % Saving the AURC
-            FileOUT = strcat(DirOUT_temp, "/AURC_Perc", num2str(PercCDF,"%02.f"), "_", RegionName, ".jpeg");
-            saveas(gcf,FileOUT, "jpeg")
+            FileOUT = strcat(DirOUT_temp, "/AURC_Perc", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
+            print(gcf,"-dtiff", "-r500",FileOUT)
             
         end
         
