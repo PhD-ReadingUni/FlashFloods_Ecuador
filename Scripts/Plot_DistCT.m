@@ -35,7 +35,7 @@ for i = 1 : length(StepF_list)
     if mod(i,2) ~= 0
         XTickLabels = [XTickLabels, num2str(StepF_list(i))];
     else
-        XTickLabels = [XTickLabels, num2str(StepF_list(i))];
+        XTickLabels = [XTickLabels, " "];
     end
 end
 
@@ -98,6 +98,10 @@ for indEFFCI = 1 : length(EFFCI_list)
             xticks(StepF_list)
             xticklabels(XTickLabels)
             ylim([0 100])
+            grid on
+            ax=gca;
+            ax.GridAlpha=0.5;
+            ax.FontSize = 16;
             FileOUT = strcat(DirOUT_temp, "/H_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
@@ -109,6 +113,10 @@ for indEFFCI = 1 : length(EFFCI_list)
             xticks(StepF_list)
             xticklabels(XTickLabels)
             ylim([0 5*100000])
+            grid on
+            ax=gca;
+            ax.GridAlpha=0.5;
+            ax.FontSize = 16;
             FileOUT = strcat(DirOUT_temp, "/FA_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
@@ -120,6 +128,10 @@ for indEFFCI = 1 : length(EFFCI_list)
             xticks(StepF_list)
             xticklabels(XTickLabels)
             ylim([0 60])
+            grid on
+            ax=gca;
+            ax.GridAlpha=0.5;
+            ax.FontSize = 16;
             FileOUT = strcat(DirOUT_temp, "/M_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
@@ -131,6 +143,10 @@ for indEFFCI = 1 : length(EFFCI_list)
             xticks(StepF_list)
             xticklabels(XTickLabels)
             ylim([0 3*100000])
+            grid on
+            ax=gca;
+            ax.GridAlpha=0.5;
+            ax.FontSize = 16;
             FileOUT = strcat(DirOUT_temp, "/CN_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
