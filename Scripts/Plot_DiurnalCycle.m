@@ -12,7 +12,7 @@ BaseDateS = "2020-01-01";
 BaseDateF = "2020-12-31";
 BaseTime = 0;
 StepF_S = 12;
-StepF_F = 246;
+StepF_F = 54;
 Disc_StepF = 6;
 Acc = 12;
 SystemFC_list = ["ENS", "ecPoint"];
@@ -96,7 +96,7 @@ for indReg = 1 : length(Region_list)
             
         end
         
-        plot(StepF_list, AnnualMean, strcat(PlotSystemFC,PlotRegion), "LineWidth", 2, 'MarkerSize', 16)
+        plot(StepF_list, AnnualMean, strcat(PlotSystemFC,PlotRegion), "LineWidth", 2, 'MarkerSize', 14)
         hold on
         
     end
