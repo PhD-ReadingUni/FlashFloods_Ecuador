@@ -101,7 +101,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             grid on
             ax=gca;
             ax.GridAlpha=0.5;
-            ax.FontSize = 16;
+            ax.FontSize = 20;
             FileOUT = strcat(DirOUT_temp, "/H_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
@@ -116,7 +116,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             grid on
             ax=gca;
             ax.GridAlpha=0.5;
-            ax.FontSize = 16;
+            ax.FontSize = 20;
             FileOUT = strcat(DirOUT_temp, "/FA_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
@@ -131,7 +131,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             grid on
             ax=gca;
             ax.GridAlpha=0.5;
-            ax.FontSize = 16;
+            ax.FontSize = 20;
             FileOUT = strcat(DirOUT_temp, "/M_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
@@ -146,7 +146,7 @@ for indEFFCI = 1 : length(EFFCI_list)
             grid on
             ax=gca;
             ax.GridAlpha=0.5;
-            ax.FontSize = 16;
+            ax.FontSize = 20;
             FileOUT = strcat(DirOUT_temp, "/CN_", num2str(PercCDF,"%02.f"), "_", RegionName, ".tiff");
             print(gcf,"-dtiff", "-r500",FileOUT)
             
