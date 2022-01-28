@@ -67,14 +67,14 @@ figure('position', [100,100,1500,500])
 
 pointer = find(WTC_codes==21111 | WTC_codes==31111 | WTC_codes==41111);
 hold on
-plot([pointer(1),pointer(1)], [0,30], "Color", [0.8,0.8,0.8])
+plot([pointer(1),pointer(1)], [0,30], "Color", [0.7,0.7,0.7])
 hold on
-plot([pointer(2),pointer(2)], [0,30], "Color", [0.8,0.8,0.8])
+plot([pointer(2),pointer(2)], [0,30], "Color", [0.7,0.7,0.7])
 hold on
-plot([pointer(3),pointer(3)], [0,30], "Color", [0.8,0.8,0.8])
+plot([pointer(3),pointer(3)], [0,30], "Color", [0.7,0.7,0.7])
 
 hold on
-bar((1:n), WTC_NormCounts, "FaceColor", [1,0.749,0])
+bar((1:n), WTC_NormCounts, "FaceColor", [255/255,158/255,40/255])
 
 xlim([0 (n+1)])
 xticks(1:n)
@@ -85,8 +85,8 @@ yticks(YTicks)
 yticklabels(YTickLabels)
 
 ax = gca;
-ax.FontSize = 15;
-set(gca, 'YGrid', 'on', 'XGrid','off')
+ax.FontSize = 20;
+set(gca, 'YGrid', 'on', 'XGrid','off', 'GridAlpha',0.3)
 
 FileOUT = strcat(Git_repo, "/", DirOUT, num2str(Acc,"%03.f"), "/DistWT_Costa_", num2str(StepF,"%03.f"), ".tiff");
 print(gcf,"-dtiff", "-r500",FileOUT)
@@ -97,11 +97,11 @@ figure('position', [100,100,1500,500])
 
 pointer = find(WTC_codes==21111 | WTC_codes==31111 | WTC_codes==41111);
 hold on
-plot([pointer(1),pointer(1)], [0,30], "Color", [0.8,0.8,0.8])
+plot([pointer(1),pointer(1)], [0,30], "Color", [0.7,0.7,0.7])
 hold on
-plot([pointer(2),pointer(2)], [0,30], "Color", [0.8,0.8,0.8])
+plot([pointer(2),pointer(2)], [0,30], "Color", [0.7,0.7,0.7])
 hold on
-plot([pointer(3),pointer(3)], [0,30], "Color", [0.8,0.8,0.8])
+plot([pointer(3),pointer(3)], [0,30], "Color", [0.7,0.7,0.7])
 
 hold on
 bar((1:n), WTS_NormCounts, "FaceColor", [101/255,67/255,33/255])
@@ -115,8 +115,8 @@ yticks(YTicks)
 yticklabels(YTickLabels)
 
 ax = gca;
-ax.FontSize = 15;
-set(gca, 'YGrid', 'on', 'XGrid','off')
+ax.FontSize = 20;
+set(gca, 'YGrid', 'on', 'XGrid','off', 'GridAlpha',0.3)
 
 FileOUT = strcat(Git_repo, "/", DirOUT, num2str(Acc,"%03.f"), "/DistWT_Sierra_", num2str(StepF,"%03.f"), ".tiff");
 print(gcf,"-dtiff", "-r500",FileOUT)
