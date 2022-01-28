@@ -3,7 +3,7 @@
 % regions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%close all
+close all
 clear
 clc
 
@@ -33,7 +33,7 @@ WTS_codes1 = WTS_codes(WTS_NormCounts>=1 & WTS_NormCounts<1000);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plotting the WT distributions
 
-Max_xaxis = 30;
+Max_xaxis = 15;
 YTicks = (0:Max_xaxis);
 
 % Creating the tick labels for the x-axis
@@ -74,7 +74,7 @@ hold on
 plot([pointer(3),pointer(3)], [0,30], "Color", [0.8,0.8,0.8])
 
 hold on
-bar((1:n), WTC_NormCounts, "FaceColor", [1,0,0.47])
+bar((1:n), WTC_NormCounts, "FaceColor", [1,0.749,0])
 
 xlim([0 (n+1)])
 xticks(1:n)
@@ -104,7 +104,7 @@ hold on
 plot([pointer(3),pointer(3)], [0,30], "Color", [0.8,0.8,0.8])
 
 hold on
-bar((1:n), WTS_NormCounts, "FaceColor", [1,0,0.47])
+bar((1:n), WTS_NormCounts, "FaceColor", [101/255,67/255,33/255])
 
 xlim([0 (n+1)])
 xticks(1:n)
