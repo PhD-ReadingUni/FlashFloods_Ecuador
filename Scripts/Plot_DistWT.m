@@ -3,7 +3,7 @@
 % regions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-close all
+%close all
 clear
 clc
 
@@ -33,6 +33,9 @@ WTS_codes1 = WTS_codes(WTS_NormCounts>=1 & WTS_NormCounts<1000);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plotting the WT distributions
 
+Max_xaxis = 30;
+YTicks = (0:Max_xaxis);
+
 % Creating the tick labels for the x-axis
 n = length(WTC_codes);
 XTickLabels = {};
@@ -45,30 +48,75 @@ for i = 1 : n
     end
 end
 
+% Creating the tick labels for the y-axis
+m = length(YTicks);
+YTickLabels = {};
+for i = 1 : m
+    temp = YTicks(i);
+    if mod(temp,5) == 0
+        YTickLabels = [YTickLabels, num2str(temp)];
+    else
+        YTickLabels = [YTickLabels, " "];
+    end
+end
 
-% Plotting and saving the distribution of WTs
-figure
-bar((1:n), WTC_NormCounts)
+
+
+% Plotting and saving the distribution of WTs for "La Costa"
+figure('position', [100,100,1500,500])
+
+pointer = find(WTC_codes==21111 | WTC_codes==31111 | WTC_codes==41111);
+hold on
+plot([pointer(1),pointer(1)], [0,30], "Color", [0.8,0.8,0.8])
+hold on
+plot([pointer(2),pointer(2)], [0,30], "Color", [0.8,0.8,0.8])
+hold on
+plot([pointer(3),pointer(3)], [0,30], "Color", [0.8,0.8,0.8])
+
+hold on
+bar((1:n), WTC_NormCounts, "FaceColor", [1,0,0.47])
+
+xlim([0 (n+1)])
 xticks(1:n)
 xticklabels(XTickLabels)
-xlim([0 (n+1)])
-ylim([0 20])
-grid off
+
+ylim([0 Max_xaxis])
+yticks(YTicks)
+yticklabels(YTickLabels)
+
 ax = gca;
 ax.FontSize = 15;
-ax.GridAlpha = 0.5;
+set(gca, 'YGrid', 'on', 'XGrid','off')
+
 FileOUT = strcat(Git_repo, "/", DirOUT, num2str(Acc,"%03.f"), "/DistWT_Costa_", num2str(StepF,"%03.f"), ".tiff");
 print(gcf,"-dtiff", "-r500",FileOUT)
 
-figure
-bar((1:n), WTS_NormCounts)
+
+% Plotting and saving the distribution of WTs for "La Sierra"
+figure('position', [100,100,1500,500])
+
+pointer = find(WTC_codes==21111 | WTC_codes==31111 | WTC_codes==41111);
+hold on
+plot([pointer(1),pointer(1)], [0,30], "Color", [0.8,0.8,0.8])
+hold on
+plot([pointer(2),pointer(2)], [0,30], "Color", [0.8,0.8,0.8])
+hold on
+plot([pointer(3),pointer(3)], [0,30], "Color", [0.8,0.8,0.8])
+
+hold on
+bar((1:n), WTS_NormCounts, "FaceColor", [1,0,0.47])
+
+xlim([0 (n+1)])
 xticks(1:n)
 xticklabels(XTickLabels)
-xlim([0 (n+1)])
-ylim([0 20])
-grid off
+
+ylim([0 Max_xaxis])
+yticks(YTicks)
+yticklabels(YTickLabels)
+
 ax = gca;
 ax.FontSize = 15;
-ax.GridAlpha = 0.5;
+set(gca, 'YGrid', 'on', 'XGrid','off')
+
 FileOUT = strcat(Git_repo, "/", DirOUT, num2str(Acc,"%03.f"), "/DistWT_Sierra_", num2str(StepF,"%03.f"), ".tiff");
 print(gcf,"-dtiff", "-r500",FileOUT)
