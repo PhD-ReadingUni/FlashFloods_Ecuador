@@ -54,7 +54,7 @@ Perc4 = sum(WTS(pointer4,2)) / sum(WTS(:,2)) * 100;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plotting the WT distributions
 
-Max_xaxis = 30;
+Max_xaxis = 15;
 YTicks = (0:Max_xaxis);
 
 % Creating the tick labels for the x-axis
