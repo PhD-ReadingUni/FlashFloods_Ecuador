@@ -8,7 +8,7 @@ clear
 clc
 
 % INPUT PARAMETERS
-StepF = 30;
+StepF = ;
 Acc = 12;
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 FileIN = "Data/Processed/WT_";
