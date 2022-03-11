@@ -17,7 +17,7 @@ viewBox="0 0 801 566" xml:space="preserve">
 	<dc:format>image/svg+xml</dc:format>
 	<dc:title>MAGICS++ PLOT</dc:title>
 	<dc:author>mofp on omicron</dc:author>
-	<dc:date>Fri Mar 11 11:07:35 2022</dc:date>
+	<dc:date>Fri Mar 11 14:46:27 2022</dc:date>
 	<dc:language>en-GB</dc:language>
 	<dc:creator><cc:Agent><dc:title>Metview 5.13.2</dc:title></cc:Agent></dc:creator>
 	<dc:publisher><cc:Agent>
@@ -2018,7 +2018,7 @@ M-5072.45 191.709L-5073.94 191.324L-5074.85 190.845L-5075.22 189.449L-5074.84 18
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
 <path d="M0 22.9091l22.0499 0"/>
 <path d="M0 7.63636l22.0499 0"/>
-<path d="M0 7.63636l0 15.2727"/>
+<path d="M0 7.63636"/>
 </g>
 <g text-anchor="middle" font-size="0.12cm" font-family="Arial" fill="rgb(0,0,0)">
 <text x="22.0499" y="4.45455" dominant-baseline="no-change">1</text>
