@@ -24,11 +24,11 @@ WTS = import_WT(FileIN_S);
 % Computing the percentages of WT counts
 WTC_codes = WTC(:,1);
 WTC_NormCounts = WTC(:,2) / sum(WTC(:,2)) * 100;
-WTC_codes1 = WTC_codes(WTC_NormCounts>=1 & WTC_NormCounts<1000);
+WTC_codes1 = WTC_codes(WTC_NormCounts>=1 & WTC_NormCounts<5);
 
 WTS_codes = WTS(:,1);
 WTS_NormCounts = WTS(:,2) / sum(WTS(:,2)) * 100;
-WTS_codes1 = WTS_codes(WTS_NormCounts>=1 & WTS_NormCounts<1000);
+WTS_codes1 = WTS_codes(WTS_NormCounts>=1 & WTS_NormCounts<5);
 
 % Computing the percentages of WT counts for the different classes of CPR
 WTC_codes = WTC(:,1);

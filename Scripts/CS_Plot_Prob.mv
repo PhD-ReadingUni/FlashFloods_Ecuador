@@ -1,0 +1,120 @@
+# Metview Macro
+
+BaseDate = 2021-03-08
+BaseTime = 0
+StepF = 24
+Thr = 50
+Acc = 12
+SystemFC = "ecPoint" #valid values are "ENS" or "ecPoint"
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+DirIN_FC = "Data/Raw_DoNotShare/FC"
+########################################################################################################################################################
+
+# General input parameters
+StepS = StepF - Acc
+ValidDateS = BaseDate + BaseTime + StepS/24
+ValidDateF = BaseDate + BaseTime + StepF/24
+
+BaseDateSTR = string(BaseDate, "yyyymmdd")
+BaseTimeSTR = left_pad_number(BaseTime,2)  
+StepSSTR = left_pad_number(StepS,3)  
+StepFSTR = left_pad_number(StepF,3)  
+AccSTR = left_pad_number(Acc,3) 
+
+ValidDateSSTR = string(ValidDateS, "yyyymmdd HH")
+ValidDateFSTR = string(ValidDateF, "yyyymmdd HH")
+
+
+# Read rainfall forecasts
+if SystemFC = "ENS" then
+    
+    FileIN_tp1 = Git_repo & "/" & DirIN_FC & "/" & SystemFC & "/" & BaseDateSTR & BaseTimeSTR & "/tp_" & BaseDateSTR & "_" & BaseTimeSTR & "_" & StepSSTR & ".grib"
+    FileIN_tp2 = Git_repo & "/" & DirIN_FC & "/" & SystemFC & "/" & BaseDateSTR & BaseTimeSTR & "/tp_" & BaseDateSTR & "_" & BaseTimeSTR & "_" & StepFSTR & ".grib"
+    tp1 = read(FileIN_tp1)
+    tp2 = read(FileIN_tp2)
+    tp = (tp2 - tp1) * 1000
+
+else 
+    
+    FileIN_tp = Git_repo & "/" & DirIN_FC & "/" & SystemFC & "/" & BaseDateSTR & BaseTimeSTR & "/Pt_BC_PERC_" & AccSTR & "_" & BaseDateSTR & "_" & BaseTimeSTR & "_" & StepFSTR & ".grib"
+    tp = read(FileIN_tp)
+    
+end if
+
+# Compute the rainfall probabilities
+prob = sum(tp >= Thr) / count(tp) * 100
+
+# Plotting the rainfall forecasts
+coastlines = mcoast(
+    map_coastline_resolution       : "full",
+    map_coastline_colour           : "charcoal",
+    map_coastline_thickness        : 3,
+    map_coastline_sea_shade        : "on",
+    map_coastline_sea_shade_colour : "RGB(0.7084,0.9465,0.9465)",
+    map_boundaries                 : "on",
+    map_boundaries_colour          : "blue",
+    map_boundaries_thickness       : 3,
+    map_grid                       : "off",
+    map_label                      : "off"
+    )
+
+geo_view = geoview(
+    map_area_definition : "corners",
+    area                : [1.6,-81.2,-5.11,-75],
+    coastlines          : coastlines
+    )
+
+contouring = mcont(
+    legend                       : "on",
+    contour                      : "off",
+    contour_level_selection_type : "level_list",
+    contour_min_level            : 0,
+    contour_level_list           : [0,0.5,1.5,2.5,3.5,4.5,6.5,8.5,10.5,13.5,16.5,20.5,25.5,30.5,35.5,40.5,50.5,60.5,70.5,80.5,90.5,100],
+    contour_label                : "off",
+    contour_shade                : "on",
+    contour_shade_colour_method  : "list",
+    contour_shade_method         : "area_fill",
+    contour_shade_colour_list    : ["white","RGB(0.61,0.91,0.95)","RGB(0.091,0.89,0.99)","RGB(0.015,0.7,0.81)","RGB(0.031,0.55,0.62)","RGB(0.025,0.66,0.24)","RGB(0.015,0.81,0.28)","RGB(0.13,0.99,0.42)","RGB(0.8,0.99,0.13)","RGB(0.65,0.83,0.013)","RGB(0.51,0.64,0.026)","RGB(0.78,0.35,0.017)","RGB(0.92,0.4,0.0073)","RGB(0.99,0.5,0.17)","RGB(0.97,0.65,0.41)","RGB(0.96,0.47,0.54)","RGB(0.98,0.0038,0.1)","RGB(0.88,0.45,0.96)","RGB(0.87,0.26,0.98)","RGB(0.7,0.016,0.79)","RGB(0.52,0.032,0.59)"]
+    )
+
+legend = mlegend(
+    legend_text_colour          : "black",
+    legend_text_font            : "arial",
+    legend_text_font_size       : 0.2,
+    legend_entry_plot_direction : "row",
+    legend_box_blanking         : "on",
+    legend_entry_text_width     : 50
+    )
+    
+title = mtext(
+    text_line_count : 2,
+    text_line_1 : "Rainfall event between " & ValidDateSSTR & " UTC and " & ValidDateFSTR & " UTC",
+    text_line_2 : " ",
+    text_colour : "charcoal",
+    text_font   : "arial",
+    text_font_size  : 0.5
+    )
+    
+plot(prob, geo_view, contouring, legend, title, coastlines)
+
+# Saving the plot
+# FileOUT_temp = Git_repo & "/" & FileOUT
+# svg = svg_output(output_name: FileOUT_temp)
+# setoutput(svg)
+# plot(geo_view, Emask_map, contouring, Emask_gp_geo, symbol, coastlines)
+
+############################################################################
+function left_pad_number (num: number, num_digits: number)
+
+    num_string = ''  
+
+    for pow = num_digits to 1 by -1 do
+        digit = int(num / (10^(pow-1)))
+        num_string = num_string & digit
+        num = num - digit *(10^(pow-1))
+    end for
+
+    return num_string
+
+end left_pad_number
+

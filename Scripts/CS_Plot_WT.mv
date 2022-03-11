@@ -1,0 +1,89 @@
+# Metview Macro
+
+BaseDate = 2021-03-08
+BaseTime = 0
+StepF = 24
+Thr = 50
+Acc = 12
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+DirIN_FC = "Data/Raw_DoNotShare/FC/ecPoint_WT"
+######################################################################
+
+# General input parameters
+StepS = StepF - Acc
+ValidDateS = BaseDate + BaseTime + StepS/24
+ValidDateF = BaseDate + BaseTime + StepF/24
+
+BaseDateSTR = string(BaseDate, "yyyymmdd")
+BaseTimeSTR = left_pad_number(BaseTime,2)  
+StepSSTR = left_pad_number(StepS,3)  
+StepFSTR = left_pad_number(StepF,3)  
+AccSTR = left_pad_number(Acc,3) 
+
+ValidDateSSTR = string(ValidDateS, "yyyymmdd HH")
+ValidDateFSTR = string(ValidDateF, "yyyymmdd HH")
+
+
+# Read weather types
+FileIN_wt = Git_repo & "/" & DirIN_FC & "/" & "/" & BaseDateSTR & BaseTimeSTR & "/WT_" & AccSTR & "_" & BaseDateSTR & "_" & BaseTimeSTR & "_" & StepFSTR & ".grib"
+wt = read(FileIN_wt)
+
+
+# Plotting the rainfall forecasts
+coastlines = mcoast(
+    map_coastline_resolution       : "full",
+    map_coastline_colour           : "charcoal",
+    map_coastline_thickness        : 3,
+    map_coastline_sea_shade        : "on",
+    map_coastline_sea_shade_colour : "RGB(0.7084,0.9465,0.9465)",
+    map_boundaries                 : "on",
+    map_boundaries_colour          : "blue",
+    map_boundaries_thickness       : 3,
+    map_grid                       : "off",
+    map_label                      : "off"
+    )
+
+geo_view = geoview(
+    map_area_definition : "corners",
+    area                : [1.6,-81.2,-5.11,-75],
+    coastlines          : coastlines
+    )
+
+contours = mcont(
+        legend                       : "on",
+        contour                      : "off",
+        contour_level_selection_type : "level_list",
+        contour_level_list           : [10999,20999,30999,40999,100000],
+        contour_label                : "off",
+        contour_shade                : "on",
+        contour_shade_technique      : "grid_shading",
+        contour_shade_colour_method  : "list",
+        contour_shade_colour_list    : ["RGB(0.0000,0.0000,1.0000", "RGB(0.0190,0.7888,0.1601)", "RGB(1.0000,0.6706,0.0118)", "RGB(1.0000,0.0118,0.0777)", "white"]
+        )  
+
+legend = mlegend(
+        legend_automatic_position   : "right",
+        legend_text_font            : "arial",
+        legend_text_font_size       : 0.2,
+        legend_entry_plot_direction : "column",
+        legend_box_blanking         : "on",
+        legend_entry_text_width     : 50
+        )
+        
+plot(wt, geo_view, contours, legend)
+    
+############################################################################
+function left_pad_number (num: number, num_digits: number)
+
+    num_string = ''  
+
+    for pow = num_digits to 1 by -1 do
+        digit = int(num / (10^(pow-1)))
+        num_string = num_string & digit
+        num = num - digit *(10^(pow-1))
+    end for
+
+    return num_string
+
+end left_pad_number
+
