@@ -1,0 +1,111 @@
+# Metview Macro
+
+# INPUT PARAMETERS
+TheDate = 2021-03-09
+TheTime = 12
+ThePeriod = 12
+Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
+DirRainOBS = "Data/Figures/Case_Study/Rain_Obs"
+######################################################################
+
+# General input parameters
+TheDateSTR = string(TheDate, "yyyymmdd")
+TheTimeSTR = left_pad_number(TheTime,2)  
+ThePeriodSTR = left_pad_number(ThePeriod,2) 
+
+DirRainOBS_temp = Git_repo & "/" & DirRainOBS
+
+UTC_PeriodF =  TheDate + (TheTime/24)
+UTC_PeriodS = UTC_PeriodF - (ThePeriod/24)
+UTC_PeriodSSTR = string(UTC_PeriodS, "yyyymmdd HH")
+UTC_PeriodFSTR = string(UTC_PeriodF, "yyyymmdd HH")
+
+LOC_PeriodF =  (TheDate + (TheTime/24)) - (6/24)
+LOC_PeriodS = LOC_PeriodF - (ThePeriod/24)
+LOC_PeriodSSTR = string(LOC_PeriodS, "yyyymmdd HH")
+LOC_PeriodFSTR = string(LOC_PeriodF, "yyyymmdd HH")
+
+
+# Read or retrieve the rainfall observations
+FileRainOBS = DirRainOBS_temp & "/tp" & ThePeriodSTR & "_obs_" & TheDateSTR & TheTimeSTR & ".geo"
+if exist(FileRainOBS) then
+    obs = read(FileRainOBS)
+else
+    shell("/home/mo/moz/bin/stvl_getgeo --sources synop efas hdobs ukceda smosmania bom --parameter tp --period " & ThePeriod & " --dates " & TheDateSTR & " --times " & TheTimeSTR & " --outdir " & DirRainOBS_temp & " --flattree --columns value_0")
+    obs = read(FileRainOBS)
+end if
+
+
+# Plot the geopoints
+coastlines = mcoast(
+    map_coastline_resolution       : "full",
+    map_coastline_colour           : "charcoal",
+    map_coastline_thickness        : 3,
+    map_coastline_sea_shade        : "on",
+    map_coastline_sea_shade_colour : "RGB(0.7084,0.9465,0.9465)",
+    map_boundaries                 : "on",
+    map_boundaries_colour          : "blue",
+    map_boundaries_thickness       : 3,
+    map_grid                       : "off",
+    map_label                      : "off"
+    )
+
+geo_view = geoview(
+    map_area_definition : "corners",
+    area                : [1.6,-81.2,-5.11,-75],
+    coastlines          : coastlines
+    )
+
+symbol_plotting = msymb(
+    legend: "on",
+    symbol_type: "marker",
+    symbol_table_mode: "on",
+    symbol_outline: "on",
+    symbol_min_table: [0,1,2,5,10,20,30,40,50,60,80,100,125,150,200,300],
+    symbol_max_table: [1,2,5,10,20,30,40,50,60,80,100,125,150,200,300,500],
+    symbol_colour_table: ["grey","RGB(0.75,0.95,0.93)","RGB(0.45,0.93,0.78)","RGB(0.07,0.85,0.61)","RGB(0.53,0.8,0.13)","RGB(0.6,0.91,0.057)","RGB(0.9,1,0.4)","RGB(0.89,0.89,0.066)","RGB(1,0.73,0.0039)","RGB(1,0.49,0.0039)","red","RGB(0.85,0.0039,1)","RGB(0.63,0.0073,0.92)","RGB(0.37,0.29,0.91)","RGB(0.04,0.04,0.84)","RGB(0.042,0.042,0.43)"],
+    symbol_marker_table: 15,
+    symbol_height_table: 1
+    )
+
+legend = mlegend(
+    legend_text_colour : "black",
+    legend_text_font            : "helvetica",
+    legend_text_font_size       : 0.3,
+    legend_entry_plot_direction : "row",
+    legend_box_blanking         : "on",
+    legend_entry_text_width     : 50
+    )
+
+title = mtext(
+    text_line_count: 4,
+    text_line_1: ThePeriod & "-h Rainfall Observations (in mm) between",
+    text_line_2: UTC_PeriodSSTR & " and " & UTC_PeriodFSTR & " (UTC)",
+    text_line_3: LOC_PeriodSSTR & " and " & LOC_PeriodFSTR & " (Local)",
+    text_line_4: " ",
+    text_font: "helvetica",
+    text_colour : "black",
+    text_font_size: 0.5
+    )
+
+# Saving the plot
+FileOUT_temp = DirRainOBS_temp & "/tp" & ThePeriodSTR & "_obs_" & TheDateSTR & TheTimeSTR
+svg = svg_output(output_name: FileOUT_temp)
+setoutput(svg)
+plot(obs, geo_view, symbol_plotting, title, legend)
+
+
+######################################################################
+function left_pad_number (num: number, num_digits: number)
+
+    num_string = ''  
+
+    for pow = num_digits to 1 by -1 do
+        digit = int(num / (10^(pow-1)))
+        num_string = num_string & digit
+        num = num - digit *(10^(pow-1))
+    end for
+
+    return num_string
+
+end left_pad_number
