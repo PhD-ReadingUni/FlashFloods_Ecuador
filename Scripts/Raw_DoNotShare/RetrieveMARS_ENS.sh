@@ -2,10 +2,10 @@
 # from the ECMWF ENS forecasting system
 
 # INPUT PARAMETERS
-DateS=2021-03-04
-DateF=2021-03-04
-StepS=108
-StepF=132
+DateS=2021-03-02
+DateF=2021-03-02
+StepS=156
+StepF=180
 Git_repo="/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 DirOUT="Data/Raw_DoNotShare/FC/ENS"
 #################################################################
