@@ -17,7 +17,7 @@ viewBox="0 0 801 566" xml:space="preserve">
 	<dc:format>image/svg+xml</dc:format>
 	<dc:title>MAGICS++ PLOT</dc:title>
 	<dc:author>mofp on omicron</dc:author>
-	<dc:date>Fri Mar 11 15:43:22 2022</dc:date>
+	<dc:date>Mon Mar 14 15:18:24 2022</dc:date>
 	<dc:language>en-GB</dc:language>
 	<dc:creator><cc:Agent><dc:title>Metview 5.13.2</dc:title></cc:Agent></dc:creator>
 	<dc:publisher><cc:Agent>
@@ -35,7 +35,7 @@ viewBox="0 0 801 566" xml:space="preserve">
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="CS_RainOBS.mv, line 51:1(BG)" id="CS_RainOBS.mv, line 51:1(BG)"><title>CS_RainOBS.mv, line 51:1(BG)</title>
+<g inkscape:groupmode="layer" inkscape:label="CS_RainOBS_RepFF.mv, line 74:3(BG)" id="CS_RainOBS_RepFF.mv, line 74:3(BG)"><title>CS_RainOBS_RepFF.mv, line 74:3(BG)</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g fill-rule="evenodd" stroke="none">
@@ -55,75 +55,127 @@ M-5072.45 191.709L-5073.94 191.324L-5074.85 190.845L-5075.22 189.449L-5074.84 18
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="CS_RainOBS.mv, line 95:7" id="CS_RainOBS.mv, line 95:7"><title>CS_RainOBS.mv, line 95:7</title>
+<g inkscape:groupmode="layer" inkscape:label="marsGZHrCt" id="marsGZHrCt"><title>marsGZHrCt</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
+<g stroke-width="0.5px" stroke="rgb(216,0,255)" fill="none">
+</g>
+<g stroke="rgb(216,0,255)" stroke-width="0.01" fill-rule="evenodd">
+<path fill="rgb(216,0,255)" d="M-5067.2 122.978h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-5061.88 126.518h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-5064.16 129.237h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-5064.16 130.754h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-5060.3 133.536h22.5l-11.25 22.5l-11.25 -22.5"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(160,1,234)" fill="none">
+</g>
+<g stroke="rgb(160,1,234)" stroke-width="0.01" fill-rule="evenodd">
+<path fill="rgb(160,1,234)" d="M-5063.91 124.621h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(160,1,234)" d="M-5062.01 130.501h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(160,1,234)" d="M-5061.69 131.639h22.5l-11.25 22.5l-11.25 -22.5"/>
+</g>
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="marsOzujb6" id="marsOzujb6"><title>marsOzujb6</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+</g>
+<g stroke="rgb(0,0,0)" stroke-width="0.01" fill-rule="evenodd">
+<path fill="rgb(0,0,0)" d="M-5035.84 -53.1332l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5050.07 -47.8854l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-4962.25 20.8406l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-4972.61 55.2352l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-4975.4 63.5809l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-4925.38 87.5434l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-4996.58 194.078l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5082.82 45.8778l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5065.3 52.8958l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5072.19 58.27l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5102.86 69.0815l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5086.17 65.6041l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5082.69 69.5241l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5082.25 69.208l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5077 69.0815l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5086.36 74.5189l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5079.91 73.1912l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5081.11 84.2556l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5084.59 87.7963l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+<path fill="rgb(0,0,0)" d="M-5050.82 141.98l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+</g>
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="tp24_obs_2021030912.geo" id="tp24_obs_2021030912.geo"><title>tp24_obs_2021030912.geo</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g stroke-width="0.5px" stroke="rgb(17,216,155)" fill="none">
 </g>
 <g stroke="rgb(17,216,155)" fill="rgb(17,216,155)">
-<circle cx="-4920" cy="-37" r="7.5"/>
-<circle cx="-4947" cy="0" r="7.5"/>
-<circle cx="-4867" cy="29" r="7.5"/>
-<circle cx="-5016" cy="30" r="7.5"/>
-<circle cx="-4767" cy="58" r="7.5"/>
+<circle cx="-4920" cy="-37" r="6"/>
+<circle cx="-4947" cy="0" r="6"/>
+<circle cx="-4867" cy="29" r="6"/>
+<circle cx="-5016" cy="30" r="6"/>
+<circle cx="-4767" cy="58" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(191,242,237)" fill="none">
 </g>
 <g stroke="rgb(191,242,237)" fill="rgb(191,242,237)">
-<circle cx="-4954" cy="14" r="7.5"/>
-<circle cx="-4970" cy="57" r="7.5"/>
-<circle cx="-5007" cy="255" r="7.5"/>
+<circle cx="-4954" cy="14" r="6"/>
+<circle cx="-4970" cy="57" r="6"/>
+<circle cx="-5007" cy="255" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(135,204,33)" fill="none">
 </g>
 <g stroke="rgb(135,204,33)" fill="rgb(135,204,33)">
-<circle cx="-4860" cy="-5" r="7.5"/>
-<circle cx="-5016" cy="30" r="7.5"/>
-<circle cx="-5101" cy="60" r="7.5"/>
+<circle cx="-4860" cy="-5" r="6"/>
+<circle cx="-5016" cy="30" r="6"/>
+<circle cx="-5101" cy="60" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(255,186,0)" fill="none">
 </g>
 <g stroke="rgb(255,186,0)" fill="rgb(255,186,0)">
-<circle cx="-4935" cy="95" r="7.5"/>
-<circle cx="-5120" cy="139" r="7.5"/>
+<circle cx="-4935" cy="95" r="6"/>
+<circle cx="-5120" cy="139" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(229,255,102)" fill="none">
 </g>
 <g stroke="rgb(229,255,102)" fill="rgb(229,255,102)">
-<circle cx="-5087" cy="65" r="7.5"/>
-<circle cx="-5025" cy="67" r="7.5"/>
+<circle cx="-5087" cy="65" r="6"/>
+<circle cx="-5025" cy="67" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(153,232,14)" fill="none">
 </g>
 <g stroke="rgb(153,232,14)" fill="rgb(153,232,14)">
-<circle cx="-4966" cy="23" r="7.5"/>
-<circle cx="-5018" cy="252" r="7.5"/>
+<circle cx="-4966" cy="23" r="6"/>
+<circle cx="-5018" cy="252" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(114,237,198)" fill="none">
 </g>
 <g stroke="rgb(114,237,198)" fill="rgb(114,237,198)">
-<circle cx="-4968" cy="64" r="7.5"/>
-<circle cx="-4970" cy="86" r="7.5"/>
+<circle cx="-4968" cy="64" r="6"/>
+<circle cx="-4970" cy="86" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(255,124,0)" fill="none">
 </g>
 <g stroke="rgb(255,124,0)" fill="rgb(255,124,0)">
-<circle cx="-5018" cy="-1" r="7.5"/>
+<circle cx="-5018" cy="-1" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(255,0,0)" fill="none">
 </g>
 <g stroke="rgb(255,0,0)" fill="rgb(255,0,0)">
-<circle cx="-5050" cy="136" r="7.5"/>
+<circle cx="-5050" cy="136" r="6"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(178,178,178)" fill="none">
 </g>
 <g stroke="rgb(178,178,178)" fill="rgb(178,178,178)">
-<circle cx="-4985" cy="161" r="7.5"/>
+<circle cx="-4985" cy="161" r="6"/>
 </g>
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="CS_RainOBS.mv, line 51:1(FG)" id="CS_RainOBS.mv, line 51:1(FG)"><title>CS_RainOBS.mv, line 51:1(FG)</title>
+<g inkscape:groupmode="layer" inkscape:label="CS_RainOBS_RepFF.mv, line 74:3(FG)" id="CS_RainOBS_RepFF.mv, line 74:3(FG)"><title>CS_RainOBS_RepFF.mv, line 74:3(FG)</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g stroke-width="1.5px" stroke="rgb(51,51,51)" fill="none">
@@ -202,7 +254,7 @@ M-5072.45 191.709L-5073.94 191.324L-5074.85 190.845L-5075.22 189.449L-5074.84 18
 <g inkscape:groupmode="layer" inkscape:label="Coastline" id="Coastline"><title>Coastline</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
-<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<g stroke-width="1px" stroke="rgb(51,51,51)" fill="none">
 <path d="M-5133.9 323.082l0 -424.242l391.997 0l0 424.242l-391.997 0"/>
 </g>
 </g>
@@ -230,210 +282,435 @@ M-5072.45 191.709L-5073.94 191.324L-5074.85 190.845L-5075.22 189.449L-5074.84 18
 <text x="0" y="4.45455" dominant-baseline="no-change">0</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(178,178,178)">
-<path fill="rgb(178,178,178)" d="M0 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(178,178,178)" d="M0 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M0 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M0 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M0 22.9091l22.0499 0"/>
-<path d="M0 7.63636l22.0499 0"/>
+<path d="M0 22.9091l10.0799 0"/>
+<path d="M0 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="22.0499" y="4.45455" dominant-baseline="no-change">1</text>
+<text x="10.0799" y="4.45455" dominant-baseline="no-change">1</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(191,242,237)">
-<path fill="rgb(191,242,237)" d="M22.0499 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(191,242,237)" d="M10.0799 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M22.0499 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M10.0799 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M22.0499 22.9091l22.0499 0"/>
-<path d="M22.0499 7.63636l22.0499 0"/>
+<path d="M10.0799 22.9091l10.0799 0"/>
+<path d="M10.0799 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="44.0997" y="4.45455" dominant-baseline="no-change">2</text>
+<text x="20.1599" y="4.45455" dominant-baseline="no-change">2</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(114,237,198)">
-<path fill="rgb(114,237,198)" d="M44.0997 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(114,237,198)" d="M20.1599 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M44.0997 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M20.1599 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M44.0997 22.9091l22.0499 0"/>
-<path d="M44.0997 7.63636l22.0499 0"/>
+<path d="M20.1599 22.9091l10.0799 0"/>
+<path d="M20.1599 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="66.1496" y="4.45455" dominant-baseline="no-change">5</text>
+<text x="30.2398" y="4.45455" dominant-baseline="no-change">5</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(17,216,155)">
-<path fill="rgb(17,216,155)" d="M66.1496 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(17,216,155)" d="M30.2398 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M66.1496 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M30.2398 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M66.1496 22.9091l22.0499 0"/>
-<path d="M66.1496 7.63636l22.0499 0"/>
+<path d="M30.2398 22.9091l10.0799 0"/>
+<path d="M30.2398 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="88.1994" y="4.45455" dominant-baseline="no-change">10</text>
+<text x="40.3197" y="4.45455" dominant-baseline="no-change">10</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(135,204,33)">
-<path fill="rgb(135,204,33)" d="M88.1994 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(135,204,33)" d="M40.3197 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M88.1994 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M40.3197 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M88.1994 22.9091l22.0499 0"/>
-<path d="M88.1994 7.63636l22.0499 0"/>
+<path d="M40.3197 22.9091l10.0799 0"/>
+<path d="M40.3197 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="110.249" y="4.45455" dominant-baseline="no-change">20</text>
+<text x="50.3997" y="4.45455" dominant-baseline="no-change">20</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(153,232,14)">
-<path fill="rgb(153,232,14)" d="M110.249 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(153,232,14)" d="M50.3997 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M110.249 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M50.3997 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M110.249 22.9091l22.0499 0"/>
-<path d="M110.249 7.63636l22.0499 0"/>
+<path d="M50.3997 22.9091l10.0799 0"/>
+<path d="M50.3997 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="132.299" y="4.45455" dominant-baseline="no-change">30</text>
+<text x="60.4796" y="4.45455" dominant-baseline="no-change">30</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(229,255,102)">
-<path fill="rgb(229,255,102)" d="M132.299 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(229,255,102)" d="M60.4796 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M132.299 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M60.4796 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M132.299 22.9091l22.0499 0"/>
-<path d="M132.299 7.63636l22.0499 0"/>
+<path d="M60.4796 22.9091l10.0799 0"/>
+<path d="M60.4796 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="154.349" y="4.45455" dominant-baseline="no-change">40</text>
+<text x="70.5595" y="4.45455" dominant-baseline="no-change">40</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(226,226,16)">
-<path fill="rgb(226,226,16)" d="M154.349 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(226,226,16)" d="M70.5595 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M154.349 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M70.5595 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M154.349 22.9091l22.0499 0"/>
-<path d="M154.349 7.63636l22.0499 0"/>
+<path d="M70.5595 22.9091l10.0799 0"/>
+<path d="M70.5595 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="176.399" y="4.45455" dominant-baseline="no-change">50</text>
+<text x="80.6395" y="4.45455" dominant-baseline="no-change">50</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(255,186,0)">
-<path fill="rgb(255,186,0)" d="M176.399 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(255,186,0)" d="M80.6395 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M176.399 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M80.6395 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M176.399 22.9091l22.0499 0"/>
-<path d="M176.399 7.63636l22.0499 0"/>
+<path d="M80.6395 22.9091l10.0799 0"/>
+<path d="M80.6395 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="198.449" y="4.45455" dominant-baseline="no-change">60</text>
+<text x="90.7194" y="4.45455" dominant-baseline="no-change">60</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(255,124,0)">
-<path fill="rgb(255,124,0)" d="M198.449 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(255,124,0)" d="M90.7194 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M198.449 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M90.7194 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M198.449 22.9091l22.0499 0"/>
-<path d="M198.449 7.63636l22.0499 0"/>
+<path d="M90.7194 22.9091l10.0799 0"/>
+<path d="M90.7194 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="220.499" y="4.45455" dominant-baseline="no-change">80</text>
+<text x="100.799" y="4.45455" dominant-baseline="no-change">80</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(255,0,0)">
-<path fill="rgb(255,0,0)" d="M220.499 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(255,0,0)" d="M100.799 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M220.499 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M100.799 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M220.499 22.9091l22.0499 0"/>
-<path d="M220.499 7.63636l22.0499 0"/>
+<path d="M100.799 22.9091l10.0799 0"/>
+<path d="M100.799 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="242.548" y="4.45455" dominant-baseline="no-change">100</text>
+<text x="110.879" y="4.45455" dominant-baseline="no-change">100</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(216,0,255)">
-<path fill="rgb(216,0,255)" d="M242.548 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(216,0,255)" d="M110.879 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M242.548 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M110.879 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M242.548 22.9091l22.0499 0"/>
-<path d="M242.548 7.63636l22.0499 0"/>
+<path d="M110.879 22.9091l10.0799 0"/>
+<path d="M110.879 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="264.598" y="4.45455" dominant-baseline="no-change">125</text>
+<text x="120.959" y="4.45455" dominant-baseline="no-change">125</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(160,1,234)">
-<path fill="rgb(160,1,234)" d="M264.598 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(160,1,234)" d="M120.959 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M264.598 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M120.959 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M264.598 22.9091l22.0499 0"/>
-<path d="M264.598 7.63636l22.0499 0"/>
+<path d="M120.959 22.9091l10.0799 0"/>
+<path d="M120.959 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="286.648" y="4.45455" dominant-baseline="no-change">150</text>
+<text x="131.039" y="4.45455" dominant-baseline="no-change">150</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(94,73,232)">
-<path fill="rgb(94,73,232)" d="M286.648 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(94,73,232)" d="M131.039 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M286.648 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M131.039 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M286.648 22.9091l22.0499 0"/>
-<path d="M286.648 7.63636l22.0499 0"/>
+<path d="M131.039 22.9091l10.0799 0"/>
+<path d="M131.039 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="308.698" y="4.45455" dominant-baseline="no-change">200</text>
+<text x="141.119" y="4.45455" dominant-baseline="no-change">200</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(10,10,214)">
-<path fill="rgb(10,10,214)" d="M308.698 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(10,10,214)" d="M141.119 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M308.698 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M141.119 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M308.698 22.9091l22.0499 0"/>
-<path d="M308.698 7.63636l22.0499 0"/>
+<path d="M141.119 22.9091l10.0799 0"/>
+<path d="M141.119 7.63636l10.0799 0"/>
 </g>
 <g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
-<text x="330.748" y="4.45455" dominant-baseline="no-change">300</text>
+<text x="151.199" y="4.45455" dominant-baseline="no-change">300</text>
+<text x="161.279" y="4.45455" dominant-baseline="no-change">500</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(10,10,109)">
+<path fill="rgb(10,10,109)" d="M151.199 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M151.199 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M151.199 22.9091l10.0799 0"/>
+<path d="M151.199 7.63636l10.0799 0"/>
+<path d="M161.279 7.63636l0 15.2727"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="171.359" y="4.45455" dominant-baseline="no-change">0</text>
+<text x="181.439" y="4.45455" dominant-baseline="no-change">1</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(0,0,0)">
+<path fill="rgb(0,0,0)" d="M171.359 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M171.359 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M171.359 22.9091l10.0799 0"/>
+<path d="M171.359 7.63636l10.0799 0"/>
+<path d="M181.439 7.63636l0 15.2727"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="191.519" y="4.45455" dominant-baseline="no-change">0</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(178,178,178)">
+<path fill="rgb(178,178,178)" d="M191.519 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M191.519 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M191.519 22.9091l10.0799 0"/>
+<path d="M191.519 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="201.599" y="4.45455" dominant-baseline="no-change">1</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(191,242,237)">
+<path fill="rgb(191,242,237)" d="M201.599 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M201.599 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M201.599 22.9091l10.0799 0"/>
+<path d="M201.599 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="211.679" y="4.45455" dominant-baseline="no-change">2</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(114,237,198)">
+<path fill="rgb(114,237,198)" d="M211.679 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M211.679 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M211.679 22.9091l10.0799 0"/>
+<path d="M211.679 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="221.759" y="4.45455" dominant-baseline="no-change">5</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(17,216,155)">
+<path fill="rgb(17,216,155)" d="M221.759 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M221.759 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M221.759 22.9091l10.0799 0"/>
+<path d="M221.759 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="231.839" y="4.45455" dominant-baseline="no-change">10</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(135,204,33)">
+<path fill="rgb(135,204,33)" d="M231.839 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M231.839 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M231.839 22.9091l10.0799 0"/>
+<path d="M231.839 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="241.918" y="4.45455" dominant-baseline="no-change">20</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(153,232,14)">
+<path fill="rgb(153,232,14)" d="M241.918 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M241.918 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M241.918 22.9091l10.0799 0"/>
+<path d="M241.918 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="251.998" y="4.45455" dominant-baseline="no-change">30</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(229,255,102)">
+<path fill="rgb(229,255,102)" d="M251.998 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M251.998 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M251.998 22.9091l10.0799 0"/>
+<path d="M251.998 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="262.078" y="4.45455" dominant-baseline="no-change">40</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(226,226,16)">
+<path fill="rgb(226,226,16)" d="M262.078 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M262.078 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M262.078 22.9091l10.0799 0"/>
+<path d="M262.078 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="272.158" y="4.45455" dominant-baseline="no-change">50</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,186,0)">
+<path fill="rgb(255,186,0)" d="M272.158 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M272.158 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M272.158 22.9091l10.0799 0"/>
+<path d="M272.158 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="282.238" y="4.45455" dominant-baseline="no-change">60</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,124,0)">
+<path fill="rgb(255,124,0)" d="M282.238 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M282.238 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M282.238 22.9091l10.0799 0"/>
+<path d="M282.238 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="292.318" y="4.45455" dominant-baseline="no-change">80</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,0,0)">
+<path fill="rgb(255,0,0)" d="M292.318 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M292.318 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M292.318 22.9091l10.0799 0"/>
+<path d="M292.318 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="302.398" y="4.45455" dominant-baseline="no-change">100</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(216,0,255)">
+<path fill="rgb(216,0,255)" d="M302.398 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M302.398 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M302.398 22.9091l10.0799 0"/>
+<path d="M302.398 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="312.478" y="4.45455" dominant-baseline="no-change">125</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(160,1,234)">
+<path fill="rgb(160,1,234)" d="M312.478 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M312.478 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M312.478 22.9091l10.0799 0"/>
+<path d="M312.478 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="322.558" y="4.45455" dominant-baseline="no-change">150</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(94,73,232)">
+<path fill="rgb(94,73,232)" d="M322.558 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M322.558 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M322.558 22.9091l10.0799 0"/>
+<path d="M322.558 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="332.638" y="4.45455" dominant-baseline="no-change">200</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(10,10,214)">
+<path fill="rgb(10,10,214)" d="M332.638 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M332.638 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M332.638 22.9091l10.0799 0"/>
+<path d="M332.638 7.63636l10.0799 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="342.718" y="4.45455" dominant-baseline="no-change">300</text>
 <text x="352.798" y="4.45455" dominant-baseline="no-change">500</text>
 </g>
 <g fill-rule="evenodd" stroke="rgb(10,10,109)">
-<path fill="rgb(10,10,109)" d="M330.748 7.63636v15.2727h22.0499v-15.2727h-22.0499"/>
+<path fill="rgb(10,10,109)" d="M342.718 7.63636v15.2727h10.0799v-15.2727h-10.0799"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
-<path d="M330.748 7.63636l0 15.2727l22.0499 0l0 -15.2727l-22.0499 0"/>
+<path d="M342.718 7.63636l0 15.2727l10.0799 0l0 -15.2727l-10.0799 0"/>
 </g>
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
-<path d="M330.748 22.9091l22.0499 0"/>
-<path d="M330.748 7.63636l22.0499 0"/>
+<path d="M342.718 22.9091l10.0799 0"/>
+<path d="M342.718 7.63636l10.0799 0"/>
 <path d="M352.798 7.63636l0 15.2727"/>
 </g>
 </g>
