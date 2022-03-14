@@ -3,7 +3,7 @@
 # INPUT PARAMETERS
 TheDate = 2021-03-09
 TheTime = 12
-ThePeriod = 12
+ThePeriod = 24
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 DirRainOBS = "Data/Figures/Case_Study/Rain_Obs"
 ######################################################################

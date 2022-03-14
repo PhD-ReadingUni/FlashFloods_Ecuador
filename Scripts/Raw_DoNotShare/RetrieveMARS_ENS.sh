@@ -2,10 +2,10 @@
 # from the ECMWF ENS forecasting system
 
 # INPUT PARAMETERS
-DateS=2021-03-02
-DateF=2021-03-02
-StepS=156
-StepF=180
+DateS=2020-01-01
+DateF=2020-12-31
+StepS=0
+StepF=246
 Git_repo="/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 DirOUT="Data/Raw_DoNotShare/FC/ENS"
 #################################################################
@@ -20,7 +20,7 @@ DateF=$(date -d $DateF +%Y%m%d)
 TheDate=${DateS}
 while [[ ${TheDate} -le ${DateF} ]]; do
     
-    for Time in 0; do
+    for Time in 0 12; do
         
         if [[ ${Time} -eq 0 ]]; then
             TheTime=0
@@ -39,7 +39,7 @@ mars <<EOF
             expver=1,
             levtype=sfc,
             param=228.128,
-            step=${StepS}/to/${StepF}/by/12,
+            step=${StepS}/to/${StepF}/by/6,
             stream=enfo,
             time=${TheTime},
             type=cf,

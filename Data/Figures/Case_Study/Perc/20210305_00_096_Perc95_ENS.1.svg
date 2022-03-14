@@ -17,7 +17,7 @@ viewBox="0 0 801 566" xml:space="preserve">
 	<dc:format>image/svg+xml</dc:format>
 	<dc:title>MAGICS++ PLOT</dc:title>
 	<dc:author>mofp on omicron</dc:author>
-	<dc:date>Fri Mar 11 14:47:03 2022</dc:date>
+	<dc:date>Mon Mar 14 11:19:51 2022</dc:date>
 	<dc:language>en-GB</dc:language>
 	<dc:creator><cc:Agent><dc:title>Metview 5.13.2</dc:title></cc:Agent></dc:creator>
 	<dc:publisher><cc:Agent>
@@ -35,7 +35,7 @@ viewBox="0 0 801 566" xml:space="preserve">
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="CS_Plot_Perc.mv, line 82:285(BG)" id="CS_Plot_Perc.mv, line 82:285(BG)"><title>CS_Plot_Perc.mv, line 82:285(BG)</title>
+<g inkscape:groupmode="layer" inkscape:label="CS_Plot_Perc.mv, line 81:162(BG)" id="CS_Plot_Perc.mv, line 81:162(BG)"><title>CS_Plot_Perc.mv, line 81:162(BG)</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g fill-rule="evenodd" stroke="none">
@@ -1249,11 +1249,11 @@ M-4865.94 -30.4536L-4863.88 -30.951L-4863.56 -31.1512L-4861.3 -31.1411L-4860.86 
 <path fill="rgb(255,186,0)" d="M-4936.55 -67.8625l0.00433114 -0.0175398l0.00251638 -0.00666348l1.25245 -2.22181l1.44413 -1.33261l0.209546 -0.282431l0.385074 -0.322388l0.632356 -2.27153l1.47646 -0.986021l0.224559 -0.556201l0.0889679 -0.345485l-0.313527 -0.550802l-0.273715 0.12969l-2.42972 -0.630081l-0.518588 0.253343l-2.18484 -0.198894v9.33943"/>
 </g>
 <g stroke-width="0.5px" stroke="rgb(255,186,0)" fill="none">
-<path d="M-4936.55 -67.8625l0.00433114 -0.0175398l0.00251638 -0.00666348l1.25245 -2.22181l1.44413 -1.33261l0.209546 -0.282431l0.385074 -0.322388l0.632356 -2.27153l1.47646 -0.986021l0.224559 -0.556201l0.0889679 -0.345485l-0.313527 -0.550802l-0.273715 0.12969l-2.42972 -0.630081l-0.518588 0.253343l-2.18484 -0.198894"/>
+<path d="M-4936.55 -67.8625l0.00433114 -0.0175398l0.00251638 -0.00666348l1.25245 -2.22181l1.44413 -1.33261l0.209546 -0.282431l0.385074 -0.322388l0.632356 -2.27153l1.47646 -0.986021l0.224559 -0.556201l0.0889679 -0.345485l-0.313527 -0.550802l-0.273715 0.12969l-2.42972 -0.630081l-0.518588 0.253343l-2.18484 -0.198894l0 9.33943"/>
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="CS_Plot_Perc.mv, line 82:285(FG)" id="CS_Plot_Perc.mv, line 82:285(FG)"><title>CS_Plot_Perc.mv, line 82:285(FG)</title>
+<g inkscape:groupmode="layer" inkscape:label="CS_Plot_Perc.mv, line 81:162(FG)" id="CS_Plot_Perc.mv, line 81:162(FG)"><title>CS_Plot_Perc.mv, line 81:162(FG)</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g stroke-width="1.5px" stroke="rgb(51,51,51)" fill="none">
@@ -1329,7 +1329,7 @@ M-4865.94 -30.4536L-4863.88 -30.951L-4863.56 -31.1512L-4861.3 -31.1411L-4860.86 
 </g>
 </g>
 </g>
-<g inkscape:groupmode="layer" inkscape:label="CS_Plot_Perc.mv, line 82:285(FG)" id="CS_Plot_Perc.mv, line 82:285(FG)"><title>CS_Plot_Perc.mv, line 82:285(FG)</title>
+<g inkscape:groupmode="layer" inkscape:label="CS_Plot_Perc.mv, line 81:162(FG)" id="CS_Plot_Perc.mv, line 81:162(FG)"><title>CS_Plot_Perc.mv, line 81:162(FG)</title>
 <g id="Page0" inkscape:label="Page0">
 <g id="drawing" inkscape:label="drawing" transform="translate(5193.9,-351.365)">
 <g fill-rule="evenodd" stroke="none">
@@ -1450,7 +1450,7 @@ M-5072.45 191.709L-5073.94 191.324L-5074.85 190.845L-5075.22 189.449L-5074.84 18
 <g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
 <path d="M0 22.9091l22.0499 0"/>
 <path d="M0 7.63636l22.0499 0"/>
-<path d="M0 7.63636"/>
+<path d="M0 7.63636l0 15.2727"/>
 </g>
 <g text-anchor="middle" font-size="0.12cm" font-family="Arial" fill="rgb(0,0,0)">
 <text x="22.0499" y="4.45455" dominant-baseline="no-change">1</text>
