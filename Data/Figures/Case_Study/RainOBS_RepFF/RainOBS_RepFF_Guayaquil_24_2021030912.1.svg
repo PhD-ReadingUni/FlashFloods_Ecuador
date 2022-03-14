@@ -1,0 +1,577 @@
+<?xml version="1.0" ?>
+<svg version="1.1" encoding="iso-8859-1" baseProfile="full"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:cc="http://creativecommons.org/ns#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:ev="http://www.w3.org/2001/xml-events"
+xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+inkscape:version="0.46"
+inkscape:output_extension="org.inkscape.output.svg.inkscape"
+viewBox="0 0 801 566" xml:space="preserve">
+<title>MAGICS++ PLOT</title>
+<metadata id="MAGICSmetadata">
+<rdf:RDF><cc:Work rdf:about="">
+	<dc:format>image/svg+xml</dc:format>
+	<dc:title>MAGICS++ PLOT</dc:title>
+	<dc:author>mofp on omicron</dc:author>
+	<dc:date>Mon Mar 14 15:18:47 2022</dc:date>
+	<dc:language>en-GB</dc:language>
+	<dc:creator><cc:Agent><dc:title>Metview 5.13.2</dc:title></cc:Agent></dc:creator>
+	<dc:publisher><cc:Agent>
+	 <dc:title>Magics 4.9.1</dc:title>
+	</cc:Agent></dc:publisher>
+	<dc:coverage>Plot of meteorological data</dc:coverage>
+</cc:Work></rdf:RDF>
+</metadata>
+<g id="page" transform="translate(0,565.657)" vector-effect="non-scaling-stroke">
+<g id="Page0" inkscape:label="Page0">
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Coastline" id="Coastline"><title>Coastline</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(22856,-876.768)">
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="CS_RainOBS_RepFF.mv, line 74:3(BG)" id="CS_RainOBS_RepFF.mv, line 74:3(BG)"><title>CS_RainOBS_RepFF.mv, line 74:3(BG)</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(22856,-876.768)">
+<g fill-rule="evenodd" stroke="none">
+<path fill="rgb(180,241,241)" d="M-22593.7 845.105l1.02423 -6.39862l3.72869 -11.048l0.62143 -4.97158l8.83838 -28.8398l5.97282 -10.7027l0.644453 -1.86435l2.77353 -6.05337l1.04726 -6.58277l6.00733 -16.4799l3.24534 -4.8565l8.48162 -8.67728l2.41674 -5.0176l0.379782 -6.81294l-1.8183 -12.6361l-3.82076 -9.87413l-0.920691 -1.56514l-6.19145 0.368271l-3.19933 -0.27621l-2.27863 -1.10478l-3.41798 -5.22477l-5.45494 -15.168l-3.53306 -5.57002l-1.71473 -3.45248l-0.517859 -4.00491l0.241677 -16.4799l-1.89888 -13.1655l-0.115083 -3.68265l1.73775 -6.2145l0.44882 -3.82076l-1.31196 -1.70322l-0.460331 -1.15083l-3.59059 -4.83351l-0.874618 -0.782558l-0.425826 -1.93339l-0.840085 -1.42704l-0.644481 -1.93339l0.172638 -3.40647l1.41553 -3.10724l1.86435 -2.41677l0.655964 -2.55484l-2.19808 -3.47551l4.37315 -4.60331l4.46524 -1.31196l3.47551 -2.04847l1.38099 -6.62879l2.14056 -3.1763l4.67235 -2.11754l4.67238 -3.13026l2.0485 -6.12241l-16.7791 9.52888l-1.8183 1.38099l-0.736541 2.48581l-0.172638 4.99461l-2.07149 0.89764l-9.17212 0.621459l-2.083 2.37069l-0.483354 2.2096l-2.41674 6.88198l-2.40523 11.3242l-0.391293 8.17088l1.72624 8.19393l8.60822 14.9838l0.644481 8.5852l-4.3962 55.0788l-2.99215 11.4853l-1.96792 3.08421l-7.74508 8.63124l-2.75051 1.79531l-4.5573 1.38099l-9.80506 5.66208l-4.07394 0.851624l-2.84257 -1.40402l-1.6572 -3.79776l-2.25561 -0.759535l-6.05337 0.667475l-2.02547 -0.690497l-3.6021 -2.76199l-1.50759 -4.64936l3.78625 -4.41919l8.43558 -5.6851l2.57787 -5.93829l1.26591 -4.25806l2.92312 -2.50883l7.61849 -0.828602l1.79531 1.17385l1.69171 2.41674l2.14056 2.1866l3.16479 0.184121l2.70446 -1.61116l1.27742 -2.39375l-0.207172 -2.90009l-1.6802 -3.08421l-1.26591 5.93829l-3.82076 -1.24292l-6.67483 -6.46766l-6.20299 0.713519l-5.65057 2.87707l-4.09697 1.26591l-1.58814 -3.95886l1.18536 -6.21447l5.31683 -12.0837l1.20838 -6.78992l1.05874 -3.49853l2.55484 -1.38099l3.22235 -0.621459l2.99215 -1.21987l2.14056 -2.2096l5.75414 -9.16061l-2.60089 0.690497l-1.45003 0.874618l-2.96916 3.08424l-2.34767 0.966679l-5.73115 -0.460331l-2.62388 0.27621l-3.19933 2.18657l-2.5088 3.45248l-12.2103 31.4868l-19.2994 27.0445l-8.7233 9.43682l-9.18363 3.98188l-2.11754 3.70567l-2.11754 2.64691l-2.6124 1.54212l-2.70443 -0.0460444l-1.47308 -1.15083l-1.05877 -1.74926l-1.42701 -1.88737l-4.14301 -1.84133l-2.71594 2.11754l-0.989729 4.67238l0.989729 5.6851l1.08176 0.828602l7.71058 7.84865l0.989729 2.3477l0.218655 3.19933l-0.333737 6.12241l-2.84257 2.57787l-6.49068 -0.874646l-11.9111 -4.67235l-11.9456 -10.1503l-4.166 -2.3477l-3.65966 -3.59059l-1.6572 -1.28893l-1.77226 -0.506376l-5.04065 -0.690497l-2.65842 -0.736513l-10.7718 -6.905l-30.0367 -35.3766l-7.32921 -6.84156v150.277h93.0813l-0.272279 -1.01671l1.71267 -10.0268l1.01663 -33.9691l1.00331 -3.82466l9.52888 -17.5387l4.03941 -11.4393l4.03941 -2.90009l17.2049 -4.99461l15.4672 -7.66453l5.93829 -2.00245l12.8318 0.414287l19.4375 11.9917l12.1528 3.06122l-0.44882 2.18657l-0.794069 2.02547l-1.13932 1.84133l-1.48457 1.6802l-3.15328 2.64693l-14.2243 6.12241l-0.89764 2.48581l-3.98188 3.79773l-0.909152 1.5191l-1.71473 4.35015l-2.32468 4.35013l-2.3477 2.46278l-0.598436 0.0460444l-3.00021 5.14615l-3.39572 6.7896l-3.56601 6.45015l-1.86814 4.58315l-4.58844 1.86896l-3.73874 4.24525l0.172073 6.61965l-4.30886 4.04679l-1.72624 4.07394l-0.396865 0.571483h67.4569l-1.93452 -3.37952z
+M-22591.5 749.404L-22592.8 742.973L-22589 732.252L-22583 716.812L-22575.3 703.086L-22572.2 710.375L-22565.4 712.944L-22561.9 718.946L-22567.9 727.955L-22577.8 733.105L-22579.1 745.54L-22586 749.83L-22591.5 749.404"/>
+</g>
+<g stroke-width="1.5px" stroke="rgb(51,51,51)" fill="none">
+<path d="M-22703.2 847.468l1.71267 -10.0268l1.01662 -33.9692l1.00331 -3.82465l9.52888 -17.5387l4.03942 -11.4393l4.03942 -2.90009l17.2049 -4.99461l15.4672 -7.66454l5.93829 -2.00245l12.8318 0.414299l19.4375 11.9917l12.1528 3.06121l-0.448824 2.18658l-0.794074 2.02546l-1.13932 1.84133l-1.48457 1.68021l-3.15328 2.64691l-14.2243 6.12242l-0.897648 2.4858l-3.98188 3.79774l-0.909157 1.5191l-1.71474 4.35014l-2.32468 4.35014l-2.3477 2.46278l-0.598432 0.0460331l-3.0002 5.14616l-3.39573 6.78959l-3.56603 6.45017l-1.86814 4.58315l-4.58844 1.86895l-3.73871 4.24525l0.172059 6.61965l-4.30887 4.04679l-1.72625 4.07394"/>
+<path d="M-22579.1 745.54l-6.86543 4.29015l-5.57978 -0.426606l-1.29019 -6.43093l3.85845 -10.721l6.00252 -15.4397l7.72003 -13.7263l3.00731 7.28956l6.86872 2.56877l3.43642 6.00169l-6.00578 9.00896l-9.86972 5.15036l-1.28255 12.435"/>
+<path d="M-22593.7 845.105l1.02424 -6.39862l3.72869 -11.048l0.621449 -4.97159l8.83838 -28.8398l5.97281 -10.7027l0.644466 -1.86435l2.7735 -6.05337l1.04726 -6.58275l6.00734 -16.4799l3.24534 -4.85651l8.48163 -8.67727l2.41675 -5.01762l0.379774 -6.81292l-1.81831 -12.6361l-3.82076 -9.87413l-0.920665 -1.56513l-6.19147 0.368266l-3.19931 -0.276199l-2.27865 -1.1048l-3.41797 -5.22477l-5.45494 -15.168l-3.53305 -5.57002l-1.71474 -3.45249l-0.517874 -4.00489l0.241675 -16.4799l-1.89887 -13.1655l-0.115083 -3.68266l1.73776 -6.21449l0.448824 -3.82076l-1.31195 -1.70323l-0.460332 -1.15083l-3.59059 -4.83349l-0.874632 -0.782565l-0.425807 -1.9334l-0.840107 -1.42703l-0.644466 -1.9334l0.172625 -3.40646l1.41552 -3.10724l1.86435 -2.41675l0.655974 -2.55485l-2.19809 -3.47551l4.37316 -4.60333l4.46523 -1.31195l3.47551 -2.04848l1.381 -6.62879l2.14055 -3.17629l4.67237 -2.11753l4.67237 -3.13026l2.04848 -6.12242l-16.7791 9.52888l-1.81831 1.381l-0.736532 2.4858l-0.172625 4.99461l-2.0715 0.897649l-9.17212 0.621449l-2.083 2.37071l-0.483349 2.2096l-2.41675 6.88197l-2.40524 11.3242l-0.391283 8.1709l1.72625 8.19392l8.60822 14.9838l0.644466 8.5852l-4.39618 55.0788l-2.99216 11.4853l-1.96792 3.08423l-7.74509 8.63123l-2.75049 1.7953l-4.55729 1.381l-9.80508 5.66209l-4.07394 0.851615l-2.84255 -1.40401l-1.6572 -3.79774l-2.25563 -0.759549l-6.05337 0.667482l-2.02546 -0.690499l-3.6021 -2.76199l-1.50759 -4.64936l3.78623 -4.41919l8.43559 -5.68511l2.57786 -5.93829l1.26591 -4.25808l2.92311 -2.50881l7.6185 -0.828598l1.7953 1.17385l1.69172 2.41675l2.14055 2.18658l3.16479 0.184133l2.70445 -1.61116l1.27742 -2.39373l-0.20715 -2.90009l-1.68021 -3.08423l-1.26591 5.93829l-3.82076 -1.2429l-6.67482 -6.46767l-6.20298 0.713516l-5.65058 2.87708l-4.09696 1.26591l-1.58815 -3.95886l1.18536 -6.21449l5.31684 -12.0837l1.20837 -6.7899l1.05876 -3.49853l2.55485 -1.381l3.22233 -0.621449l2.99216 -1.21988l2.14055 -2.2096l5.75416 -9.16062l-2.60088 0.690499l-1.45005 0.874632l-2.96914 3.08423l-2.3477 0.966698l-5.73114 -0.460333l-2.6239 0.2762l-3.19931 2.18658l-2.50881 3.45249l-12.2103 31.4867l-19.2994 27.0445l-8.7233 9.43682l-9.18363 3.98188l-2.11753 3.70568l-2.11753 2.64691l-2.61239 1.54211l-2.70445 -0.0460334l-1.47306 -1.15083l-1.05876 -1.74926l-1.42703 -1.88736l-4.14299 -1.84133l-2.71596 2.11753l-0.989715 4.67237l0.989715 5.68511l1.08178 0.828599l7.71057 7.84867l0.989715 2.3477l0.218658 3.19931l-0.333741 6.12242l-2.84255 2.57786l-6.49069 -0.874632l-11.9111 -4.67237l-11.9456 -10.1503l-4.16601 -2.3477l-3.65964 -3.59059l-1.6572 -1.28893l-1.77228 -0.506366l-5.04064 -0.690499l-2.65842 -0.736532l-10.7718 -6.90499l-30.0367 -35.3766"/>
+</g>
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="marsh8U9XB" id="marsh8U9XB"><title>marsh8U9XB</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(22856,-876.768)">
+<g stroke-width="0.5px" stroke="rgb(216,0,255)" fill="none">
+</g>
+<g stroke="rgb(216,0,255)" stroke-width="0.01" fill-rule="evenodd">
+<path fill="rgb(216,0,255)" d="M-22628.2 589.194h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-22604.4 605.033h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-22614.6 617.194h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-22614.6 623.982h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(216,0,255)" d="M-22597.4 636.427h22.5l-11.25 22.5l-11.25 -22.5"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(160,1,234)" fill="none">
+</g>
+<g stroke="rgb(160,1,234)" stroke-width="0.01" fill-rule="evenodd">
+<path fill="rgb(160,1,234)" d="M-22613.5 596.548h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(160,1,234)" d="M-22605 622.851h22.5l-11.25 22.5l-11.25 -22.5"/>
+<path fill="rgb(160,1,234)" d="M-22603.6 627.942h22.5l-11.25 22.5l-11.25 -22.5"/>
+</g>
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="marsX8L7XA" id="marsX8L7XA"><title>marsX8L7XA</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(22856,-876.768)">
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+</g>
+<g stroke="rgb(0,0,0)" stroke-width="0.01" fill-rule="evenodd">
+<path fill="rgb(0,0,0)" d="M-22594 609.076l7.5 -7.5l-7.5 -7.5l-7.5 7.5l7.5 7.5"/>
+</g>
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="tp24_obs_2021030912.geo" id="tp24_obs_2021030912.geo"><title>tp24_obs_2021030912.geo</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(22856,-876.768)">
+<g stroke-width="0.5px" stroke="rgb(255,0,0)" fill="none">
+</g>
+<g stroke="rgb(255,0,0)" fill="rgb(255,0,0)">
+<circle cx="-22592" cy="610" r="6"/>
+</g>
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="CS_RainOBS_RepFF.mv, line 74:3(FG)" id="CS_RainOBS_RepFF.mv, line 74:3(FG)"><title>CS_RainOBS_RepFF.mv, line 74:3(FG)</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(22856,-876.768)">
+<g stroke-width="1.5px" stroke="rgb(51,51,51)" fill="none">
+<path d="M-22703.2 847.468l1.71267 -10.0268l1.01662 -33.9692l1.00331 -3.82465l9.52888 -17.5387l4.03942 -11.4393l4.03942 -2.90009l17.2049 -4.99461l15.4672 -7.66454l5.93829 -2.00245l12.8318 0.414299l19.4375 11.9917l12.1528 3.06121l-0.448824 2.18658l-0.794074 2.02546l-1.13932 1.84133l-1.48457 1.68021l-3.15328 2.64691l-14.2243 6.12242l-0.897648 2.4858l-3.98188 3.79774l-0.909157 1.5191l-1.71474 4.35014l-2.32468 4.35014l-2.3477 2.46278l-0.598432 0.0460331l-3.0002 5.14616l-3.39573 6.78959l-3.56603 6.45017l-1.86814 4.58315l-4.58844 1.86895l-3.73871 4.24525l0.172059 6.61965l-4.30887 4.04679l-1.72625 4.07394"/>
+<path d="M-22579.1 745.54l-6.86543 4.29015l-5.57978 -0.426606l-1.29019 -6.43093l3.85845 -10.721l6.00252 -15.4397l7.72003 -13.7263l3.00731 7.28956l6.86872 2.56877l3.43642 6.00169l-6.00578 9.00896l-9.86972 5.15036l-1.28255 12.435"/>
+<path d="M-22593.7 845.105l1.02424 -6.39862l3.72869 -11.048l0.621449 -4.97159l8.83838 -28.8398l5.97281 -10.7027l0.644466 -1.86435l2.7735 -6.05337l1.04726 -6.58275l6.00734 -16.4799l3.24534 -4.85651l8.48163 -8.67727l2.41675 -5.01762l0.379774 -6.81292l-1.81831 -12.6361l-3.82076 -9.87413l-0.920665 -1.56513l-6.19147 0.368266l-3.19931 -0.276199l-2.27865 -1.1048l-3.41797 -5.22477l-5.45494 -15.168l-3.53305 -5.57002l-1.71474 -3.45249l-0.517874 -4.00489l0.241675 -16.4799l-1.89887 -13.1655l-0.115083 -3.68266l1.73776 -6.21449l0.448824 -3.82076l-1.31195 -1.70323l-0.460332 -1.15083l-3.59059 -4.83349l-0.874632 -0.782565l-0.425807 -1.9334l-0.840107 -1.42703l-0.644466 -1.9334l0.172625 -3.40646l1.41552 -3.10724l1.86435 -2.41675l0.655974 -2.55485l-2.19809 -3.47551l4.37316 -4.60333l4.46523 -1.31195l3.47551 -2.04848l1.381 -6.62879l2.14055 -3.17629l4.67237 -2.11753l4.67237 -3.13026l2.04848 -6.12242l-16.7791 9.52888l-1.81831 1.381l-0.736532 2.4858l-0.172625 4.99461l-2.0715 0.897649l-9.17212 0.621449l-2.083 2.37071l-0.483349 2.2096l-2.41675 6.88197l-2.40524 11.3242l-0.391283 8.1709l1.72625 8.19392l8.60822 14.9838l0.644466 8.5852l-4.39618 55.0788l-2.99216 11.4853l-1.96792 3.08423l-7.74509 8.63123l-2.75049 1.7953l-4.55729 1.381l-9.80508 5.66209l-4.07394 0.851615l-2.84255 -1.40401l-1.6572 -3.79774l-2.25563 -0.759549l-6.05337 0.667482l-2.02546 -0.690499l-3.6021 -2.76199l-1.50759 -4.64936l3.78623 -4.41919l8.43559 -5.68511l2.57786 -5.93829l1.26591 -4.25808l2.92311 -2.50881l7.6185 -0.828598l1.7953 1.17385l1.69172 2.41675l2.14055 2.18658l3.16479 0.184133l2.70445 -1.61116l1.27742 -2.39373l-0.20715 -2.90009l-1.68021 -3.08423l-1.26591 5.93829l-3.82076 -1.2429l-6.67482 -6.46767l-6.20298 0.713516l-5.65058 2.87708l-4.09696 1.26591l-1.58815 -3.95886l1.18536 -6.21449l5.31684 -12.0837l1.20837 -6.7899l1.05876 -3.49853l2.55485 -1.381l3.22233 -0.621449l2.99216 -1.21988l2.14055 -2.2096l5.75416 -9.16062l-2.60088 0.690499l-1.45005 0.874632l-2.96914 3.08423l-2.3477 0.966698l-5.73114 -0.460333l-2.6239 0.2762l-3.19931 2.18658l-2.50881 3.45249l-12.2103 31.4867l-19.2994 27.0445l-8.7233 9.43682l-9.18363 3.98188l-2.11753 3.70568l-2.11753 2.64691l-2.61239 1.54211l-2.70445 -0.0460334l-1.47306 -1.15083l-1.05876 -1.74926l-1.42703 -1.88736l-4.14299 -1.84133l-2.71596 2.11753l-0.989715 4.67237l0.989715 5.68511l1.08178 0.828599l7.71057 7.84867l0.989715 2.3477l0.218658 3.19931l-0.333741 6.12242l-2.84255 2.57786l-6.49069 -0.874632l-11.9111 -4.67237l-11.9456 -10.1503l-4.16601 -2.3477l-3.65964 -3.59059l-1.6572 -1.28893l-1.77228 -0.506366l-5.04064 -0.690499l-2.65842 -0.736532l-10.7718 -6.90499l-30.0367 -35.3766"/>
+</g>
+</g>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Coastline" id="Coastline"><title>Coastline</title>
+<g id="Page0" inkscape:label="Page0">
+<g id="drawing" inkscape:label="drawing" transform="translate(22856,-876.768)">
+<g stroke-width="1px" stroke="rgb(51,51,51)" fill="none">
+<path d="M-22796 848.485l0 -424.242l311.111 0l0 424.242l-311.111 0"/>
+</g>
+</g>
+</g>
+</g>
+<g id="Clone of page" inkscape:label="Clone of page">
+<g>
+<g id="TextVisitor0" inkscape:label="TextVisitor0" transform="translate(60,-483.502)">
+<g text-anchor="middle" font-size="0.3cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="155.556" y="-18.8552" dominant-baseline="no-change">20210308 06 and 20210309 06 (Local)</text>
+<text x="155.556" y="-35.0168" dominant-baseline="no-change">20210308 12 and 20210309 12 (UTC)</text>
+<text x="155.556" y="-51.1785" dominant-baseline="no-change">24-h Rainfall Observations (in mm) between</text>
+</g>
+</g>
+</g>
+</g>
+<g id="Clone for legend" inkscape:label="Clone for legend">
+<g>
+<g id="legend" inkscape:label="legend" transform="translate(60,-455.219)">
+<g fill-rule="evenodd" stroke="rgb(255,255,255)">
+<path fill="rgb(255,255,255)" d="M0 -0v-28.2828h311.111v28.2828h-311.111"/>
+</g>
+<g transform="translate(15.5556,-26.8687)">
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="0" y="4.45455" dominant-baseline="no-change">0</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(178,178,178)">
+<path fill="rgb(178,178,178)" d="M0 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M0 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M0 22.9091l8 0"/>
+<path d="M0 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="8" y="4.45455" dominant-baseline="no-change">1</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(191,242,237)">
+<path fill="rgb(191,242,237)" d="M8 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M8 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M8 22.9091l8 0"/>
+<path d="M8 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="16" y="4.45455" dominant-baseline="no-change">2</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(114,237,198)">
+<path fill="rgb(114,237,198)" d="M16 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M16 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M16 22.9091l8 0"/>
+<path d="M16 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="24" y="4.45455" dominant-baseline="no-change">5</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(17,216,155)">
+<path fill="rgb(17,216,155)" d="M24 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M24 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M24 22.9091l8 0"/>
+<path d="M24 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="32" y="4.45455" dominant-baseline="no-change">10</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(135,204,33)">
+<path fill="rgb(135,204,33)" d="M32 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M32 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M32 22.9091l8 0"/>
+<path d="M32 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="40" y="4.45455" dominant-baseline="no-change">20</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(153,232,14)">
+<path fill="rgb(153,232,14)" d="M40 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M40 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M40 22.9091l8 0"/>
+<path d="M40 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="48" y="4.45455" dominant-baseline="no-change">30</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(229,255,102)">
+<path fill="rgb(229,255,102)" d="M48 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M48 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M48 22.9091l8 0"/>
+<path d="M48 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="56" y="4.45455" dominant-baseline="no-change">40</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(226,226,16)">
+<path fill="rgb(226,226,16)" d="M56 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M56 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M56 22.9091l8 0"/>
+<path d="M56 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="64" y="4.45455" dominant-baseline="no-change">50</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,186,0)">
+<path fill="rgb(255,186,0)" d="M64 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M64 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M64 22.9091l8 0"/>
+<path d="M64 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="72" y="4.45455" dominant-baseline="no-change">60</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,124,0)">
+<path fill="rgb(255,124,0)" d="M72 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M72 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M72 22.9091l8 0"/>
+<path d="M72 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="80" y="4.45455" dominant-baseline="no-change">80</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,0,0)">
+<path fill="rgb(255,0,0)" d="M80 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M80 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M80 22.9091l8 0"/>
+<path d="M80 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="88" y="4.45455" dominant-baseline="no-change">100</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(216,0,255)">
+<path fill="rgb(216,0,255)" d="M88 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M88 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M88 22.9091l8 0"/>
+<path d="M88 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="96" y="4.45455" dominant-baseline="no-change">125</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(160,1,234)">
+<path fill="rgb(160,1,234)" d="M96 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M96 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M96 22.9091l8 0"/>
+<path d="M96 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="104" y="4.45455" dominant-baseline="no-change">150</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(94,73,232)">
+<path fill="rgb(94,73,232)" d="M104 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M104 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M104 22.9091l8 0"/>
+<path d="M104 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="112" y="4.45455" dominant-baseline="no-change">200</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(10,10,214)">
+<path fill="rgb(10,10,214)" d="M112 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M112 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M112 22.9091l8 0"/>
+<path d="M112 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="120" y="4.45455" dominant-baseline="no-change">300</text>
+<text x="128" y="4.45455" dominant-baseline="no-change">500</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(10,10,109)">
+<path fill="rgb(10,10,109)" d="M120 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M120 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M120 22.9091l8 0"/>
+<path d="M120 7.63636l8 0"/>
+<path d="M128 7.63636l0 15.2727"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="136" y="4.45455" dominant-baseline="no-change">0</text>
+<text x="144" y="4.45455" dominant-baseline="no-change">1</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(0,0,0)">
+<path fill="rgb(0,0,0)" d="M136 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M136 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M136 22.9091l8 0"/>
+<path d="M136 7.63636l8 0"/>
+<path d="M144 7.63636l0 15.2727"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="152" y="4.45455" dominant-baseline="no-change">0</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(178,178,178)">
+<path fill="rgb(178,178,178)" d="M152 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M152 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M152 22.9091l8 0"/>
+<path d="M152 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="160" y="4.45455" dominant-baseline="no-change">1</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(191,242,237)">
+<path fill="rgb(191,242,237)" d="M160 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M160 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M160 22.9091l8 0"/>
+<path d="M160 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="168" y="4.45455" dominant-baseline="no-change">2</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(114,237,198)">
+<path fill="rgb(114,237,198)" d="M168 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M168 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M168 22.9091l8 0"/>
+<path d="M168 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="176" y="4.45455" dominant-baseline="no-change">5</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(17,216,155)">
+<path fill="rgb(17,216,155)" d="M176 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M176 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M176 22.9091l8 0"/>
+<path d="M176 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="184" y="4.45455" dominant-baseline="no-change">10</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(135,204,33)">
+<path fill="rgb(135,204,33)" d="M184 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M184 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M184 22.9091l8 0"/>
+<path d="M184 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="192" y="4.45455" dominant-baseline="no-change">20</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(153,232,14)">
+<path fill="rgb(153,232,14)" d="M192 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M192 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M192 22.9091l8 0"/>
+<path d="M192 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="200" y="4.45455" dominant-baseline="no-change">30</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(229,255,102)">
+<path fill="rgb(229,255,102)" d="M200 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M200 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M200 22.9091l8 0"/>
+<path d="M200 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="208" y="4.45455" dominant-baseline="no-change">40</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(226,226,16)">
+<path fill="rgb(226,226,16)" d="M208 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M208 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M208 22.9091l8 0"/>
+<path d="M208 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="216" y="4.45455" dominant-baseline="no-change">50</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,186,0)">
+<path fill="rgb(255,186,0)" d="M216 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M216 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M216 22.9091l8 0"/>
+<path d="M216 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="224" y="4.45455" dominant-baseline="no-change">60</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,124,0)">
+<path fill="rgb(255,124,0)" d="M224 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M224 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M224 22.9091l8 0"/>
+<path d="M224 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="232" y="4.45455" dominant-baseline="no-change">80</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(255,0,0)">
+<path fill="rgb(255,0,0)" d="M232 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M232 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M232 22.9091l8 0"/>
+<path d="M232 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="240" y="4.45455" dominant-baseline="no-change">100</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(216,0,255)">
+<path fill="rgb(216,0,255)" d="M240 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M240 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M240 22.9091l8 0"/>
+<path d="M240 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="248" y="4.45455" dominant-baseline="no-change">125</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(160,1,234)">
+<path fill="rgb(160,1,234)" d="M248 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M248 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M248 22.9091l8 0"/>
+<path d="M248 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="256" y="4.45455" dominant-baseline="no-change">150</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(94,73,232)">
+<path fill="rgb(94,73,232)" d="M256 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M256 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M256 22.9091l8 0"/>
+<path d="M256 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="264" y="4.45455" dominant-baseline="no-change">200</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(10,10,214)">
+<path fill="rgb(10,10,214)" d="M264 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M264 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M264 22.9091l8 0"/>
+<path d="M264 7.63636l8 0"/>
+</g>
+<g text-anchor="middle" font-size="0.18cm" font-family="Arial" fill="rgb(0,0,0)">
+<text x="272" y="4.45455" dominant-baseline="no-change">300</text>
+<text x="280" y="4.45455" dominant-baseline="no-change">500</text>
+</g>
+<g fill-rule="evenodd" stroke="rgb(10,10,109)">
+<path fill="rgb(10,10,109)" d="M272 7.63636v15.2727h8v-15.2727h-8"/>
+</g>
+<g stroke-width="0.5px" stroke="rgb(0,0,0)" fill="none">
+<path d="M272 7.63636l0 15.2727l8 0l0 -15.2727l-8 0"/>
+</g>
+<g stroke-width="1px" stroke="rgb(0,0,0)" fill="none">
+<path d="M272 22.9091l8 0"/>
+<path d="M272 7.63636l8 0"/>
+<path d="M280 7.63636l0 15.2727"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g id="Page0" inkscape:label="Page0">
+</g>
+</g><!--ePage-->
+</svg>

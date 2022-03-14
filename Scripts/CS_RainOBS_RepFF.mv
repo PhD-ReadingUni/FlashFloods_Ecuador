@@ -4,9 +4,16 @@
 TheDate = 2021-03-09
 TheTime = 12
 ThePeriod = 24
+RepFF_lats = |0.959,0.876,-0.211,-0.755,-0.887,-1.266,-2.951,-0.607,-0.718,-0.803,-0.974,-0.919,-0.981,-0.976,-0.974,-1.060,-1.039,-1.214,-1.270,-2.127|
+RepFF_lons = |-79.649,-79.874,-78.485,-78.649,-78.693,-77.902,-79.028,-80.392,-80.115,-80.224,-80.709,-80.445,-80.390,-80.383,-80.300,-80.448,-80.346,-80.365,-80.420,-79.886|
+RepRain_lats = |-2.123,-2.149,-2.179,-2.222,-2.246,-2.242,-2.260,-2.290|
+RepRain_lons = |-79.967,-79.915,-79.883,-79.919,-79.919,-79.885,-79.880,-79.858|
+RepRain_vals = |105,133.7,107,109.9,113,148.8,147.7,111.9|
+Region = "Guayaquil" # Guayaquil
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
-DirRainOBS = "Data/Figures/Case_Study/Rain_Obs"
+DirRainOBS = "Data/Figures/Case_Study/RainOBS_RepFF"
 ######################################################################
+
 
 # General input parameters
 TheDateSTR = string(TheDate, "yyyymmdd")
@@ -36,6 +43,22 @@ else
 end if
 
 
+# Convert the reports in geopoints
+RepFF = create_geo(
+    type       : 'xyv',
+    latitudes  : RepFF_lats,
+    longitudes : RepFF_lons,
+    values     : vector(count(RepFF_lats))
+    )
+
+RepRain = create_geo(
+    type       : 'xyv',
+    latitudes  : RepRain_lats,
+    longitudes : RepRain_lons,
+    values     : RepRain_vals
+    )
+
+
 # Plot the geopoints
 coastlines = mcoast(
     map_coastline_resolution       : "full",
@@ -50,13 +73,19 @@ coastlines = mcoast(
     map_label                      : "off"
     )
 
+if Region = "Ecuador" then
+    GeoView_Coord = [1.6,-81.2,-5.11,-75]
+else if Region = "Guayaquil" then
+    GeoView_Coord = [-3,-80.6,-1.5,-79.5]
+end if
+
 geo_view = geoview(
     map_area_definition : "corners",
-    area                : [1.6,-81.2,-5.11,-75],
+    area                : GeoView_Coord,
     coastlines          : coastlines
     )
 
-symbol_plotting = msymb(
+symbol_obs = msymb(
     legend: "on",
     symbol_type: "marker",
     symbol_table_mode: "on",
@@ -65,6 +94,30 @@ symbol_plotting = msymb(
     symbol_max_table: [1,2,5,10,20,30,40,50,60,80,100,125,150,200,300,500],
     symbol_colour_table: ["grey","RGB(0.75,0.95,0.93)","RGB(0.45,0.93,0.78)","RGB(0.07,0.85,0.61)","RGB(0.53,0.8,0.13)","RGB(0.6,0.91,0.057)","RGB(0.9,1,0.4)","RGB(0.89,0.89,0.066)","RGB(1,0.73,0.0039)","RGB(1,0.49,0.0039)","red","RGB(0.85,0.0039,1)","RGB(0.63,0.0073,0.92)","RGB(0.37,0.29,0.91)","RGB(0.04,0.04,0.84)","RGB(0.042,0.042,0.43)"],
     symbol_marker_table: 15,
+    symbol_height_table: 0.8
+    )
+
+symbol_RepRain = msymb(
+    legend: "on",
+    symbol_type: "marker",
+    symbol_table_mode: "on",
+    symbol_outline: "on",
+    symbol_min_table: [0,1,2,5,10,20,30,40,50,60,80,100,125,150,200,300],
+    symbol_max_table: [1,2,5,10,20,30,40,50,60,80,100,125,150,200,300,500],
+    symbol_colour_table: ["grey","RGB(0.75,0.95,0.93)","RGB(0.45,0.93,0.78)","RGB(0.07,0.85,0.61)","RGB(0.53,0.8,0.13)","RGB(0.6,0.91,0.057)","RGB(0.9,1,0.4)","RGB(0.89,0.89,0.066)","RGB(1,0.73,0.0039)","RGB(1,0.49,0.0039)","red","RGB(0.85,0.0039,1)","RGB(0.63,0.0073,0.92)","RGB(0.37,0.29,0.91)","RGB(0.04,0.04,0.84)","RGB(0.042,0.042,0.43)"],
+    symbol_marker_table: 20,
+    symbol_height_table: 1.5
+    )
+
+symbol_RepFF = msymb(
+    legend: "on",
+    symbol_type: "marker",
+    symbol_table_mode: "on",
+    symbol_outline: "on",
+    symbol_min_table: [0],
+    symbol_max_table: [1],
+    symbol_colour_table: ["black"],
+    symbol_marker_table: 17,
     symbol_height_table: 1
     )
 
@@ -89,10 +142,10 @@ title = mtext(
     )
 
 # Saving the plot
-FileOUT_temp = DirRainOBS_temp & "/tp" & ThePeriodSTR & "_obs_" & TheDateSTR & TheTimeSTR
+FileOUT_temp = DirRainOBS_temp & "/RainOBS_RepFF_" & Region & "_" & ThePeriodSTR & "_" & TheDateSTR & TheTimeSTR
 svg = svg_output(output_name: FileOUT_temp)
 setoutput(svg)
-plot(obs, geo_view, symbol_plotting, title, legend)
+plot(geo_view, title, legend, RepRain, symbol_RepRain, RepFF, symbol_RepFF, obs, symbol_obs)
 
 
 ######################################################################
