@@ -1,12 +1,11 @@
 # Metview Macro
 
-BaseDate_list = [2021-03-08,2021-03-07,2021-03-06,2021-03-05,2021-03-04,2021-03-03,2021-03-02,2021-03-01,2021-02-28]
+BaseDate_list = [2021-03-08,2021-03-07,2021-03-06,2021-03-05,2021-03-04,2021-03-03,2021-03-02,2021-03-01,2021-02-28, 2021-02-27]
 BaseTime = 0
-StepF_list = [36,60,84,108,132,156,180,204,228]
-#StepF_list = [24,48,72,96,120,144,168,180,240]
-Perc_list = [95,98,99]
+StepF_list = [24,48,72,96,120,144,168,192,216,240]
+Perc_list = [50,95,98,99]
 Acc = 12
-SystemFC_list = ["ecPoint","ENS"]
+SystemFC_list = ["ENS","ecPoint"]
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 DirIN_FC = "Data/Raw_DoNotShare/FC"
 DirOUT = "Data/Figures/Case_Study/Perc"
