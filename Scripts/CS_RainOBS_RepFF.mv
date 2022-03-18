@@ -9,7 +9,7 @@ RepFF_lons = |-79.649,-79.874,-78.485,-78.649,-78.693,-77.902,-79.028,-80.392,-8
 RepRain_lats = |-2.123,-2.149,-2.179,-2.222,-2.246,-2.242,-2.260,-2.290|
 RepRain_lons = |-79.967,-79.915,-79.883,-79.919,-79.919,-79.885,-79.880,-79.858|
 RepRain_vals = |105,133.7,107,109.9,113,148.8,147.7,111.9|
-Region = "Guayaquil" # Guayaquil
+Region = "Ecuador" # Ecuador or Guayaquil
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
 DirRainOBS = "Data/Figures/Case_Study/RainOBS_RepFF"
 ######################################################################
@@ -69,8 +69,10 @@ coastlines = mcoast(
     map_boundaries                 : "on",
     map_boundaries_colour          : "blue",
     map_boundaries_thickness       : 3,
-    map_grid                       : "off",
-    map_label                      : "off"
+    map_grid                       : "on",
+    map_label                      : "on",
+    map_grid_latitude_increment  : 0.5,
+    map_grid_longitude_increment : 0.5
     )
 
 if Region = "Ecuador" then
@@ -142,9 +144,9 @@ title = mtext(
     )
 
 # Saving the plot
-FileOUT_temp = DirRainOBS_temp & "/RainOBS_RepFF_" & Region & "_" & ThePeriodSTR & "_" & TheDateSTR & TheTimeSTR
-svg = svg_output(output_name: FileOUT_temp)
-setoutput(svg)
+#FileOUT_temp = DirRainOBS_temp & "/RainOBS_RepFF_" & Region & "_" & ThePeriodSTR & "_" & TheDateSTR & TheTimeSTR
+#svg = svg_output(output_name: FileOUT_temp)
+#setoutput(svg)
 plot(geo_view, title, legend, RepRain, symbol_RepRain, RepFF, symbol_RepFF, obs, symbol_obs)
 
 

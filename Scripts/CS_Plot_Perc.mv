@@ -1,9 +1,9 @@
 # Metview Macro
 
-BaseDate_list = [2021-03-08,2021-03-07,2021-03-06,2021-03-05,2021-03-04,2021-03-03,2021-03-02,2021-03-01,2021-02-28, 2021-02-27]
+BaseDate_list = [2021-03-04]
 BaseTime = 0
-StepF_list = [24,48,72,96,120,144,168,192,216,240]
-Perc_list = [50,95,98,99]
+StepF_list = [126]
+Perc_list = [50,95,99]
 Acc = 12
 SystemFC_list = ["ENS","ecPoint"]
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador"
@@ -29,8 +29,8 @@ for indSystemFC = 1 to count(SystemFC_list) do
                 
                 # General input parameters
                 StepS = StepF - Acc
-                ValidDateS = BaseDate + BaseTime + StepS/24
-                ValidDateF = BaseDate + BaseTime + StepF/24
+                ValidDateS = (BaseDate + BaseTime + StepS/24) - (6/24) #local time
+                ValidDateF = (BaseDate + BaseTime + StepF/24) - (6/24) #local time
 
                 BaseDateSTR = string(BaseDate, "yyyymmdd")
                 BaseTimeSTR = left_pad_number(BaseTime,2)  
@@ -41,8 +41,8 @@ for indSystemFC = 1 to count(SystemFC_list) do
                 ValidDateSSTR = string(ValidDateS, "yyyymmdd HH")
                 ValidDateFSTR = string(ValidDateF, "yyyymmdd HH")
 
-                print(BaseDateSTR, tab, BaseTimeSTR, tab, StepFSTR)                
-                
+                print(BaseDateSTR, tab, BaseTimeSTR, tab, StepFSTR) 
+                print(ValidDateSSTR, tab, ValidDateFSTR)               
                 
                 # Read rainfall forecasts and select the relevant percentile
                 if SystemFC = "ENS" then
@@ -110,7 +110,7 @@ for indSystemFC = 1 to count(SystemFC_list) do
                 title = mtext(
                     text_line_count : 3,
                     text_line_1 : SystemFC & " - " & Perc & "th percentile (t+" & StepS & ",t+" & StepF & ")",
-                    text_line_2 : "Rainfall event between " & ValidDateSSTR & " UTC and " & ValidDateFSTR & " UTC",
+                    text_line_2 : "Rainfall event between " & ValidDateSSTR & " and " & ValidDateFSTR & " (Local Time)",
                     text_line_3 : " ",
                     text_colour : "charcoal",
                     text_font   : "arial",
@@ -123,8 +123,7 @@ for indSystemFC = 1 to count(SystemFC_list) do
                 svg = svg_output(output_name: FileOUT_temp)
                 setoutput(svg)
                 plot(perc, geo_view, contouring, legend, title, coastlines)
-
-            
+                
         end for
         
     end for
@@ -146,4 +145,3 @@ function left_pad_number (num: number, num_digits: number)
     return num_string
 
 end left_pad_number
-
