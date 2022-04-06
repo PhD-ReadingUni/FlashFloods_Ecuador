@@ -7,17 +7,17 @@ clear
 clc
 
 % INPUT PARAMETERS
-StepF_S = 12;
-StepF_F = 246;
+StepF_S = 72;
+StepF_F = 72;
 Disc_StepF = 6;
 Acc = 12;
-EFFCI_list = [1,6,10];
-PercCDF_list = [85,90,95,98,99];
+EFFCI_list = [6];
+PercCDF_list = [85,99];
 SystemFC_list = ["ENS", "ecPoint"];
 PlotSystemFC_list = ["r", "b"];
 Region_list = [1,2];
 RegionName_list = ["Costa", "Sierra"];
-PlotRegion_list = [".-",".--"];
+PlotRegion_list = ["-o","--o"];
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 DirIN = "Data/Processed/HR_FAR_";
 DirOUT = "Data/Figures/ROC_";
@@ -80,7 +80,7 @@ for indEFFCI = 1 : length(EFFCI_list)
                     
                     % Plotting the ROC curves
                     hold on
-                    plot(FAR, HR, strcat(PlotSystemFC,PlotRegion), "LineWidth", 0.5, 'MarkerFaceColor', PlotSystemFC)
+                    plot(FAR, HR, strcat(PlotSystemFC,PlotRegion), "LineWidth", 1.5, 'MarkerFaceColor', PlotSystemFC, "MarkerSize", 4)
                     
                 end
                 
