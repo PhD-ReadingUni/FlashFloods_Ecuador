@@ -10,12 +10,15 @@ clc
 StepF = 72;
 Acc = 12;
 EFFCI = 6;
+PercCDF_list = [85,99];
+PercCDFcolour_list = [[126/255,47/255,142/255];[217/255,83/255,25/255]];
+SystemFC = "ENS";
 RegionName = "Costa";
 Region = 1;
 PlotRegion = "-o";
 Git_repo = "/vol/ecpoint/mofp/PhD/Papers2Write/FlashFloods_Ecuador";
 DirIN = "Data/Processed/HR_FAR_";
-DirOUT = "Data/Figures/ROC_overl_";
+DirOUT = "Data/Figures/ROC_overlapping1";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -36,7 +39,8 @@ end
 
 % Plotting the ROC curves
 disp(strcat(" - Considering the flood reports with EFFCI>=",num2str(EFFCI)))
-figure('visible','off') 
+%figure('visible','off') 
+figure
 
 ENS_PercCDF = 85;
 ENS_PercCDFcolour = [126/255,47/255,142/255];
@@ -44,21 +48,44 @@ ENS_SystemFC = "ENS";
 FileIN_temp = strcat(Git_repo, "/", DirIN, AccSTR, "/", ENS_SystemFC, "/EFFCI", num2str(EFFCI,"%02.f"), "/Perc", num2str(ENS_PercCDF,"%02.f"), "/HR_FAR_CI_", RegionName, ".mat");
 disp(FileIN_temp)
 load(FileIN_temp)
-HR = [0; HR_AllSteps(:,indStepF); 1];
-FAR = [0; FAR_AllSteps(:,indStepF); 1];
 hold on
 plot(FAR, HR, PlotRegion, "LineWidth", 1, "Color", ENS_PercCDFcolour, "MarkerFaceColor", ENS_PercCDFcolour, "MarkerSize", 4)
 
 ecpoint_PercCDF = 99;
 ecpoint_PercCDFcolour = [217/255,83/255,25/255];
 ecpoint_SystemFC = "ecPoint";
-FileIN_temp = strcat(Git_repo, "/", DirIN, AccSTR, "/", ecpoint_SystemFC, "/EFFCI", num2str(EFFCI,"%02.f"), "/Perc", num2str(ecpoint_PercCDF,"%02.f"), "/HR_FAR_CI_", RegionName, ".mat");
+FileIN_temp = strcat(Git_repo, "/", DirIN, AccSTR, "/", ecpoint_SystemFC, "/EFFCI", num2str(EFFCI,"%02.f"), "/Perc", num2str(ecPoint_PercCDF,"%02.f"), "/HR_FAR_CI_", RegionName, ".mat");
 disp(FileIN_temp)
 load(FileIN_temp)
-HR = [0; HR_AllSteps(:,indStepF); 1];
-FAR = [0; FAR_AllSteps(:,indStepF); 1];
 hold on
 plot(FAR, HR, PlotRegion, "LineWidth", 1, "Color", ecpoint_PercCDFcolour, "MarkerFaceColor", ecpoint_PercCDFcolour, "MarkerSize", 4)
+
+
+
+
+
+for indPercCDF = 1 : length(PercCDF_list)
+    
+    % Selecting the rainfall event to verify
+    PercCDF = PercCDF_list(indPercCDF);
+    PercCDFcolour = PercCDFcolour_list(indPercCDF,:);
+    
+    
+    
+    
+    % Reading the HRs and FARs
+    FileIN_temp = strcat(Git_repo, "/", DirIN, AccSTR, "/", SystemFC, "/EFFCI", num2str(EFFCI,"%02.f"), "/Perc", num2str(PercCDF,"%02.f"), "/HR_FAR_CI_", RegionName, ".mat");
+    disp(FileIN_temp)
+    load(FileIN_temp)
+    
+    HR = [0; HR_AllSteps(:,indStepF); 1];
+    FAR = [0; FAR_AllSteps(:,indStepF); 1];
+    
+    % Plotting the ROC curves
+    hold on
+    plot(FAR, HR, PlotRegion, "LineWidth", 1, "Color", PercCDFcolour, "MarkerFaceColor", PercCDFcolour, "MarkerSize", 4)
+    
+end
 
 hold on
 plot([0,1], [0,1], "k-", "LineWidth", 1)
@@ -69,5 +96,5 @@ set(gca,'FontSize',15);
 grid on
 
 % Saving the AURC
-FileOUT = strcat(DirOUT_temp, "/ROC_over_", num2str(StepF,'%03.f'), "_", RegionName, ".tiff");
+FileOUT = strcat(DirOUT_temp, "/ROC_over_", num2str(StepF,'%03.f'), "_", SystemFC, "_", RegionName, ".tiff");
 print(gcf,"-dtiff", "-r500",FileOUT)
