@@ -22,7 +22,7 @@ PercExt_list = [50,75,85,90,95,98,99];
 ColourPlot_PercExt_list = ["#EDB120", "g", "#7E2F8E", "c", "#0072BD", "m", "#D95319"];
 LZ_Acc = 3;
 LZ_Perc = 2;
-Git_repo = "C:/Users/mofp/OneDrive/Desktop/PhD/Papers/FlashFlood_Ecuador";
+Git_repo = "C:/Users/mofp/OneDrive/Desktop/PhD/Papers/FlashFloods_Ecuador";
 DirIN = "Data/Processed/RainCDF_";
 DirOUT = "Data/Figures/RainCDF_";
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
